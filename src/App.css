@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+#root {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-wrap: normal;
+}
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #626262;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 01.5s linear infinite;
+}
+.small-loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #626262; 
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
