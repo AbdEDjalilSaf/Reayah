@@ -15,6 +15,7 @@ import search from "../public/search.svg";
 import Bot from "../public/Bot.png";
 import user1 from "../public/user1.jpg";
 import user2 from "../public/user2.jpg";
+import { useAppContext } from "./AppContext";
 function App() {
     const [loading, setLoading] = useState(true);
 
@@ -64,9 +65,9 @@ function App() {
                         link.onload = () => {
                             resolve(); // Resolve promise when font is loaded
                         };
-                      link.onerror = () => {
-                          document.getElementById("root").style.fontFamily =
-                              "sans-serif";
+                        link.onerror = () => {
+                            document.getElementById("root").style.fontFamily =
+                                "sans-serif";
                             resolve(); // Resolve even if font fails to load
                         };
                         document.head.appendChild(link);
@@ -101,7 +102,7 @@ function App() {
             </div>
         );
     }
-    return <div>App</div>;
+    return <Outlet />;
 }
 
 export default App;
