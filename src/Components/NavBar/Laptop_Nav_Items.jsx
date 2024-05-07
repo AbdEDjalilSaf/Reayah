@@ -124,7 +124,7 @@ function Laptop_Nav_Items({
                                 )}
                                 {Profile_menu_open && (
                                     <div
-                                        className="absolute py-2 md:bottom-[-132px]   lg:bottom-[-140px]  
+                                        className="absolute py-2 md:bottom-[-132px]   lg:bottom-[-136px]  
                                         bg-white w-[160px] shadow-md rounded border border-gray_white flex flex-col items-start"
                                     >
                                         <Link

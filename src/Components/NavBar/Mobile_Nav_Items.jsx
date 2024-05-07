@@ -118,7 +118,7 @@ function Mobile_Nav_Items({
                         <>
                             {!LogoutClicked ? (
                                 <div
-                                    className="text-red-600   flex items-center  gap-2 mt-10 w-[120px] ml-6 mt-6"
+                                    className="text-red-600   flex items-center  gap-2 mt-10 w-[120px] ml-6 "
                                     onClick={() => {
                                         Logout();
                                     }}

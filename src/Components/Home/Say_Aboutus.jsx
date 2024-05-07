@@ -14,49 +14,49 @@ function Card({ text, Person }) {
 }
 
 function Say_Aboutus() {
-    const containerRef = useRef(null);
+    // const containerRef = useRef(null);
 
-    useEffect(() => {
-        try {
-            const handleMouseEnter = () => {
-                containerRef.current.addEventListener("wheel", handleWheel);
-            };
+    // useEffect(() => {
+    //     try {
+    //         const handleMouseEnter = () => {
+    //             containerRef.current?.addEventListener("wheel", handleWheel);
+    //         };
 
-            const handleMouseLeave = () => {
-                containerRef.current.removeEventListener("wheel", handleWheel);
-            };
+    //         const handleMouseLeave = () => {
+    //             containerRef.current?.removeEventListener("wheel", handleWheel);
+    //         };
 
-            const handleWheel = (event) => {
-                const delta = Math.sign(event.deltaY);
-                const step = 15;
-                containerRef.current.scrollLeft += delta * step;
-                event.preventDefault();
-            };
+    //         const handleWheel = (event) => {
+    //             const delta = Math.sign(event.deltaY);
+    //             const step = 15;
+    //             containerRef.current?.scrollLeft += delta * step;
+    //             event.preventDefault();
+    //         };
 
-            containerRef.current.addEventListener(
-                "mouseenter",
-                handleMouseEnter
-            );
-            containerRef.current.addEventListener(
-                "mouseleave",
-                handleMouseLeave
-            );
+    //         containerRef.current.addEventListener(
+    //             "mouseenter",
+    //             handleMouseEnter
+    //         );
+    //         containerRef.current.addEventListener(
+    //             "mouseleave",
+    //             handleMouseLeave
+    //         );
 
-            return () => {
-                containerRef.current.removeEventListener(
-                    "mouseenter",
-                    handleMouseEnter
-                );
-                containerRef.current.removeEventListener(
-                    "mouseleave",
-                    handleMouseLeave
-                );
-                containerRef.current.removeEventListener("wheel", handleWheel);
-            };
-        } catch (error) {
-            // console.error('Error occurred while enabling smoother scrolling:', error);
-        }
-    }, []);
+    //         return () => {
+    //             containerRef.current.removeEventListener(
+    //                 "mouseenter",
+    //                 handleMouseEnter
+    //             );
+    //             containerRef.current.removeEventListener(
+    //                 "mouseleave",
+    //                 handleMouseLeave
+    //             );
+    //             containerRef.current.removeEventListener("wheel", handleWheel);
+    //         };
+    //     } catch (error) {
+    //         // console.error('Error occurred while enabling smoother scrolling:', error);
+    //     }
+    // }, []);
     return (
         <div>
             <div
@@ -71,9 +71,9 @@ function Say_Aboutus() {
             </div>
             {/* <div className=" flex overflow-auto custom-overflow gap-6 pb-2 px-4"> */}
             <div
-                ref={containerRef}
+                // ref={containerRef}
                 className="flex overflow-x-scroll pb-2 px-4 custom-overflow gap-6 "
-                style={{ WebkitOverflowScrolling: "touch" }}
+                // style={{ WebkitOverflowScrolling: "touch" }}
             >
                 <Card
                     text="The doctor was very knowledgeable and took the time to answer all of my questions."
