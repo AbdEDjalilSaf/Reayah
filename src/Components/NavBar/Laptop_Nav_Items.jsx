@@ -40,7 +40,7 @@ function Laptop_Nav_Items({
                     <img
                         src={Logo}
                         alt="Logo"
-                        className=" w-[100px] lg:w-[145px] "
+                        className=" w-[100px] lg:w-[135px] "
                     />
                 </Link>
             </div>
