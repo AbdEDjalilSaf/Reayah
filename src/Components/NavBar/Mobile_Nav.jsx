@@ -1,12 +1,10 @@
-import React from 'react'
+import React from "react";
 import { useAppContext } from "../../AppContext";
-import { useState } from 'react';
+import { useState } from "react";
 import Menu_Toogler from "./Menu_Toogler";
 import Mobile_Nav_Items from "./Mobile_Nav_Items";
-import { FaUserTie } from "react-icons/fa";
-import { MdNotificationsNone } from "react-icons/md";
-import { Link } from 'react-router-dom';
-import Logo from "../../../public/Logo.svg"
+import { Link } from "react-router-dom";
+import Logo from "../../../public/Logo.svg";
 function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
     const {
         isAuth,
@@ -21,6 +19,7 @@ function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
     function Toogle_Menu_Bar() {
         set_MobileNav_Open(!MobileNav_Open);
     }
+    
     return (
         <>
             <div className=" flex gap-5 items-center justify-between mx-3 md:hidden h-full">
@@ -66,7 +65,7 @@ function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
                         />
                     </Link>
                 </div>
-                <div className=' w-8 h-8 rounded-full bg-gray_white'></div>
+                <div className=" w-8 h-8 rounded-full bg-gray_white"></div>
             </div>
             {/* Moblie nav bar */}
             <Mobile_Nav_Items
@@ -80,4 +79,4 @@ function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
     );
 }
 
-export default Mobile_Nav
+export default Mobile_Nav;
