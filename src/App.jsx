@@ -10,15 +10,18 @@ import icon_paper from "../public/Home/icon_paper.svg";
 import icon_secure from "../public/Home/icon_secure.svg";
 import icon_user from "../public/Home/icon_user.svg";
 import trend_up from "../public/Home/trend_up.svg";
-import Logo from "../public/Logo/Logo.svg";
+import Logo from "../public/Logo.svg";
 import search from "../public/search.svg";
 import Bot from "../public/Bot.png";
-import user1 from "../public/user1.jpg";
-import user2 from "../public/user2.jpg";
+import Logout_icon from "../public/Logout.svg";
+import notification from "../public/notification.svg";
+import user from "../public/user.svg";
+import Menu_Toogler from "../public/Menu_Toogler.svg";
 import { useAppContext } from "./AppContext";
+import NavBar from "./Components/NavBar/NavBar";
 function App() {
     const [loading, setLoading] = useState(true);
-
+    const [Active_nav, setActive_nav] = useState("Home");
     useEffect(() => {
         const fetch_images = () => {
             return new Promise((resolve, reject) => {
@@ -31,9 +34,11 @@ function App() {
                     trend_up,
                     Logo,
                     search,
-                    user1,
-                    user2,
                     Bot,
+                    Logout_icon,
+                    user,
+                    notification,
+                    Menu_Toogler,
                 ];
                 let loadedCount = 0;
                 if (images.length === 0) resolve();
@@ -102,7 +107,13 @@ function App() {
             </div>
         );
     }
-    return <Outlet />;
+
+    return (
+        <div>
+            <NavBar Active_nav={Active_nav} setActive_nav={setActive_nav} />
+            <Outlet />
+        </div>
+    );
 }
 
 export default App;
