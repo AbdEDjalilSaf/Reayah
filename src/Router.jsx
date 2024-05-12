@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import Blogs from "./Components/Blogs/Blogs";
 import Not_Finished from "./Components/Not_Finished";
 import Not_Found from "./Components/Not_Found";
+import Register from "./Components/Register/Register";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -34,16 +35,17 @@ const routes = createBrowserRouter([
                 path: "*",
                 element: <Not_Found />,
             },
+            {
+                path: "/Register",
+                element: <Register />,
+            },
+            {
+                path: "/Login",
+                element: <Not_Finished />,
+            },
         ],
     },
-    {
-        path: "/Login",
-        element: <Not_Finished />,
-    },
-    {
-        path: "/Register",
-        element: <Not_Finished />,
-    },
+
     {
         path: "/Profile/:id",
         element: <Not_Finished />,

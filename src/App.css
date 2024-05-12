@@ -48,3 +48,19 @@
 .custom-overflow::-webkit-scrollbar-track {
     background-color: #cfd8dc;
 }
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+@keyframes slide-reverse {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}

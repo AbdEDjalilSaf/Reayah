@@ -111,7 +111,7 @@ function App() {
     return (
         <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden ">
             <NavBar Active_nav={Active_nav} setActive_nav={setActive_nav} />
-            <div className=" mt-24">
+            <div className=" mt-[50px] md:mt-14">
                 <Outlet />
             </div>
         </div>
