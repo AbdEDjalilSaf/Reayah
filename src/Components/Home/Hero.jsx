@@ -80,7 +80,7 @@ function Hero() {
                         </div>
                     </div>
                 </div>
-                <div className=" flex md:hidden flex-wrap gap-2 w-[350px] mt-3">
+                <div className=" flex md:hidden flex-wrap gap-2 w-[320px] ml-6 mt-3">
                     <div className=" flex flex-wrap gap-2 w-[350px] ">
                         <div className=" px-2  py-1 rounded-lg bg-green h-fit">
                             Heart disease
