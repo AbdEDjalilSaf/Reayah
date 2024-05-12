@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import Choose from "./1_Choose";
+import EmailVerification from "./2_EmailVerification";
 function Register() {
     // const [step, setStep] = useState(1);
-    
+
     const [user, setUser] = useState({
         Type: "Patient",
         Fitst_Name: "",
@@ -12,25 +13,32 @@ function Register() {
         Email: "",
         Password: "",
     });
-    const change_user =(key, value)=>{
+    const change_user = (key, value) => {
         setUser({
             ...user,
-            [key]: value
-        })
-    }
-    const [userType_Done, setUserType_Done] = useState(false)
-    const [EmailVerification_Done, setEmailVerification_Done] = useState(false)
-    const [Form_Done, setForm_Done] = useState(false)
-
+            [key]: value,
+        });
+    };
+    const [userType_Done, setUserType_Done] = useState(false);
+    const Toogle_userType_Done = () => {
+        setUserType_Done(true);
+    };
+    const [EmailVerification_Done, setEmailVerification_Done] = useState(false);
+    const [Form_Done, setForm_Done] = useState(false);
+    console.log(userType_Done);
     return (
         <div>
-            <div>
+            {!userType_Done ? (
                 <Choose
-                    setUserType_Done={setUserType_Done}
                     user={user}
                     change_user={change_user}
+                    Toogle_userType_Done={Toogle_userType_Done}
                 />
-            </div>
+            ) : !EmailVerification_Done ? (
+                <EmailVerification/>
+            ) : (
+                <div>chopap</div>
+            )}
         </div>
     );
 }

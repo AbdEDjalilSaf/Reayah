@@ -3,24 +3,24 @@ import ImageLoader from "../ImageLoader";
 import Doctore from "../../../public/Register/Doctore.png";
 import Patient from "../../../public/Register/Patient.png";
 import { Link } from "react-router-dom";
-function Choose({ user, change_user, setUserType_Done }) {
+function Choose({ user, change_user,  Toogle_userType_Done }) {
     return (
         <div className=" pt-12">
             <div className=" text-3xl font-semibold text-perpol text-center ">
                 <div className=" relative w-fit m-auto">
                     SignUp
-                    <span className=" hidden md:block absolute  left-0 -z-10 bottom-[2px] w-full h-2 rounded-xl bg-green "></span>
+                    <span className=" absolute  left-0 -z-10 bottom-[2px] w-full h-2 rounded-xl bg-green "></span>
                 </div>
             </div>
             <div className=" font-semibold text-gray text-2xl text-center pt-6 ">
                 as a patient or doctor
             </div>
             {/* Cards */}
-            <div className=" flex items-center justify-center gap-8 pt-6">
+            <div className=" flex flex-col  md:flex-row items-center justify-center gap-8 pt-6">
                 <div
                     className={` bg-perpol bg-opacity-20 text-perpol text-2xl  font-semibold ${
                         user.Type == "Patient" && "border-4 border-perpol"
-                    } p-4 w-[360px] h-[245px] flex flex-col  justify-between rounded-xl  cursor-pointer `}
+                    } p-4 w-[300px] md:w-[360px] h-[200px] md:h-[245px] flex flex-col  justify-between rounded-xl  cursor-pointer `}
                     onClick={() => change_user("Type", "Patient")}
                 >
                     <div>I’m a patient , need a treatments </div>
@@ -39,7 +39,7 @@ function Choose({ user, change_user, setUserType_Done }) {
                 <div
                     className={` bg-green bg-opacity-10 text-green text-2xl font-semibold ${
                         user.Type == "Doctor" && "border-4 border-green"
-                    }  p-4  w-[360px] h-[245px] flex flex-col  justify-between rounded-xl  cursor-pointer `}
+                    }  p-4 w-[300px]  md:w-[360px] h-[200px] md:h-[245px] flex flex-col  justify-between rounded-xl  cursor-pointer `}
                     onClick={() => change_user("Type", "Doctor")}
                 >
                     <div>I’m a doctor</div>
@@ -59,7 +59,7 @@ function Choose({ user, change_user, setUserType_Done }) {
 
             <div
                 className=" bg-perpol text-white font-semibold text-xl p-3 cursor-pointer rounded-xl w-fit m-auto mt-6 text-center"
-                onClick={setUserType_Done(true)}
+                onClick={Toogle_userType_Done}
             >
                 Create Account
             </div>
