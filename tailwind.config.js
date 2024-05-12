@@ -11,7 +11,7 @@ export default {
                 black_text: "#1E1E1E",
                 gray: "#525252",
                 gray_white: "#e6e6e6",
-                image_animation: "#bababa96",
+                image_animation: "#b6b2b22e",
             },
         },
     },

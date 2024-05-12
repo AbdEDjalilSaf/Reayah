@@ -7,7 +7,7 @@ export const useAppContext = () => {
 };
 
 const initialState = {
-    isAuth: true,
+    isAuth: false,
     FirstName: "",
     LastName: "",
     Email: "",
