@@ -34,7 +34,7 @@ function EmailVerification({
                     validateStatus: () => true,
                 }
             );
-            if (response.status != 200) {
+            if (response.status == 200) {
                 change_user("Email", Email);
                 setError("");
                 Toogle_EmailVerification_Done();
@@ -43,15 +43,21 @@ function EmailVerification({
                 Swal.fire({
                     icon: "error",
                     title: "email Already Exists",
-                    text: response.data + "\ntry to use another Email ",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "/Login";
-                    }
-                });
+                    text: "\ntry to use another Email ",
+                })
+                //   .then((result) => {
+                //     if (result.isConfirmed) {
+                //         window.location.href = "/Login";
+                //     }
+                // });
             }
         } catch (error) {
-            setError(error);
+          setError(error);
+           Swal.fire({
+               icon: "error",
+               title: "error while checking the email",
+              //  text: response ,
+           })
         } finally {
             setVerify_clicked(false);
         }
