@@ -1,15 +1,13 @@
 import React from 'react'
-import ImageLoader from '../ImageLoader'
-import image from "../../../public/Logo.svg";
-import Doctore from "../../../public/Register/Doctore.png";
-import Patient from "../../../public/Register/Patient.png";
+import { useState } from 'react';
 function Register() {
+    const [step, setStep] = useState(1);
+    const [user_Type, setUser_Type] = useState()
+    
     return (
-        <div className=" w-screen h-screen bg-red-600 ">
-            <div className=" w-60 h-60 bg-blue-500">
-                <ImageLoader src={Doctore} />
-            </div>
-        </div>
+        <div></div>
+            
+        
     );
 }
 
