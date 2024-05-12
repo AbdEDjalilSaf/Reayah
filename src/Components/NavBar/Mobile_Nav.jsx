@@ -19,7 +19,7 @@ function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
     function Toogle_Menu_Bar() {
         set_MobileNav_Open(!MobileNav_Open);
     }
-    
+
     return (
         <>
             <div className=" flex gap-5 items-center justify-between mx-3 md:hidden h-full">
@@ -65,9 +65,13 @@ function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
                         />
                     </Link>
                 </div>
-                <div className=" w-8 h-8 rounded-full bg-gray_white"></div>
+
+                {isAuth ? (
+                    <Link to={"/Dashboard"} className=" w-8 h-8 rounded-full bg-gray_white"></Link>
+                ) : (
+                    <div className=" w-8 h-8"></div>
+                )}
             </div>
-            {/* Moblie nav bar */}
             <Mobile_Nav_Items
                 Active_nav={Active_nav}
                 MobileNav_Open={MobileNav_Open}

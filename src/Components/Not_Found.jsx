@@ -4,7 +4,7 @@ function Not_Found() {
     return (
         <div
             className="flex items-center justify-center 
-      text-gray font-bold pt-16 "
+      text-gray font-bold md:pt-10 "
         >
             <div className="p-8 bg-white rounded-md shadow-lg text-center">
                 <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
