@@ -5,7 +5,7 @@ import trend_up from "../../../public/Home/trend_up.svg";
 function Hero() {
     return (
         <div>
-            <div className=" flex flex-col md:flex-row items-center justify-center gap-6 my-12">
+            <div className=" flex flex-col md:flex-row items-center justify-center gap-6 py-12 md:py-24">
                 <div>
                     <div className=" text-2xl font-semibold w-[300px] md:w-[350px] text-black_text   ">
                         <span className=" relative  ">
