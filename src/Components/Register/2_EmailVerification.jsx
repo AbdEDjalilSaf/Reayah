@@ -34,7 +34,7 @@ function EmailVerification({
                     validateStatus: () => true,
                 }
             );
-            if (response.status == 200) {
+            if (response.status != 200) {
                 change_user("Email", Email);
                 setError("");
                 Toogle_EmailVerification_Done();
