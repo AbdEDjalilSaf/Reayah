@@ -2,10 +2,59 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-function EmailVerification() {
+import Swal from "sweetalert2";
+function EmailVerification({
+    user,
+    change_user,
+    Toogle_EmailVerification_Done,
+}) {
+    const [Email, SetEmail] = useState("");
+    const [Error, setError] = useState("");
+    const change_Email = (e) => {
+        SetEmail(e.target.value);
+    };
+    const validate_Email = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    };
+
     const [verify_clicked, setVerify_clicked] = useState(false);
-    const Check_Email = () => {
+    const Check_Email = async () => {
         setVerify_clicked(true);
+        if (!validate_Email(Email)) {
+            setError("Invalid Email");
+            setVerify_clicked(false);
+            return;
+        }
+        try {
+            const response = await axios.get(
+                "https://api.reayahmed.com/auth/token/refresh/",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                change_user("Email", Email);
+                setError("");
+                Toogle_EmailVerification_Done();
+            } else {
+                setError(response.data);
+                Swal.fire({
+                    icon: "error",
+                    title: "email Already Exists",
+                    text: response.data + "\ntry to use another Email ",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/Login";
+                    }
+                });
+            }
+        } catch (error) {
+            setError(error);
+        } finally {
+            setVerify_clicked(false);
+        }
     };
     return (
         <div className=" flex flex-col md:flex-row justify-center  items-center gap-6 pt-6 md:min-h-[60vh]">
@@ -23,9 +72,15 @@ function EmailVerification() {
                         Email Adress
                     </div>
                     <input
+                        onChange={change_Email}
                         className="  text-md text-black_text border-2 border-perpol bg-perpol bg-opacity-15 rounded-lg p-2 w-[300px]"
                         type="email"
                     />
+                    {Error == "Invalid Email" && (
+                        <div className="text-red-500 ml-4 text-sm font-semibold">
+                            {Error}
+                        </div>
+                    )}
 
                     <div className=" text-sm text-gray text-center pt-4">
                         Already have an account?{" "}

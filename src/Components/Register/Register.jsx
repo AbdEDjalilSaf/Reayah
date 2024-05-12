@@ -24,6 +24,9 @@ function Register() {
         setUserType_Done(true);
     };
     const [EmailVerification_Done, setEmailVerification_Done] = useState(false);
+    const Toogle_EmailVerification_Done = () => {
+        setUserType_Done(true);
+    };
     const [Form_Done, setForm_Done] = useState(false);
     console.log(userType_Done);
     return (
@@ -35,7 +38,13 @@ function Register() {
                     Toogle_userType_Done={Toogle_userType_Done}
                 />
             ) : !EmailVerification_Done ? (
-                <EmailVerification/>
+                <EmailVerification
+                    user={user}
+                    change_user={change_user}
+                    Toogle_EmailVerification_Done={
+                        Toogle_EmailVerification_Done
+                    }
+                />
             ) : (
                 <div>chopap</div>
             )}
