@@ -3,7 +3,7 @@ import ImageLoader from "../ImageLoader";
 import Doctore from "../../../public/Register/Doctore.png";
 import Patient from "../../../public/Register/Patient.png";
 import { Link } from "react-router-dom";
-function Choose({ user, change_user,  Toogle_userType_Done }) {
+function Choose({ user, change_user, Toogle_userType_Done }) {
     return (
         <div className=" pt-12">
             <div className=" text-3xl font-semibold text-perpol text-center ">

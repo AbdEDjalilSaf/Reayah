@@ -8,9 +8,8 @@ function Register() {
 
     const [user, setUser] = useState({
         Type: "Patient",
-        Fitst_Name: "",
-        Last_Name: "",
-        Phone_Number: "",
+        FitstName: "",
+        LastName: "",
         Email: "",
         Password: "",
     });
