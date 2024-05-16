@@ -11,7 +11,6 @@ input {
     outline: none;
     box-sizing: border-box;
     font: inherit;
-    cursor: pointer;
     text-align: left;
     text-decoration: none;
 }

@@ -14,6 +14,7 @@ function EmailVerification({
         SetEmail(e.target.value);
     };
     const validate_Email = (email) => {
+        if (email.length == 0) return false;
         const re = /\S+@\S+\.\S+/;
         return re.test(email);
     };
@@ -26,41 +27,46 @@ function EmailVerification({
             setVerify_clicked(false);
             return;
         }
-        try {
-            const response = await axios.get(
-                "https://api.reayahmed.com/auth/token/refresh/",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            if (response.status == 200) {
-                change_user("Email", Email);
-                setError("");
-                Toogle_EmailVerification_Done();
-            } else {
-                setError(response.data);
-                Swal.fire({
-                    icon: "error",
-                    title: "email Already Exists",
-                    text: "\ntry to use another Email ",
-                })
-                //   .then((result) => {
-                //     if (result.isConfirmed) {
-                //         window.location.href = "/Login";
-                //     }
-                // });
-            }
-        } catch (error) {
-          setError(error);
-           Swal.fire({
-               icon: "error",
-               title: "error while checking the email",
-              //  text: response ,
-           })
-        } finally {
-            setVerify_clicked(false);
-        }
+        change_user("Email", Email);
+        setError("");
+        Toogle_EmailVerification_Done();
+        // try {
+        //     const response = await axios.post(
+        //         "https://api.reayahmed.com/auth/check_email",
+        //         { email: Email },
+        //         {
+        //             withCredentials: true,
+        //             validateStatus: () => true,
+        //         }
+        //     );
+        //     console.log("response from check email : ", response.data);
+        //     if (response.status == 200) {
+        //         change_user("Email", Email);
+        //         setError("");
+        //         Toogle_EmailVerification_Done();
+        //     } else {
+        //         setError(response.data);
+        //         Swal.fire({
+        //             icon: "error",
+        //             title: "email Already Exists",
+        //             text: "\ntry to use another Email ",
+        //         });
+        //         //   .then((result) => {
+        //         //     if (result.isConfirmed) {
+        //         //         window.location.href = "/Login";
+        //         //     }
+        //         // });
+        //     }
+        // } catch (error) {
+        //     setError(error);
+        //     Swal.fire({
+        //         icon: "error",
+        //         title: "error while checking the email",
+        //         //  text: response ,
+        //     });
+        // } finally {
+        //     setVerify_clicked(false);
+        // }
     };
     return (
         <div className=" flex flex-col md:flex-row justify-center  items-center gap-6 pt-6 md:min-h-[60vh]">
