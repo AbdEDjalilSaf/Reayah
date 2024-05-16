@@ -47,7 +47,7 @@ async function handleRegister(
         console.log("response from server : ", response);
         // Swal.fire("Done!", "Account Created Successfully", "success");
         Toogle_Form_Done();
-        window.location.href = "/";
+        // window.location.href = "/";
 
         // try {
         //     let Login_response = await Axios.post(
@@ -156,7 +156,7 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form className="  flex flex-col text-sm md:text-base  gap-10 text-black_text">
+                        <Form className=" px-6 md:px-0 flex flex-col text-sm md:text-base  gap-10 text-black_text">
                             <div className=" flex items-center justify-center gap-4 w-full ">
                                 <div className=" w-[50%] relative">
                                     <div className="  font-semibold  pb-1">
@@ -232,11 +232,11 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                                 />
                             </div>
                             {isSubmitting ? (
-                                <span className="small-loader my-5  w-full m-auto"></span>
+                                <span className="small-loader mt-4 mb-2  w-full m-auto"></span>
                             ) : (
                                 <button
                                     type="submit"
-                                    className=" bg-perpol w-fit m-auto px-4 py-2 mt-4 rounded-2xl text-white font-semibold "
+                                    className=" bg-perpol w-fit m-auto px-4 py-2  rounded-2xl text-white font-semibold "
                                     disabled={isSubmitting}
                                 >
                                     Get Started
@@ -270,7 +270,7 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                         Continue with Facebook{" "}
                     </div>
                 </div>
-                <div className=" text-sm py-8">
+                <div className=" text-sm py-8 px-6">
                     By creating account you agree to our{" "}
                     <span className=" text-perpol">
                         Terms of Service

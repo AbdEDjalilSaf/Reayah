@@ -63,7 +63,7 @@ function Choose({ user, change_user, Toogle_userType_Done }) {
             >
                 Create Account
             </div>
-            <div className=" text-xl text-gray font-semibold text-center pt-6">
+            <div className=" text-xl text-gray font-semibold text-center py-6">
                 Already have an account?{" "}
                 <Link className="text-green " to={"/Login"}>
                     Log In

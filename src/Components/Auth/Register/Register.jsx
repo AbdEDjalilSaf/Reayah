@@ -3,6 +3,7 @@ import { useState } from "react";
 import Choose from "./1_Choose";
 import EmailVerification from "./2_EmailVerification";
 import Register_Form from "./3_Form";
+import Done from "./4_Done";
 function Register() {
     // const [step, setStep] = useState(1);
 
@@ -31,12 +32,12 @@ function Register() {
     const Toogle_Form_Done = () => {
         setForm_Done(true);
     };
-    useEffect(() => {
-        console.log("user", user);
-        console.log("userType_Done", userType_Done);
-        console.log("EmailVerification_Done", EmailVerification_Done);
-        console.log("Form_Done", Form_Done);
-    }, [user, userType_Done, EmailVerification_Done, Form_Done]);
+    // useEffect(() => {
+    //     console.log("user", user);
+    //     console.log("userType_Done", userType_Done);
+    //     console.log("EmailVerification_Done", EmailVerification_Done);
+    //     console.log("Form_Done", Form_Done);
+    // }, [user, userType_Done, EmailVerification_Done, Form_Done]);
     return (
         <div>
             {!userType_Done ? (
@@ -59,7 +60,9 @@ function Register() {
                     user={user}
                     change_user={change_user}
                 />
-            ) : null}
+            ) : (
+                <Done />
+            )}
         </div>
     );
 }
