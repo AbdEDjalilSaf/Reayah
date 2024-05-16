@@ -3,9 +3,16 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 // import handleRegister from "./Post_Register";
 import Swal from "sweetalert2";
 import Axios from "axios";
-// import { useState } from "react";
-// import { useNavigate } from "react-router";
-async function handleRegister(values, user, { setSubmitting }) {
+import { Link } from "react-router-dom";
+import Facbook_icon from "../../../public/icons/facebook.png";
+import Google_icon from "../../../public/icons/google.png";
+
+async function handleRegister(
+    values,
+    user,
+    Toogle_Form_Done,
+    { setSubmitting }
+) {
     try {
         let response = null;
         if (user.Type == "Patient") {
@@ -39,7 +46,9 @@ async function handleRegister(values, user, { setSubmitting }) {
         }
         console.log("response from server : ", response);
         // Swal.fire("Done!", "Account Created Successfully", "success");
+        Toogle_Form_Done();
         window.location.href = "/";
+
         // try {
         //     let Login_response = await Axios.post(
         //         "http://localhost:3000/Login",
@@ -97,8 +106,8 @@ async function handleRegister(values, user, { setSubmitting }) {
 
 function Form_component({ user, change_user, Toogle_Form_Done }) {
     return (
-        <div className=" flex flex-col md:flex-row justify-center  items-center gap-6 pt-28">
-            <div className=" w-[300px] text-2xl font-semibold ">
+        <div className=" flex flex-col md:flex-row justify-center  items-center md:items-start md:gap-6">
+            <div className=" w-[250px] lg:w-[300px] text-2xl font-semibold py-6  md:py-28 text-center md:text-start">
                 <div className=" text-green text-center md:text-start ">
                     Hi {user.Type == "Patient" ? "Patient" : "Doctor"}
                 </div>
@@ -107,7 +116,10 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                     new patients.{" "}
                 </div>
             </div>
-            <div className=" flex items-center justify-center">
+            <div className=" w-fit flex flex-col items-center justify-center pb-6 md:pb-0">
+                <div className="text-gray md:pt-6 pb-6 md:pb-16 text-3xl font-semibold">
+                    Signup
+                </div>
                 <Formik
                     initialValues={{
                         FirstName: "",
@@ -138,22 +150,24 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                         return errors;
                     }}
                     onSubmit={(values, { setSubmitting }) => {
-                        handleRegister(values, user, { setSubmitting });
+                        handleRegister(values, user, Toogle_Form_Done, {
+                            setSubmitting,
+                        });
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form className="  flex flex-col text-sm md:text-lg  gap-10 text-black_text">
+                        <Form className="  flex flex-col text-sm md:text-base  gap-10 text-black_text">
                             <div className=" flex items-center justify-center gap-4 w-full ">
                                 <div className=" w-[50%] relative">
-                                    <div className="  font-semibold text-sm pb-1">
+                                    <div className="  font-semibold  pb-1">
                                         First Name
                                     </div>
                                     <Field
-                                        placeholder="Prénom"
+                                        // placeholder="Prénom"
                                         type="text"
                                         name="FirstName"
                                         disabled={isSubmitting}
-                                        className="w-full border border-gray_white px-4 py-2 rounded-lg  text-sm "
+                                        className="border-2 border-perpol bg-perpol bg-opacity-25  px-4 py-2 rounded-lg    w-full  "
                                     />
                                     <ErrorMessage
                                         name="FirstName"
@@ -162,15 +176,15 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                                     />
                                 </div>
                                 <div className="  w-[50%] relative">
-                                    <div className="font-semibold text-sm pb-1">
+                                    <div className="font-semibold  pb-1">
                                         Last Name
                                     </div>
                                     <Field
-                                        placeholder="Nom de famille"
+                                        // placeholder="Nom de famille"
                                         type="text"
                                         name="LastName"
                                         disabled={isSubmitting}
-                                        className="border border-gray_white px-4 py-2 rounded-lg  text-sm  w-full"
+                                        className="border-2 border-perpol bg-perpol bg-opacity-25  px-4 py-2 rounded-lg    w-full"
                                     />
                                     <ErrorMessage
                                         name="LastName"
@@ -181,16 +195,16 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                             </div>
 
                             <div className=" relative">
-                                <div className=" font-semibold text-sm pb-1">
+                                <div className=" font-semibold  pb-1">
                                     Password{" "}
                                 </div>
                                 <div className=" flex items-center">
                                     <Field
-                                        placeholder="•••••••••••••••••••"
+                                        // placeholder="•••••••••••••••••••"
                                         type="text"
                                         name="Password"
                                         disabled={isSubmitting}
-                                        className="border border-gray_white px-4 py-2  rounded-lg text-sm  w-full"
+                                        className="border-2  px-4 py-2  bg-perpol bg-opacity-25 border-perpol rounded-lg   w-full"
                                     />
                                 </div>
 
@@ -201,15 +215,15 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                                 />
                             </div>
                             <div className=" relative">
-                                <div className=" font-semibold text-sm pb-1">
+                                <div className=" font-semibold  pb-1">
                                     Re-enter your password{" "}
                                 </div>
                                 <Field
-                                    placeholder="example.google@gmail.com"
+                                    // placeholder="example.google@gmail.com"
                                     type="text"
                                     name="Confirm_Password"
                                     disabled={isSubmitting}
-                                    className="border border-gray_white px-4 py-2 rounded-lg  text-sm  w-full"
+                                    className="border-2  px-4 py-2  bg-perpol bg-opacity-25 border-perpol rounded-lg   w-full"
                                 />
                                 <ErrorMessage
                                     name="Confirm_Password"
@@ -231,6 +245,38 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                         </Form>
                     )}
                 </Formik>
+                <div className=" font-semibold text-gray py-3">
+                    Already have an account? {" "}
+                    <Link to={"/Login"} className=" text-green">
+                        Log In
+                    </Link>
+                </div>
+                <div className=" pt-3 flex flex-col items-center justify-center ">
+                    <div className=" pb-6">OR</div>
+                    <div className=" cursor-not-allowed w-[300px] mb-4 px-2 py-1 rounded-lg border border-gray text-gray flex items-center justify-center gap-6 ">
+                        <img
+                            src={Google_icon}
+                            alt=""
+                            className="  object-cover w-6"
+                        />
+                        Continue with Google
+                    </div>
+                    <div className="cursor-not-allowed w-[300px] px-2 py-1 border  rounded-lg bg-[#0047FF]  text-white flex items-center justify-center gap-2 ">
+                        <img
+                            src={Facbook_icon}
+                            alt=""
+                            className="  object-cover w-6"
+                        />
+                        Continue with Facebook{" "}
+                    </div>
+                </div>
+                <div className=" text-sm py-8">
+                    By creating account you agree to our{" "}
+                    <span className=" text-perpol">
+                        Terms of Service
+                    </span> and{" "}
+                    <span className=" text-perpol">Privacy Policy.</span>
+                </div>
             </div>
         </div>
     );

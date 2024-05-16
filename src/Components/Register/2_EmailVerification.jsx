@@ -94,7 +94,7 @@ function EmailVerification({
                         </div>
                     )}
 
-                    <div className=" text-sm text-gray text-center pt-4">
+                    <div className=" text-sm text-gray font-semibold text-center pt-4">
                         Already have an account?{" "}
                         <Link
                             className="text-green font-semibold "
@@ -105,7 +105,7 @@ function EmailVerification({
                     </div>
                     <div className=" mt-6  text-white font-semibold text-center   m-auto w-fit cursor-pointer">
                         {verify_clicked ? (
-                            <span className="small-loader  w-full m-auto"></span>
+                            <span className="small-loader mt-4  w-full m-auto"></span>
                         ) : (
                             <div
                                 className=" py-2 px-4 bg-perpol rounded-lg  "
