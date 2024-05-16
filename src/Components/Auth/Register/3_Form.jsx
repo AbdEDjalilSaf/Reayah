@@ -4,8 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Swal from "sweetalert2";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import Facbook_icon from "../../../public/icons/facebook.png";
-import Google_icon from "../../../public/icons/google.png";
+import Facbook_icon from "../../../../public/icons/facebook.png";
+import Google_icon from "../../../../public/icons/google.png";
 
 async function handleRegister(
     values,

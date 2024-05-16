@@ -1,7 +1,7 @@
 import React from "react";
-import ImageLoader from "../ImageLoader";
-import Doctore from "../../../public/Register/Doctore.png";
-import Patient from "../../../public/Register/Patient.png";
+import ImageLoader from "../..//ImageLoader";
+import Doctore from "../../../../public/Register/Doctore.png";
+import Patient from "../../../../public/Register/Patient.png";
 import { Link } from "react-router-dom";
 function Choose({ user, change_user, Toogle_userType_Done }) {
     return (
