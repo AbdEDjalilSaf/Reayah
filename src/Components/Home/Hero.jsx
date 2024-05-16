@@ -2,7 +2,9 @@ import React from "react";
 import Hero_img from "../../../public/Home/Hero.png";
 import search from "../../../public/search.svg";
 import trend_up from "../../../public/Home/trend_up.svg";
+import { useAppContext } from "../../AppContext";
 function Hero() {
+    const { isAuth } = useAppContext();
     return (
         <div>
             <div className=" flex flex-col md:flex-row items-center justify-center gap-6 py-12 md:py-28">
@@ -21,21 +23,29 @@ function Hero() {
                         </span>
                         <br className=" block md:hidden" /> for a Better Life
                     </div>
-                    <div className=" flex flex-col md:flex-row justify-center items-start gap-2  mt-6 ">
-                        <div className=" flex items-center justify-start shadow-lg py-2 px-2 border-b-2  border-perpol rounded-xl w-[300px]">
-                            <img src={search} alt="" className=" w-5 mx-4" />
-                            <input
-                                type="text"
-                                className="  text-gray  outline-0  placeholder:text-perpol placeholder:font-light "
-                                placeholder="I have pain in my acetabulum ..."
-                            />
+                    {isAuth ? (
+                        <div className=" flex flex-col md:flex-row justify-center items-start gap-2  mt-6 ">
+                            <div className=" flex items-center justify-start shadow-lg py-2 px-2 border-b-2  border-perpol rounded-xl w-[300px]">
+                                <img
+                                    src={search}
+                                    alt=""
+                                    className=" w-5 mx-4"
+                                />
+                                <input
+                                    type="text"
+                                    className="  text-gray  outline-0  placeholder:text-perpol placeholder:font-light "
+                                    placeholder="I have pain in my acetabulum ..."
+                                />
+                            </div>
+                            <div className=" pt-2">
+                                <div className=" w-2 h-2 bg-green rounded-full"></div>
+                                <div className=" text-[12px]">
+                                    115 Doctors are
+                                </div>
+                                <div className=" font-semibold">Online</div>
+                            </div>
                         </div>
-                        <div className=" pt-2">
-                            <div className=" w-2 h-2 bg-green rounded-full"></div>
-                            <div className=" text-[12px]">115 Doctors are</div>
-                            <div className=" font-semibold">Online</div>
-                        </div>
-                    </div>
+                    ) : null}
                 </div>
                 <div>
                     <img src={Hero_img} alt="" className=" w-[300px]" />
