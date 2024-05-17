@@ -53,12 +53,6 @@ function NavBar({ Active_nav, setActive_nav }) {
                 });
                 set_Auth(false);
                 // You can use state or context to handle the logout state in your application
-            } else if (response.status == 429) {
-                Swal.fire(
-                    "Error!",
-                    `Too many requests ,try again latter\n  ${response.data.message}`,
-                    "error"
-                );
             } else {
                 Swal.fire("Error!", `Something Went Wrong ,`, "error");
             }
