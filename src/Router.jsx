@@ -5,6 +5,7 @@ import Blogs from "./Components/Blogs/Blogs";
 import Not_Finished from "./Components/Not_Finished";
 import Not_Found from "./Components/Not_Found";
 import Register from "./Components/Auth/Register/Register";
+import Login from "./Components/Auth/Login/Login";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -41,7 +42,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/Login",
-                element: <Not_Finished />,
+                element: <Login />,
             },
         ],
     },

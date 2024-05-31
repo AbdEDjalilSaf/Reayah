@@ -1,4 +1,4 @@
-import  { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 const AppContext = createContext();
 
@@ -8,15 +8,9 @@ export const useAppContext = () => {
 
 const initialState = {
     isAuth: false,
-    FirstName: "",
-    LastName: "",
-    Email: "",
-    Gender: null,
-    Courses: [],
-    Services: [],
-    Notifications: [],
-    // IsEmailVerified : null,
-    _id: null,
+    userId: null,
+    patientId: null,
+    doctorId: null,
 };
 const reducer = (state, action) => {
     switch (action.type) {
@@ -24,29 +18,17 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 isAuth: true,
-                FirstName: action.payload.FirstName,
-                LastName: action.payload.LastName,
-                Email: action.payload.Email,
-                Gender: action.payload.Gender,
-                Courses: action.payload.Courses,
-                Services: action.payload.Services,
-                Notifications: action.payload.Notifications,
-                // // IsEmailVerified: action.payload.IsEmailVerified,
-                _id: action.payload._id,
+                userId: action.payload.userId,
+                patientId: action.payload.patientId,
+                doctorId: action.payload.doctorId,
             };
         case "LOGOUT":
             return {
                 ...state,
+                userId: null,
+                patientId: null,
+                doctorId: null,
                 isAuth: false,
-                FirstName: "",
-                LastName: "",
-                Email: "",
-                Gender: null,
-                Courses: [],
-                Services: [],
-                Notifications: [],
-                // IsEmailVerified: null,
-                _id: null,
             };
         case "SET_AUTH":
             return {
@@ -64,29 +46,13 @@ export const AppProvider = ({ children }) => {
     const set_Auth = (isAuth) => {
         dispatch({ type: "SET_AUTH", payload: isAuth });
     };
-    const store_login = (
-        FirstName,
-        LastName,
-        Email,
-        Gender,
-        Courses,
-        Services,
-        Notifications,
-        // IsEmailVerified,
-        _id
-    ) => {
+    const store_login = (userId, patientId, doctorId) => {
         dispatch({
             type: "LOGIN",
             payload: {
-                FirstName,
-                LastName,
-                Email,
-                Gender,
-                Courses,
-                Services,
-                Notifications,
-                // IsEmailVerified,
-                _id,
+                userId,
+                patientId,
+                doctorId,
             },
         });
     };
