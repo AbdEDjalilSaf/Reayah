@@ -57,7 +57,7 @@ function Laptop_Nav_Items({
                         Home
                     </Link>
                 </div>
-                <div className=" hover:text-green transition-colors cursor-pointer">
+                {/* <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
                         to={"/Blogs"}
                         className={
@@ -68,7 +68,7 @@ function Laptop_Nav_Items({
                     >
                         Blogs
                     </Link>
-                </div>
+                </div> */}
                 <div className="  transition-colors cursor-pointer">
                     <Link
                         to={"/Contact"}

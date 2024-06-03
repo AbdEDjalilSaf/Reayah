@@ -43,7 +43,7 @@ function Mobile_Nav_Items({
                                 {/* <AiFillHome className=" text-2xl" /> */}
                                 Home
                             </Link>
-                            <Link
+                            {/* <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Blogs"}
                                 className={`select-none flex  gap-2 mb-4 w-[120px] ml-6 mt-6 ${
@@ -52,9 +52,8 @@ function Mobile_Nav_Items({
                                         : "text-white hover:text-green "
                                 }`}
                             >
-                                {/* <RiArticleFill className=" text-3xl" /> */}
                                 Blogs
-                            </Link>
+                            </Link> */}
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Contact"}

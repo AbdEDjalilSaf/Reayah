@@ -25,7 +25,7 @@ function FAQ() {
     },
   ];
   return (
-    <div className="w-screen h-fit px-2   py-12   bg-gradient-to-r from-purple-700 to-purple-500 ">
+    <div className="w-screen min-h-[calc(100vh-50px)] px-2   py-12   bg-gradient-to-r from-purple-700 to-purple-500 ">
       <div className="text-white  max-md:text-3xl text-center  text-5xl font-bold ">
         FAQ
       </div>
