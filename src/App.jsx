@@ -20,6 +20,7 @@ import Menu_Toogler from "../public/Menu_Toogler.svg";
 import { useAppContext } from "./AppContext";
 import NavBar from "./Components/NavBar/NavBar";
 function App() {
+    const { isAuth, set_Auth } = useAppContext();
     const [loading, setLoading] = useState(true);
     const [Active_nav, setActive_nav] = useState("Home");
     useEffect(() => {
@@ -91,8 +92,44 @@ function App() {
                     });
             });
         };
-
-        Promise.all([fetch_fonts(), fetch_images()])
+        const fetchData = async () => {
+            try {
+                const refresh = window.localStorage.getItem("refresh");
+                console.log("refresh token from app.jsx check_auth :", refresh);
+                if (refresh) {
+                    const response = await axios.post(
+                        "https://api.reayahmed.com/auth/token/refresh/",
+                        {
+                            refresh: refresh,
+                        },
+                        {
+                            withCredentials: true,
+                            // validateStatus: () => true,
+                        }
+                    );
+                    console.log(
+                        "response from app.jsx check_auth :",
+                        response.data
+                    );
+                    if (response.status == 200) {
+                        set_Auth(true);
+                        window.localStorage.setItem(
+                            "access",
+                            response.data.access
+                        );
+                        // Navigate("/Home");
+                    } else {
+                        set_Auth(false);
+                    }
+                } else {
+                    set_Auth(false);
+                }
+            } catch (error) {
+                // console.log("error from app.jsx check_auth :", error);
+                set_Auth(false);
+            }
+        };
+        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
             .then(() => {
                 setLoading(false);
             })
@@ -100,6 +137,9 @@ function App() {
                 setLoading(false);
             });
     }, []);
+    useEffect(() => {
+        console.log("isAuth : ", isAuth);
+    }, [isAuth]);
     if (loading) {
         return (
             <div className=" w-screen h-screen flex items-center justify-center">

@@ -1,10 +1,17 @@
 import React from "react";
 import Hero_img from "../../../public/Home/Hero.png";
-import search from "../../../public/search.svg";
+import search_image from "../../../public/search.svg";
 import trend_up from "../../../public/Home/trend_up.svg";
 import { useAppContext } from "../../AppContext";
+import { useNavigate } from "react-router";
+import { useState } from "react";
 function Hero() {
+    const Navigate = useNavigate();
     const { isAuth } = useAppContext();
+    const [search, setSearch] = useState("");
+    const handleChangeSearch = (e) => {
+        setSearch(e.target.value);
+    };
     return (
         <div>
             <div className=" flex flex-col md:flex-row items-center justify-center gap-6 py-12 md:py-28">
@@ -27,14 +34,19 @@ function Hero() {
                         <div className=" flex flex-col md:flex-row justify-center items-start gap-2  mt-6 ">
                             <div className=" flex items-center justify-start shadow-lg py-2 px-2 border-b-2  border-perpol rounded-xl w-[300px]">
                                 <img
-                                    src={search}
+                                    src={search_image}
                                     alt=""
-                                    className=" w-5 mx-4"
+                                    className=" w-5 mx-4 cursor-pointer"
+                                    onClick={() => {
+                                        if (search.length > 0)
+                                            Navigate(`/Search?q=${search}`);
+                                    }}
                                 />
                                 <input
                                     type="text"
                                     className="  text-gray  outline-0  placeholder:text-perpol placeholder:font-light "
                                     placeholder="I have pain in my acetabulum ..."
+                                    onChange={handleChangeSearch}
                                 />
                             </div>
                             <div className=" pt-2">

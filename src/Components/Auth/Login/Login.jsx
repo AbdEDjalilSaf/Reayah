@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 // import handleLogin from "./Post_Register";
 import Swal from "sweetalert2";
@@ -24,10 +24,17 @@ async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
         console.log("response from server : ", response);
         Swal.fire("Done!", "Logged in successfully", "success");
         store_login(
-            response.data.user_id,
-            response.data.patient_id,
-            response.data.doctor_id
+            response.data.user.id,
+            response.data.user.id_patient,
+            response.data.user.id_doctor
         );
+        window.localStorage.setItem("access", response.data.access);
+        window.localStorage.setItem("refresh", response.data.refresh);
+        window.localStorage.setItem("userId", response.data.user.id);
+        window.localStorage.setItem("patientId", response.data.user.id_patient);
+        window.localStorage.setItem("doctorId", response.data.user.id_doctor);
+        
+
         set_Auth(true);
         // window.location.href = "/";
     } catch (error) {
@@ -38,7 +45,11 @@ async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
 }
 
 function Login() {
-    const { isAuth, set_Auth, store_login } = useAppContext();
+    const { isAuth, set_Auth, store_login, userId, patientId, doctorId } =
+        useAppContext();
+    // useEffect(() => {
+    //     console.log(userId, patientId, doctorId);
+    // }, [userId, patientId, doctorId]);
     return (
         <div className=" flex flex-col md:flex-row justify-center  items-center md:items-start md:gap-6">
             <div className=" w-[250px] lg:w-[300px] text-2xl font-semibold py-6  md:py-28 text-center md:text-start">
