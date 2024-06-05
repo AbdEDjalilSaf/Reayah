@@ -52,7 +52,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Home"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Home</span>
@@ -62,7 +62,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Users"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Users</span>
@@ -77,7 +77,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Projects_Requests"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Request</span>
@@ -87,7 +87,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Projects_Applications"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Applications</span>
@@ -97,7 +97,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Projects_Accepted"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Accepted</span>
@@ -107,7 +107,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Projects_Paying"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Paying</span>
@@ -117,7 +117,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Projects_At_Work"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>At Work</span>
@@ -132,7 +132,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Feedbacks_Clients"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Clients</span>
@@ -142,7 +142,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Feedbacks_Freelancers"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Freelancers</span>
@@ -157,7 +157,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Messages"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>All messages</span>
@@ -172,7 +172,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Terms"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span>Terms of service</span>
@@ -187,7 +187,7 @@ function Laptop() {
                         className={` ${
                             Active_nav == "Contact"
                                 ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol_v"
+                                : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
                         <span> Messages</span>
