@@ -22,7 +22,7 @@ async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
         );
 
         console.log("response from server : ", response);
-        Swal.fire("Done!", "Logged in successfully", "success");
+        // Swal.fire("Done!", "Logged in successfully", "success");
         store_login(
             response.data.user.id,
             response.data.user.id_patient,
@@ -33,10 +33,8 @@ async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
         window.localStorage.setItem("userId", response.data.user.id);
         window.localStorage.setItem("patientId", response.data.user.id_patient);
         window.localStorage.setItem("doctorId", response.data.user.id_doctor);
-        
-
         set_Auth(true);
-        // window.location.href = "/";
+        window.location.href = "/";
     } catch (error) {
         console.log("response from server : ", error);
         Swal.fire("Error!", `Something Went Wrong .`, "error");

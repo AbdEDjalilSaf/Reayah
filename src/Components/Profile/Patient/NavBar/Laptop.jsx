@@ -43,155 +43,158 @@ function Laptop() {
         setLogoutClicked(false);
     };
     return (
-        <div className="flex flex-col gap-8 text-sm text-gray_v pl-8 py-4">
-            <div>
-                <div className=" font-semibold pb-4">Home</div>
-                <div className=" flex flex-col gap-2 pl-2  ">
-                    <Link
-                        to={"/Home"}
-                        className={` ${
-                            Active_nav == "Home"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Home</span>
-                    </Link>
-                    <Link
-                        to={"/Users"}
-                        className={` ${
-                            Active_nav == "Users"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Users</span>
-                    </Link>
+        <div className="flex flex-col  text-sm text-gray  pl-8 py-4">
+            <div className=" w-8 h-8 bg-red-500 rounded-full"></div>
+            <div className=" flex flex-col gap-8 ">
+                <div>
+                    <div className=" font-semibold pb-4">Home</div>
+                    <div className=" flex flex-col gap-2 pl-2  ">
+                        <Link
+                            to={"/Home"}
+                            className={` ${
+                                Active_nav == "Home"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Home</span>
+                        </Link>
+                        <Link
+                            to={"/Users"}
+                            className={` ${
+                                Active_nav == "Users"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Users</span>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Prjects</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Projects_Requests"}
-                        className={` ${
-                            Active_nav == "Projects_Requests"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Request</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_Applications"}
-                        className={` ${
-                            Active_nav == "Projects_Applications"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Applications</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_Accepted"}
-                        className={` ${
-                            Active_nav == "Projects_Accepted"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Accepted</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_Paying"}
-                        className={` ${
-                            Active_nav == "Projects_Paying"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Paying</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_At_Work"}
-                        className={` ${
-                            Active_nav == "Projects_At_Work"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>At Work</span>
-                    </Link>
+                <div>
+                    <div className="  font-semibold pb-4">Prjects</div>
+                    <div className=" flex flex-col gap-2 pl-2 ">
+                        <Link
+                            to={"/Projects_Requests"}
+                            className={` ${
+                                Active_nav == "Projects_Requests"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Request</span>
+                        </Link>
+                        <Link
+                            to={"/Projects_Applications"}
+                            className={` ${
+                                Active_nav == "Projects_Applications"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Applications</span>
+                        </Link>
+                        <Link
+                            to={"/Projects_Accepted"}
+                            className={` ${
+                                Active_nav == "Projects_Accepted"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Accepted</span>
+                        </Link>
+                        <Link
+                            to={"/Projects_Paying"}
+                            className={` ${
+                                Active_nav == "Projects_Paying"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Paying</span>
+                        </Link>
+                        <Link
+                            to={"/Projects_At_Work"}
+                            className={` ${
+                                Active_nav == "Projects_At_Work"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>At Work</span>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Feedbacks</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Feedbacks_Clients"}
-                        className={` ${
-                            Active_nav == "Feedbacks_Clients"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Clients</span>
-                    </Link>
-                    <Link
-                        to={"/Feedbacks_Freelancers"}
-                        className={` ${
-                            Active_nav == "Feedbacks_Freelancers"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Freelancers</span>
-                    </Link>
+                <div>
+                    <div className="  font-semibold pb-4">Feedbacks</div>
+                    <div className=" flex flex-col gap-2 pl-2 ">
+                        <Link
+                            to={"/Feedbacks_Clients"}
+                            className={` ${
+                                Active_nav == "Feedbacks_Clients"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Clients</span>
+                        </Link>
+                        <Link
+                            to={"/Feedbacks_Freelancers"}
+                            className={` ${
+                                Active_nav == "Feedbacks_Freelancers"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Freelancers</span>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Messages</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Messages"}
-                        className={` ${
-                            Active_nav == "Messages"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>All messages</span>
-                    </Link>
+                <div>
+                    <div className="  font-semibold pb-4">Messages</div>
+                    <div className=" flex flex-col gap-2 pl-2 ">
+                        <Link
+                            to={"/Messages"}
+                            className={` ${
+                                Active_nav == "Messages"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>All messages</span>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Terms</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Terms"}
-                        className={` ${
-                            Active_nav == "Terms"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Terms of service</span>
-                    </Link>
+                <div>
+                    <div className="  font-semibold pb-4">Terms</div>
+                    <div className=" flex flex-col gap-2 pl-2 ">
+                        <Link
+                            to={"/Terms"}
+                            className={` ${
+                                Active_nav == "Terms"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span>Terms of service</span>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Contact</div>
-                <div className=" flex flex-col gap-2 pl-2  ">
-                    <Link
-                        to={"/Contact"}
-                        className={` ${
-                            Active_nav == "Contact"
-                                ? "bg-blue_v text-gray_v px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span> Messages</span>
-                    </Link>
+                <div>
+                    <div className="  font-semibold pb-4">Contact</div>
+                    <div className=" flex flex-col gap-2 pl-2  ">
+                        <Link
+                            to={"/Contact"}
+                            className={` ${
+                                Active_nav == "Contact"
+                                    ? "bg-blue_v text-gray  px-4 "
+                                    : "bg-white hover:text-perpol"
+                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        >
+                            <span> Messages</span>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <div className="pb-6">

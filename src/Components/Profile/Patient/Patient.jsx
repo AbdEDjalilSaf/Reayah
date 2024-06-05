@@ -21,9 +21,12 @@ import Menu_Toogler from "../../../../public/Menu_Toogler.svg";
 import { useAppContext } from "../../../AppContext";
 import NavBar from "./NavBar/NavBar";
 function Patient() {
-    const { isAuth, set_Auth } = useAppContext();
+    const { isAuth, set_Auth, set_user, user } = useAppContext();
     const [loading, setLoading] = useState(true);
     const [Active_nav, setActive_nav] = useState("Home");
+    const Navigate = useNavigate();
+    const patientId = window.localStorage.getItem("patientId");
+
     useEffect(() => {
         const fetch_images = () => {
             return new Promise((resolve, reject) => {
@@ -96,51 +99,51 @@ function Patient() {
         const fetchData = async () => {
             try {
                 const refresh = window.localStorage.getItem("refresh");
-                // console.log("refresh token from app.jsx check_auth :", refresh);
+                // console.log("refresh token from  Get Profile :", refresh);
                 if (refresh) {
-                    const response = await axios.post(
-                        "https://api.reayahmed.com/auth/token/refresh/",
-                        {
-                            refresh: refresh,
-                        },
+                    const response = await axios.get(
+                        `https://api.reayahmed.com/patient/${patientId}/`,
                         {
                             withCredentials: true,
                             // validateStatus: () => true,
                         }
                     );
-                    // console.log(
-                    //     "response from app.jsx check_auth :",
-                    //     response.data
-                    // );
+                    console.log("response from  get Profile :", response.data);
                     if (response.status == 200) {
-                        set_Auth(true);
-                        window.localStorage.setItem(
-                            "access",
-                            response.data.access
-                        );
-                        // Navigate("/Home");
+                        set_user(response.data);
                     } else {
                         set_Auth(false);
+                        // window.localStorage.removeItem("refresh");
+                        // window.localStorage.removeItem("access");
+                        // window.location.href = "/";
                     }
                 } else {
                     set_Auth(false);
+                    // window.localStorage.removeItem("refresh");
+                    // window.localStorage.removeItem("access");
+                    // window.location.href = "/";
                 }
             } catch (error) {
-                // console.log("error from app.jsx check_auth :", error);
+                console.log("error from  Get Profile :", error);
                 set_Auth(false);
+                // window.localStorage.removeItem("refresh");
+                // window.localStorage.removeItem("access");
+                // window.location.href = "/";
             }
         };
-        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
-            .then(() => {
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
+        if (!patientId) Navigate("/");
+        else
+            Promise.all([fetch_fonts(), fetch_images(), fetchData()])
+                .then(() => {
+                    setLoading(false);
+                })
+                .catch(() => {
+                    setLoading(false);
+                });
     }, []);
     useEffect(() => {
-        console.log("isAuth : ", isAuth);
-    }, [isAuth]);
+        console.log("user : ", user);
+    }, [user]);
     if (loading) {
         return (
             <div className=" w-screen h-screen flex items-center justify-center">
@@ -150,9 +153,9 @@ function Patient() {
     }
 
     return (
-        <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden ">
+        <div className="relative max-h-screen overflow-y-auto custom-overflow overflow-x-hidden ">
             <NavBar Active_nav={Active_nav} setActive_nav={setActive_nav} />
-            <div className=" mt-[50px] md:mt-[60px] bg-perpol">
+            <div className="   bg-perpol">
                 <Outlet />
             </div>
         </div>
