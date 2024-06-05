@@ -95,7 +95,7 @@ function App() {
         const fetchData = async () => {
             try {
                 const refresh = window.localStorage.getItem("refresh");
-                console.log("refresh token from app.jsx check_auth :", refresh);
+                // console.log("refresh token from app.jsx check_auth :", refresh);
                 if (refresh) {
                     const response = await axios.post(
                         "https://api.reayahmed.com/auth/token/refresh/",
@@ -107,10 +107,10 @@ function App() {
                             // validateStatus: () => true,
                         }
                     );
-                    console.log(
-                        "response from app.jsx check_auth :",
-                        response.data
-                    );
+                    // console.log(
+                    //     "response from app.jsx check_auth :",
+                    //     response.data
+                    // );
                     if (response.status == 200) {
                         set_Auth(true);
                         window.localStorage.setItem(
