@@ -1,5 +1,5 @@
 import React from "react";
-import FAQCard from "./KeyFeatures/FAQCard";
+import FAQCard from "./FAQ/FAQCard";
 
 function FAQ() {
   const faqs = [
