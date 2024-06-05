@@ -4,20 +4,13 @@ import { Outlet } from "react-router";
 import axios from "axios";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router";
-import Appointments_icon from "../../../../public/Profiles/Nav/Appointments.svg";
 
-import Articles_icon from "../../../../public/Profiles/Nav/Articles.svg";
+import Appointments_icon from "../../../../public/Profiles/Nav/Appointments.svg";
+import Medical_Folders from "../../../../public/Profiles/Nav/Medical_Folders.svg";
+import Consultation from "../../../../public/Profiles/Nav/Consultation.svg";
 import inbox_icon from "../../../../public/Profiles/Nav/inbox.svg";
-import Overview_icon from "../../../../public/Profiles/Nav/Overview.svg";
-// import icon_user from "../../../../public/Profiles/Nav/icon_user.svg";
-import Patients_icon from "../../../../public/Profiles/Nav/Patients.svg";
-import Logo from "../../../../public/Logo.svg";
 import Settings_icon from "../../../../public/Profiles/Nav/Settings.svg";
-import Wallet_icon from "../../../../public/Profiles/Nav/Wallet.svg";
-import Logout_icon from "../../../../public/Logout.svg";
-// import notification from "../../../../public/notification.svg";
-// import user from "../../../../public/user.svg";
-import Menu_Toogler from "../../../../public/Menu_Toogler.svg";
+
 import { useAppContext } from "../../../AppContext";
 import NavBar from "./NavBar/NavBar";
 function Patient() {
@@ -32,18 +25,10 @@ function Patient() {
             return new Promise((resolve, reject) => {
                 const images = [
                     Appointments_icon,
-                    Articles_icon,
+                    Medical_Folders,
+                    Consultation,
                     inbox_icon,
-                    Overview_icon,
-                    icon_user,
-                    Patients_icon,
-                    Logo,
                     Settings_icon,
-                    Wallet_icon,
-                    Logout_icon,
-                    // user,
-                    // notification,
-                    Menu_Toogler,
                 ];
                 let loadedCount = 0;
                 if (images.length === 0) resolve();

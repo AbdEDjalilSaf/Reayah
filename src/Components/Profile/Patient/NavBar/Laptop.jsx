@@ -8,6 +8,14 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { FaCircleUser } from "react-icons/fa6";
+import { FiUser } from "react-icons/fi";
+
+import Appointments_icon from "../../../../../public/Profiles/Nav/Appointments.svg";
+import Medical_Folders from "../../../../../public/Profiles/Nav/Medical_Folders.svg";
+import Consultation from "../../../../../public/Profiles/Nav/Consultation.svg";
+import inbox_icon from "../../../../../public/Profiles/Nav/inbox.svg";
+import Settings_icon from "../../../../../public/Profiles/Nav/Settings.svg";
+
 
 function Laptop() {
     const Navigate = useNavigate();
@@ -45,8 +53,8 @@ function Laptop() {
         setLogoutClicked(false);
     };
     return (
-        <div className="flex flex-col justify-around  text-lg font-semibold text-perpol  pl-8 py-4 w-full">
-            <div className="   mx-auto">
+        <div className="flex flex-col justify-around  text-lg font-semibold text-perpol   py-4 w-full">
+            <div className="   mx-auto flex flex-col items-center justify-center">
                 {user?.picture ? (
                     <img
                         src={user?.picture}
@@ -58,17 +66,26 @@ function Laptop() {
                         <FaCircleUser />
                     </div>
                 )}
+                {user?.full_name ? (
+                    <div className="text-center text-xl font-bold mt-2">
+                        {user?.full_name}
+                    </div>
+                ) : (
+                    <div className="text-center text-xl font-bold mt-2">
+                        User
+                    </div>
+                )}
             </div>
-            <div className=" flex flex-col gap-4 ">
+            <div className=" flex flex-col gap-4 pl-8 ">
                 <Link
                     to={`/Patients/${user?.id}/Patient_Profile`}
                     className={` ${
                         Active_nav == "Patient_Profile"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2  `}
                 >
-                    <span>Profile</span>
+                    <FiUser className="text-2xl  " /> <span>Profile</span>
                 </Link>
                 <Link
                     to={`/Patients/${user?.id}/Patient_Appoints`}
@@ -76,8 +93,9 @@ function Laptop() {
                         Active_nav == "Patient_Appoints"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  flex items-center gap-2`}
                 >
+                    <img src={Appointments_icon} className=" w-7" alt="" />
                     <span>Appoints</span>
                 </Link>
 
@@ -87,8 +105,9 @@ function Laptop() {
                         Active_nav == "Patient_Medical_Folders"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
                 >
+                    <img src={Medical_Folders} className=" w-7" alt="" />
                     <span>Medical Folders</span>
                 </Link>
                 <Link
@@ -97,8 +116,9 @@ function Laptop() {
                         Active_nav == "Patient_Consultations"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
                 >
+                    <img src={Consultation} className=" w-7" alt="" />
                     <span>Consultations</span>
                 </Link>
                 <Link
@@ -107,8 +127,9 @@ function Laptop() {
                         Active_nav == "Patient_Inbox"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
                 >
+                    <img src={inbox_icon} className=" w-7" alt="" />
                     <span>Inbox</span>
                 </Link>
                 <Link
@@ -117,12 +138,13 @@ function Laptop() {
                         Active_nav == "Patient_Settings"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
                 >
+                    <img src={Settings_icon} className=" w-7" alt="" />
                     <span>Settings</span>
                 </Link>
             </div>
-            <div>
+            <div className="pl-8">
                 {LogoutClicked ? (
                     <div className="w-full ">
                         <span className="small-loader font-bold  w-full m-auto"></span>
@@ -130,7 +152,7 @@ function Laptop() {
                 ) : (
                     <div
                         className="cursor-pointer w-full 
-                                    flex items-center gap-3 text-red-500"
+                                    flex items-center gap-2 text-red-500"
                         onClick={() => {
                             handleLogout();
                         }}
