@@ -18,7 +18,8 @@ function Mobile_Nav_Items({
     Active_nav,
 }) {
     const { isAuth, _id } = useAppContext();
-
+    const patientId = window.localStorage.getItem("patientId");
+    const doctorId = window.localStorage.getItem("doctorId");
     return (
         <div className="flex md:hidden">
             <div
@@ -98,7 +99,13 @@ function Mobile_Nav_Items({
                                     <div className="flex mb-2 justify-around ">
                                         <Link
                                             onClick={Toogle_Menu_Bar}
-                                            to={"/Dashboard"}
+                                            to={
+                                                patientId
+                                                    ? `/Patients/${patientId}`
+                                                    : doctorId
+                                                    ? doctorId`/Doctores/${doctorId}`
+                                                    : "/"
+                                            }
                                             className="select-none bg-blue bg-white text-black_text px-3 py-2 rounded-lg"
                                         >
                                             Dashboard

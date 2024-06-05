@@ -19,6 +19,8 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
+    const patientId = window.localStorage.getItem("patientId");
+    const doctorId = window.localStorage.getItem("doctorId");
     const { Notifications, _id } = useAppContext();
     const [Profile_menu_open, setProfile_menu_open] = useState(false);
     const toogle_Profile_menu_open = () => {
@@ -112,7 +114,6 @@ function Laptop_Nav_Items({
                     <>
                         <div className=" flex items-center justify-center gap-3">
                             <div
-                                // to={`/Profile/${_id}`}
                                 className="select-none h-full cursor-pointer flex items-center justify-center gap-1 relative"
                                 onClick={() => toogle_Profile_menu_open(true)}
                             >
@@ -128,7 +129,13 @@ function Laptop_Nav_Items({
                                         bg-white w-[160px] shadow-md rounded border border-gray_white flex flex-col items-start"
                                     >
                                         <Link
-                                            to={`/Profile/${_id}`}
+                                            to={
+                                                patientId
+                                                    ? `/Patients/${patientId}/Profile`
+                                                    : doctorId
+                                                    ? doctorId`/Doctores/${doctorId}/Profile`
+                                                    : "/"
+                                            }
                                             className="select-none flex items-center gap-3 pl-4 mb-1 "
                                         >
                                             <img src={user} alt="" />{" "}
@@ -138,7 +145,13 @@ function Laptop_Nav_Items({
                                         </Link>
                                         <div className="bg-gray_white w-full h-[1px] my-1"></div>
                                         <Link
-                                            to={`/Profile/${_id}`}
+                                            to={
+                                                patientId
+                                                    ? `/Patients/${patientId}/Notifications`
+                                                    : doctorId
+                                                    ? doctorId`/Doctores/${doctorId}/Notifications`
+                                                    : "/"
+                                            }
                                             className="select-none flex items-center gap-3 pl-4 mb-1 "
                                         >
                                             <img src={notification} alt="" />{" "}
@@ -175,7 +188,16 @@ function Laptop_Nav_Items({
                             </div>
                             <span className=" w-[2px] h-5 rounded-lg bg-white"></span>
                             <span className="bg-green text-[#fff] px-3 py-1 text-md rounded-lg cursor-pointer">
-                                <Link to={"/Dashboard"} className="select-none">
+                                <Link
+                                    to={
+                                        patientId
+                                            ? `/Patients/${patientId}`
+                                            : doctorId
+                                            ? doctorId`/Doctores/${doctorId}`
+                                            : "/"
+                                    }
+                                    className="select-none"
+                                >
                                     Dashboard
                                 </Link>
                             </span>

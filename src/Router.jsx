@@ -55,12 +55,20 @@ const routes = createBrowserRouter([
     },
 
     {
-        path: "/Profile/:id",
+        path: "/Patients/:id",
         element: <Not_Finished />,
+        children: [
+            { path: "/Patients/:id/Profile", element: <Not_Finished /> },
+            { path: "/Patients/:id/Notifications", element: <Not_Finished /> },
+        ],
     },
     {
-        path: "/Dashboard/:id",
+        path: "/Doctores/:id",
         element: <Not_Finished />,
+        children: [
+            { path: "/Doctores/:id/Profile", element: <Not_Finished /> },
+            { path: "/Doctores/:id/Notifications", element: <Not_Finished /> },
+        ],
     },
     {
         path: "*",

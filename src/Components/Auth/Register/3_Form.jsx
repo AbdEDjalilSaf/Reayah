@@ -45,58 +45,7 @@ async function handleRegister(
             );
         }
         console.log("response from server : ", response);
-        // Swal.fire("Done!", "Account Created Successfully", "success");
         Toogle_Form_Done();
-        // window.location.href = "/";
-
-        // try {
-        //     let Login_response = await Axios.post(
-        //         "http://localhost:3000/Login",
-        //         values,
-        //         {
-        //             withCredentials: true,
-        //             validateStatus: () => true,
-        //         }
-        //     );
-        //     if (Login_response.status == 200) {
-        //         // Navigate("/Profile");
-        //         Swal.fire("Done!", "Account Login Successfully", "success");
-        //         // window.location.href = "/Profile";
-        //     } else {
-        //         // window.location.href = "/Login";
-        //         Swal.fire(
-        //             "Error!",
-        //             "Username or Password isn't correct",
-        //             "error"
-        //         );
-        //         // Navigate("/Login");
-        //     }
-        //     } catch (error) {
-        //         console.log("error ducring regestration : ", error);
-        //         Swal.fire("Error!", "Something Went Wrong", "error");
-        //         // window.location.href = "/Login";
-        //     }
-        //     Swal.fire("Done!", "Account Created Successfully", "success");
-        // } else if (response.status == 400) {
-        //     Swal.fire("Error", `${response.data.message} `, "error");
-        // } else if (response.status == 409) {
-        //     Swal.fire("Error!", `${response.data.message} `, "error");
-        // } else if (response.status == 500) {
-        //     Swal.fire("Error!", `Internal Server Error   `, "error");
-        // } else if (response.status == 429) {
-        //     Swal.fire(
-        //         "Error!",
-        //         `Too many requests ,try again latter\n  `,
-        //         "error"
-        //     );
-        // } else {
-
-        //     Swal.fire(
-        //         "Error!",
-        //         `Something Went Wrong ,please trye again latter, ${response.data.message} `,
-        //         "error"
-        //     );
-        // }
     } catch (error) {
         console.log("response from server : ", error);
         Swal.fire("Error!", `Something Went Wrong .`, "error");
@@ -272,9 +221,7 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
                 </div>
                 <div className=" text-sm py-8 px-6">
                     By creating account you agree to our{" "}
-                    <span className=" text-perpol">
-                        Terms of Service
-                    </span> and{" "}
+                    <span className=" text-perpol">Terms of Service</span> and{" "}
                     <span className=" text-perpol">Privacy Policy.</span>
                 </div>
             </div>
