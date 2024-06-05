@@ -52,7 +52,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                 } absolute   transition-transform duration-300 select-none w-[100vw]
                   z-50    text-black_text  bg-white `}
             >
-                <div className="flex flex-col gap-8 text-sm text-gray_v pl-8 py-4 h-screen overflow-auto">
+                <div className="flex flex-col gap-8 text-sm text-gray pl-8 py-4 h-screen overflow-auto">
                     <div>
                         <div className=" font-semibold pb-4">Home</div>
                         <div className=" flex flex-col gap-2 pl-2  ">
@@ -61,7 +61,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Home"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -72,7 +72,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Users"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -88,7 +88,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Projects_Requests"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -99,7 +99,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Projects_Applications"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -110,7 +110,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Projects_Accepted"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -121,7 +121,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Projects_Paying"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -132,7 +132,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Projects_At_Work"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -148,7 +148,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Feedbacks_Clients"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -159,7 +159,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Feedbacks_Freelancers"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -175,7 +175,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Messages"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -191,7 +191,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Terms"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
@@ -207,7 +207,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
                                     Active_nav == "Contact"
-                                        ? "bg-blue_v text-gray_v px-4 "
+                                        ? "bg-blue_v text-gray px-4 "
                                         : "bg-white hover:text-perpol"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >

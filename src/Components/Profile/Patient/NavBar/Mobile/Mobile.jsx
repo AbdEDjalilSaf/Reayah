@@ -7,12 +7,42 @@ import { Link } from "react-router-dom";
 import Logo from "../../../../../../public/Logo.svg";
 // import user from "../../../public/user.svg";
 import { FaRegUser } from "react-icons/fa";
-
-function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
+import { useEffect } from "react";
+function Mobile_Nav() {
     const [MobileNav_Open, set_MobileNav_Open] = useState(false);
     function Toogle_Menu_Bar() {
         set_MobileNav_Open(!MobileNav_Open);
     }
+    const [Active_nav, setActive_nav] = useState("Profile");
+    useEffect(() => {
+        setActive_nav(location.pathname.split("/")[4]);
+    }, [location.pathname]);
+    const [LogoutClicked, setLogoutClicked] = useState(false);
+    const handleLogout = async () => {
+        setLogoutClicked(true);
+        try {
+            // Send a request to the logout endpoint on the server
+            const response = await axios.post(
+                "http://localhost:3000/logout",
+                {},
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            console.log("response from Logout : ", response);
+            if (response.status == 204) {
+                set_Auth(false);
+                Swal.fire("Success!", `Logged Out Successfully`, "success");
+                Navigate("/Login");
+            } else {
+                Swal.fire("Error!", `Something Went Wrong ,`, "error");
+            }
+        } catch (error) {
+            Swal.fire("Error!", `Something Went Wrong `, "error");
+        }
+        setLogoutClicked(false);
+    };
     const patientId = window.localStorage.getItem("patientId");
     const doctorId = window.localStorage.getItem("doctorId");
     return (
@@ -39,7 +69,7 @@ function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
                 Active_nav={Active_nav}
                 MobileNav_Open={MobileNav_Open}
                 Toogle_Menu_Bar={Toogle_Menu_Bar}
-                Logout={Logout}
+                Logout={handleLogout}
                 LogoutClicked={LogoutClicked}
             />
         </>

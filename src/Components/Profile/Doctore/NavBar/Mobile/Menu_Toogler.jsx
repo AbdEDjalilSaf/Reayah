@@ -11,7 +11,7 @@ function Menu_Toogler({ MobileNav_Open, set_MobileNav_Open, Toogle_Menu_Bar }) {
                 } md:hidden flex flex-col items-center justify-center `}
             >
                 <IoMenu
-                    className=" text-4xl text-gray_v text cursor-pointer"
+                    className=" text-4xl text-gray text cursor-pointer"
                     onClick={Toogle_Menu_Bar}
                 />
             </div>

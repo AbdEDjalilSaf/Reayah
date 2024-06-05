@@ -37,10 +37,7 @@ const routes = createBrowserRouter([
                 path: "/FAQ",
                 element: <FAQ />,
             },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
+
             {
                 path: "/Register",
                 element: <Register />,
@@ -53,6 +50,10 @@ const routes = createBrowserRouter([
                 path: "/Search",
                 element: <Search />,
             },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
         ],
     },
 
@@ -62,6 +63,10 @@ const routes = createBrowserRouter([
         children: [
             { path: "/Patients/:id/Profile", element: <Not_Finished /> },
             { path: "/Patients/:id/Notifications", element: <Not_Finished /> },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
         ],
     },
     {
@@ -70,6 +75,10 @@ const routes = createBrowserRouter([
         children: [
             { path: "/Doctores/:id/Profile", element: <Not_Finished /> },
             { path: "/Doctores/:id/Notifications", element: <Not_Finished /> },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
         ],
     },
     {

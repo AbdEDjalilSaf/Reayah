@@ -7,13 +7,15 @@ import { TbLogout2 } from "react-icons/tb";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { FaCircleUser } from "react-icons/fa6";
+
 function Laptop() {
     const Navigate = useNavigate();
-    const { set_Auth } = useAppContext();
-    const [Active_nav, setActive_nav] = useState("Home");
+    const { set_Auth, user } = useAppContext();
+    const [Active_nav, setActive_nav] = useState("Profile");
     const location = useLocation();
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[1]);
+        setActive_nav(location.pathname.split("/")[3]);
     }, [location.pathname]);
 
     const [LogoutClicked, setLogoutClicked] = useState(false);
@@ -43,161 +45,84 @@ function Laptop() {
         setLogoutClicked(false);
     };
     return (
-        <div className="flex flex-col  text-sm text-gray  pl-8 py-4">
-            <div className=" w-8 h-8 bg-red-500 rounded-full"></div>
-            <div className=" flex flex-col gap-8 ">
-                <div>
-                    <div className=" font-semibold pb-4">Home</div>
-                    <div className=" flex flex-col gap-2 pl-2  ">
-                        <Link
-                            to={"/Home"}
-                            className={` ${
-                                Active_nav == "Home"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Home</span>
-                        </Link>
-                        <Link
-                            to={"/Users"}
-                            className={` ${
-                                Active_nav == "Users"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Users</span>
-                        </Link>
+        <div className="flex flex-col justify-around  text-lg font-semibold text-perpol  pl-8 py-4 w-full">
+            <div className="   mx-auto">
+                {user?.picture ? (
+                    <img
+                        src={user?.picture}
+                        className=" w-24 h-24 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                        alt=""
+                    />
+                ) : (
+                    <div className=" w-24 h-24 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
+                        <FaCircleUser />
                     </div>
-                </div>
-                <div>
-                    <div className="  font-semibold pb-4">Prjects</div>
-                    <div className=" flex flex-col gap-2 pl-2 ">
-                        <Link
-                            to={"/Projects_Requests"}
-                            className={` ${
-                                Active_nav == "Projects_Requests"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Request</span>
-                        </Link>
-                        <Link
-                            to={"/Projects_Applications"}
-                            className={` ${
-                                Active_nav == "Projects_Applications"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Applications</span>
-                        </Link>
-                        <Link
-                            to={"/Projects_Accepted"}
-                            className={` ${
-                                Active_nav == "Projects_Accepted"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Accepted</span>
-                        </Link>
-                        <Link
-                            to={"/Projects_Paying"}
-                            className={` ${
-                                Active_nav == "Projects_Paying"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Paying</span>
-                        </Link>
-                        <Link
-                            to={"/Projects_At_Work"}
-                            className={` ${
-                                Active_nav == "Projects_At_Work"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>At Work</span>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div className="  font-semibold pb-4">Feedbacks</div>
-                    <div className=" flex flex-col gap-2 pl-2 ">
-                        <Link
-                            to={"/Feedbacks_Clients"}
-                            className={` ${
-                                Active_nav == "Feedbacks_Clients"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Clients</span>
-                        </Link>
-                        <Link
-                            to={"/Feedbacks_Freelancers"}
-                            className={` ${
-                                Active_nav == "Feedbacks_Freelancers"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Freelancers</span>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div className="  font-semibold pb-4">Messages</div>
-                    <div className=" flex flex-col gap-2 pl-2 ">
-                        <Link
-                            to={"/Messages"}
-                            className={` ${
-                                Active_nav == "Messages"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>All messages</span>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div className="  font-semibold pb-4">Terms</div>
-                    <div className=" flex flex-col gap-2 pl-2 ">
-                        <Link
-                            to={"/Terms"}
-                            className={` ${
-                                Active_nav == "Terms"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span>Terms of service</span>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div className="  font-semibold pb-4">Contact</div>
-                    <div className=" flex flex-col gap-2 pl-2  ">
-                        <Link
-                            to={"/Contact"}
-                            className={` ${
-                                Active_nav == "Contact"
-                                    ? "bg-blue_v text-gray  px-4 "
-                                    : "bg-white hover:text-perpol"
-                            }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                        >
-                            <span> Messages</span>
-                        </Link>
-                    </div>
-                </div>
+                )}
             </div>
-            <div className="pb-6">
+            <div className=" flex flex-col gap-4 ">
+                <Link
+                    to={`/Patients/${user?.id}/Patient_Profile`}
+                    className={` ${
+                        Active_nav == "Patient_Profile"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                >
+                    <span>Profile</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Patient_Appoints`}
+                    className={` ${
+                        Active_nav == "Patient_Appoints"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                >
+                    <span>Appoints</span>
+                </Link>
+
+                <Link
+                    to={`/Patients/${user?.id}/Patient_Medical_Folders`}
+                    className={` ${
+                        Active_nav == "Patient_Medical_Folders"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                >
+                    <span>Medical Folders</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Patient_Consultations`}
+                    className={` ${
+                        Active_nav == "Patient_Consultations"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                >
+                    <span>Consultations</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Patient_Inbox`}
+                    className={` ${
+                        Active_nav == "Patient_Inbox"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                >
+                    <span>Inbox</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Patient_Settings`}
+                    className={` ${
+                        Active_nav == "Patient_Settings"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  `}
+                >
+                    <span>Settings</span>
+                </Link>
+            </div>
+            <div>
                 {LogoutClicked ? (
                     <div className="w-full ">
                         <span className="small-loader font-bold  w-full m-auto"></span>

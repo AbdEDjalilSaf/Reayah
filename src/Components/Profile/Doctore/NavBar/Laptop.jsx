@@ -43,7 +43,7 @@ function Laptop() {
         setLogoutClicked(false);
     };
     return (
-        <div className="flex flex-col gap-8 text-sm text-gray_v pl-8 py-4">
+        <div className="flex flex-col gap-8 text-sm text-gray pl-8 py-4">
             <div>
                 <div className=" font-semibold pb-4">Home</div>
                 <div className=" flex flex-col gap-2 pl-2  ">
@@ -51,7 +51,7 @@ function Laptop() {
                         to={"/Home"}
                         className={` ${
                             Active_nav == "Home"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -61,7 +61,7 @@ function Laptop() {
                         to={"/Users"}
                         className={` ${
                             Active_nav == "Users"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -76,7 +76,7 @@ function Laptop() {
                         to={"/Projects_Requests"}
                         className={` ${
                             Active_nav == "Projects_Requests"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -86,7 +86,7 @@ function Laptop() {
                         to={"/Projects_Applications"}
                         className={` ${
                             Active_nav == "Projects_Applications"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -96,7 +96,7 @@ function Laptop() {
                         to={"/Projects_Accepted"}
                         className={` ${
                             Active_nav == "Projects_Accepted"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -106,7 +106,7 @@ function Laptop() {
                         to={"/Projects_Paying"}
                         className={` ${
                             Active_nav == "Projects_Paying"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -116,7 +116,7 @@ function Laptop() {
                         to={"/Projects_At_Work"}
                         className={` ${
                             Active_nav == "Projects_At_Work"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -131,7 +131,7 @@ function Laptop() {
                         to={"/Feedbacks_Clients"}
                         className={` ${
                             Active_nav == "Feedbacks_Clients"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -141,7 +141,7 @@ function Laptop() {
                         to={"/Feedbacks_Freelancers"}
                         className={` ${
                             Active_nav == "Feedbacks_Freelancers"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -156,7 +156,7 @@ function Laptop() {
                         to={"/Messages"}
                         className={` ${
                             Active_nav == "Messages"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -171,7 +171,7 @@ function Laptop() {
                         to={"/Terms"}
                         className={` ${
                             Active_nav == "Terms"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
@@ -186,7 +186,7 @@ function Laptop() {
                         to={"/Contact"}
                         className={` ${
                             Active_nav == "Contact"
-                                ? "bg-blue_v text-gray_v px-4 "
+                                ? "bg-blue_v text-gray px-4 "
                                 : "bg-white hover:text-perpol"
                         }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                     >
