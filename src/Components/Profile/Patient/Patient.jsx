@@ -153,9 +153,9 @@ function Patient() {
     }
 
     return (
-        <div className="relative max-h-screen overflow-y-auto custom-overflow overflow-x-hidden ">
+        <div className="relative max-h-screen overflow-y-auto custom-overflow overflow-x-hidden block md:flex ">
             <NavBar Active_nav={Active_nav} setActive_nav={setActive_nav} />
-            <div className="   bg-perpol">
+            <div className="  pt-[60px] md:pt-0 w-full">
                 <Outlet />
             </div>
         </div>
