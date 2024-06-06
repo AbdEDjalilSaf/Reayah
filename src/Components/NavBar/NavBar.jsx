@@ -29,36 +29,35 @@ function NavBar({ Active_nav, setActive_nav }) {
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const Logout = async () => {
         setLogoutClicked(true);
-        try {
-            // Send a request to the logout endpoint on the server
-            const response = await axios.post(
-                // "https://backend.skate.dz/logout",
-                {},
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-
-            if (response.status == 204) {
-                // Successfully logged out, you may want to redirect to the login page or update the UI accordingly
-                store_login({
-                    FirstName: "",
-                    LastName: "",
-                    Email: "",
-                    Gender: null,
-                    Age: null,
-                    Courses: [],
-                    _id: null,
-                });
-                set_Auth(false);
-                // You can use state or context to handle the logout state in your application
-            } else {
-                Swal.fire("Error!", `Something Went Wrong ,`, "error");
-            }
-        } catch (error) {
-            Swal.fire("Error!", `Something Went Wrong `, "error");
-        }
+        // try {
+        //     // Send a request to the logout endpoint on the server
+        //     const response = await axios.post(
+        //         "http://localhost:3000/logout",
+        //         {},
+        //         {
+        //             withCredentials: true,
+        //             validateStatus: () => true,
+        //         }
+        //     );
+        //     console.log("response from Logout : ", response);
+        //     if (response.status == 204) {
+        //         set_Auth(false);
+        //         Swal.fire("Success!", `Logged Out Successfully`, "success");
+        //         Navigate("/Login");
+        //     } else {
+        //         Swal.fire("Error!", `Something Went Wrong ,`, "error");
+        //     }
+        // } catch (error) {
+        //     Swal.fire("Error!", `Something Went Wrong `, "error");
+        // }
+        window.localStorage.removeItem("patientId");
+        window.localStorage.removeItem("doctorId");
+        window.localStorage.removeItem("userId");
+        window.localStorage.removeItem("access");
+        window.localStorage.removeItem("refresh");
+        set_Auth(false);
+        // Swal.fire("Success!", `Logged Out Successfully`, "success");
+        window.location.href = "/";
         setLogoutClicked(false);
     };
 

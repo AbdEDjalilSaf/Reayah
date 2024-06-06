@@ -55,8 +55,8 @@ function Laptop() {
         window.localStorage.removeItem("userId");
         window.localStorage.removeItem("access");
         window.localStorage.removeItem("refresh");
-        setAuth(false);
-        Swal.fire("Success!", `Logged Out Successfully`, "success");
+        set_Auth(false);
+        // Swal.fire("Success!", `Logged Out Successfully`, "success");
         window.location.href = "/";
         setLogoutClicked(false);
     };
