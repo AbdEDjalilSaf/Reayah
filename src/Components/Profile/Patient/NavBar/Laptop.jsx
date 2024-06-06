@@ -83,7 +83,8 @@ function Laptop() {
                         Active_nav == "Patient_Profile"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2  `}
+                        }  transition-all duration-150  cursor-pointer py-1 select-none
+                      w-[200px] rounded-full flex items-center gap-2  `}
                 >
                     <FiUser className="text-2xl  " /> <span>Profile</span>
                 </Link>

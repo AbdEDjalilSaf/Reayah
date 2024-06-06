@@ -121,6 +121,7 @@ function Patient() {
             Promise.all([fetch_fonts(), fetch_images(), fetchData()])
                 .then(() => {
                     setLoading(false);
+                    Navigate(`/Patients/${patientId}/Profile`);
                 })
                 .catch(() => {
                     setLoading(false);

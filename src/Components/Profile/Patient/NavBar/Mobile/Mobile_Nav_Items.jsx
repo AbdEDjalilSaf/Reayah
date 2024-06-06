@@ -9,6 +9,12 @@ import { useAppContext } from "../../../../../AppContext"; // Import your contex
 import { AiFillHome } from "react-icons/ai";
 
 import { TbLogout } from "react-icons/tb";
+import { FiUser } from "react-icons/fi";
+import Appointments_icon from "../../../../../../public/Profiles/Nav/Appointments.svg";
+import Medical_Folders from "../../../../../../public/Profiles/Nav/Medical_Folders.svg";
+import Consultation from "../../../../../../public/Profiles/Nav/Consultation.svg";
+import inbox_icon from "../../../../../../public/Profiles/Nav/inbox.svg";
+import Settings_icon from "../../../../../../public/Profiles/Nav/Settings.svg";
 
 function Mobile_Nav_Items({
     MobileNav_Open,
@@ -27,38 +33,43 @@ function Mobile_Nav_Items({
                     MobileNav_Open
                         ? " translate-x-[0vw]"
                         : " -translate-x-[200vh] "
-                } absolute   transition-transform duration-300 select-none w-[100vw]  z-50 bg-perpol_b   text-white font-semibold `}
+                } absolute   transition-transform duration-300 select-none w-[100vw]  z-50 bg-white   text-white font-semibold `}
             >
                 <div className=" w-[90%] ml-6 h-screen text-xl  mt-12 ">
                     <div className=" flex flex-col justify-between h-[80%] ">
                         <div>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/"}
-                                className={`select-none flex gap-2 mb-4 w-[120px] ml-6 mt-6 ${
-                                    Active_nav === ""
+                                to={`/Patients/${patientId}/Profile`}
+                                className={`select-none flex items-center gap-2 mb-4 w-[120px] ml-6 mt-6 ${
+                                    Active_nav === "Profile"
                                         ? " text-green hover:text-green"
                                         : "text-white hover:text-green "
                                 }`}
                             >
-                                {/* <AiFillHome className=" text-2xl" /> */}
-                                Home
+                                <FiUser className=" text-2xl" />
+                                Profile
                             </Link>
-                            {/* <Link
+                            <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/Blogs"}
-                                className={`select-none flex  gap-2 mb-4 w-[120px] ml-6 mt-6 ${
-                                    Active_nav === "Blogs"
+                                to={`/Patients/${patientId}/Profile`}
+                                className={`select-none flex items-center gap-2 mb-4 w-[120px] ml-6 mt-6 ${
+                                    Active_nav === "Profile"
                                         ? " text-green hover:text-green"
                                         : "text-white hover:text-green "
                                 }`}
                             >
-                                Blogs
-                            </Link> */}
+                                <img
+                                    src={Appointments_icon}
+                                    className="  text-2xl"
+                                />
+                                Appoints
+                            </Link>
+
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Contact"}
-                                className={`select-none flex   gap-2 mb-4 w-[120px] ml-6 mt-6
+                                className={`select-none flex items-center   gap-2 mb-4 w-[120px] ml-6 mt-6
                         ${
                             Active_nav === "Contact"
                                 ? " text-green hover:text-green"
@@ -71,7 +82,7 @@ function Mobile_Nav_Items({
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/About"}
-                                className={`select-none flex  gap-2  mb-4 w-[120px] ml-6 mt-6 ${
+                                className={`select-none flex items-center  gap-2  mb-4 w-[120px] ml-6 mt-6 ${
                                     Active_nav === "About"
                                         ? " text-green hover:text-green"
                                         : "text-white hover:text-green "

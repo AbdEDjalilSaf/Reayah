@@ -15,7 +15,7 @@ function Mobile_Nav() {
     }
     const [Active_nav, setActive_nav] = useState("Profile");
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[4]);
+        setActive_nav(location.pathname.split("/")[3]);
     }, [location.pathname]);
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const handleLogout = async () => {
@@ -43,8 +43,6 @@ function Mobile_Nav() {
         }
         setLogoutClicked(false);
     };
-    const patientId = window.localStorage.getItem("patientId");
-    const doctorId = window.localStorage.getItem("doctorId");
     return (
         <>
             <div className=" flex gap-5 items-center justify-between px-3 md:hidden h-full bg-perpol_b">
