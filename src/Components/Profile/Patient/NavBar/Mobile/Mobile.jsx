@@ -4,7 +4,7 @@ import Menu_Toogler from "./Menu_Toogler";
 import Mobile_Nav_Items from "./Mobile_Nav_Items";
 import { Link } from "react-router-dom";
 // import Logo from "../../../public/Logo.svg";
-import Logo from "../../../../../../public/Logo.svg";
+import Logo from "../../../../../../public/Logo_perpole.png";
 // import user from "../../../public/user.svg";
 import { FaRegUser } from "react-icons/fa";
 import { useEffect } from "react";
@@ -45,7 +45,7 @@ function Mobile_Nav() {
     };
     return (
         <>
-            <div className=" flex gap-5 items-center justify-between px-3 md:hidden h-full bg-perpol_b">
+            <div className=" flex gap-5 items-center justify-between px-3 md:hidden h-full bg-white">
                 <Menu_Toogler
                     MobileNav_Open={MobileNav_Open}
                     set_MobileNav_Open={set_MobileNav_Open}

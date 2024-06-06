@@ -78,9 +78,9 @@ function Laptop() {
             </div>
             <div className=" flex flex-col gap-4 pl-8 ">
                 <Link
-                    to={`/Patients/${user?.id}/Patient_Profile`}
+                    to={`/Patients/${user?.id}/Profile`}
                     className={` ${
-                        Active_nav == "Patient_Profile"
+                        Active_nav == "Profile"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
                         }  transition-all duration-150  cursor-pointer py-1 select-none
@@ -89,9 +89,9 @@ function Laptop() {
                     <FiUser className="text-2xl  " /> <span>Profile</span>
                 </Link>
                 <Link
-                    to={`/Patients/${user?.id}/Patient_Appoints`}
+                    to={`/Patients/${user?.id}/Appoints`}
                     className={` ${
-                        Active_nav == "Patient_Appoints"
+                        Active_nav == "Appoints"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  flex items-center gap-2`}
@@ -101,9 +101,9 @@ function Laptop() {
                 </Link>
 
                 <Link
-                    to={`/Patients/${user?.id}/Patient_Medical_Folders`}
+                    to={`/Patients/${user?.id}/Medical_Folders`}
                     className={` ${
-                        Active_nav == "Patient_Medical_Folders"
+                        Active_nav == "Medical_Folders"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
@@ -112,9 +112,9 @@ function Laptop() {
                     <span>Medical Folders</span>
                 </Link>
                 <Link
-                    to={`/Patients/${user?.id}/Patient_Consultations`}
+                    to={`/Patients/${user?.id}/Consultations`}
                     className={` ${
-                        Active_nav == "Patient_Consultations"
+                        Active_nav == "Consultations"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
@@ -123,9 +123,9 @@ function Laptop() {
                     <span>Consultations</span>
                 </Link>
                 <Link
-                    to={`/Patients/${user?.id}/Patient_Inbox`}
+                    to={`/Patients/${user?.id}/Inbox`}
                     className={` ${
-                        Active_nav == "Patient_Inbox"
+                        Active_nav == "Inbox"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
@@ -134,9 +134,9 @@ function Laptop() {
                     <span>Inbox</span>
                 </Link>
                 <Link
-                    to={`/Patients/${user?.id}/Patient_Settings`}
+                    to={`/Patients/${user?.id}/Settings`}
                     className={` ${
-                        Active_nav == "Patient_Settings"
+                        Active_nav == "Settings"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}

@@ -1,13 +1,5 @@
-import { FaRegHandshake } from "react-icons/fa";
-import { FaBook } from "react-icons/fa";
-
-import { MdEventAvailable } from "react-icons/md";
-import { RiArticleFill } from "react-icons/ri";
-import { IoCall } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../../../../AppContext"; // Import your context hook
-import { AiFillHome } from "react-icons/ai";
-
 import { TbLogout } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
 import Appointments_icon from "../../../../../../public/Profiles/Nav/Appointments.svg";
@@ -23,17 +15,17 @@ function Mobile_Nav_Items({
     LogoutClicked,
     Active_nav,
 }) {
-    const { isAuth, _id } = useAppContext();
+    const { isAuth, _id, user } = useAppContext();
     const patientId = window.localStorage.getItem("patientId");
     const doctorId = window.localStorage.getItem("doctorId");
     return (
-        <div className="flex md:hidden">
+        <div className="flex md:hidden border-t border-gray_white">
             <div
                 className={`  ${
                     MobileNav_Open
                         ? " translate-x-[0vw]"
                         : " -translate-x-[200vh] "
-                } absolute   transition-transform duration-300 select-none w-[100vw]  z-50 bg-white   text-white font-semibold `}
+                } absolute   transition-transform duration-300 select-none w-[100vw]  z-50 bg-white   text-perpol font-semibold `}
             >
                 <div className=" w-[90%] ml-6 h-screen text-xl  mt-12 ">
                     <div className=" flex flex-col justify-between h-[80%] ">
@@ -41,10 +33,10 @@ function Mobile_Nav_Items({
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Patients/${patientId}/Profile`}
-                                className={`select-none flex items-center gap-2 mb-4 w-[120px] ml-6 mt-6 ${
+                                className={`select-none flex items-center gap-2 mb-4  ml-6 mt-6 ${
                                     Active_nav === "Profile"
-                                        ? " text-green hover:text-green"
-                                        : "text-white hover:text-green "
+                                        ? " bg-green px-3 w-fit rounded-full py-1"
+                                        : "text-perpol hover:text-perpol "
                                 }`}
                             >
                                 <FiUser className=" text-2xl" />
@@ -52,63 +44,74 @@ function Mobile_Nav_Items({
                             </Link>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Patients/${patientId}/Profile`}
-                                className={`select-none flex items-center gap-2 mb-4 w-[120px] ml-6 mt-6 ${
-                                    Active_nav === "Profile"
-                                        ? " text-green hover:text-green"
-                                        : "text-white hover:text-green "
+                                to={`/Patients/${patientId}/Appoints`}
+                                className={`select-none flex items-center gap-2 mb-4  ml-6 mt-6 ${
+                                    Active_nav === "Appoints"
+                                        ? " bg-green px-3 w-fit rounded-full py-1"
+                                        : "text-perpol hover:text-perpol "
                                 }`}
                             >
                                 <img
                                     src={Appointments_icon}
-                                    className="  text-2xl"
+                                    className="  w-7"
                                 />
                                 Appoints
                             </Link>
 
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/Contact"}
-                                className={`select-none flex items-center   gap-2 mb-4 w-[120px] ml-6 mt-6
+                                to={`/Patients/${patientId}/Medical_Folders`}
+                                className={`select-none flex items-center   gap-2 mb-4  ml-6 mt-6
                         ${
-                            Active_nav === "Contact"
-                                ? " text-green hover:text-green"
-                                : "text-white hover:text-green "
+                            Active_nav === "Medical_Folders"
+                                ? " bg-green px-3 w-fit rounded-full py-1"
+                                : "text-perpol hover:text-perpol "
                         }`}
                             >
-                                {/* <IoCall className=" text-3xl" /> */}
-                                Contact Us
+                                <img src={Medical_Folders} className="  w-7" />{" "}
+                                <span>Medical Folders</span>
                             </Link>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/About"}
-                                className={`select-none flex items-center  gap-2  mb-4 w-[120px] ml-6 mt-6 ${
-                                    Active_nav === "About"
-                                        ? " text-green hover:text-green"
-                                        : "text-white hover:text-green "
+                                to={`/Patients/${user?.id}/Consultations`}
+                                className={`select-none flex items-center  gap-2  mb-4  ml-6 mt-6 ${
+                                    Active_nav === "Consultations"
+                                        ? " bg-green px-3 w-fit rounded-full py-1"
+                                        : "text-perpol hover:text-perpol "
                                 }`}
                             >
-                                {/* <FaRegHandshake className=" text-3xl" /> */}
-                                About us
+                                <img src={Consultation} className="  w-7" />{" "}
+                                Consultations{" "}
                             </Link>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/FAQ"}
-                                className={`select-none flex items-center   gap-2  mb-4 w-[120px] ml-6 mt-6 ${
-                                    Active_nav === "FAQ"
-                                        ? " text-green hover:text-green"
-                                        : "text-white hover:text-green "
+                                to={`/Patients/${user?.id}/Inbox`}
+                                className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
+                                    Active_nav === "Inbox"
+                                        ? " bg-green px-3 w-fit rounded-full py-1"
+                                        : "text-perpol hover:text-perpol "
                                 }`}
                             >
-                                {/* <FaBook className=" text-2xl" /> */}
-                                FAQ
+                                <img src={inbox_icon} className="  w-7" /> Inbox
+                            </Link>
+                            <Link
+                                onClick={Toogle_Menu_Bar}
+                                to={`/Patients/${user?.id}/Settings`}
+                                className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
+                                    Active_nav === "Settings"
+                                        ? " bg-green px-3 w-fit rounded-full py-1"
+                                        : "text-perpol hover:text-perpol "
+                                }`}
+                            >
+                                <img src={Settings_icon} className="  w-7" />{" "}
+                                Settings
                             </Link>
                         </div>
                         <div>
                             <>
                                 {!LogoutClicked ? (
                                     <div
-                                        className="text-white   flex items-center  gap-2  w-[120px] ml-6 "
+                                        className="text-perpol   flex items-center  gap-2   ml-6 "
                                         onClick={() => {
                                             Logout();
                                         }}
@@ -117,7 +120,7 @@ function Mobile_Nav_Items({
                                         Logout
                                     </div>
                                 ) : (
-                                    <div className=" w-full flex items-center justify-center   text-white">
+                                    <div className=" w-full flex items-center justify-center   text-perpol">
                                         <span className="small-loader"></span>
                                     </div>
                                 )}
