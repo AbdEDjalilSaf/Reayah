@@ -7,194 +7,153 @@ import { TbLogout2 } from "react-icons/tb";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { FaCircleUser } from "react-icons/fa6";
+import { FiUser } from "react-icons/fi";
+
+import Appointments_icon from "../../../../../public/Profiles/Nav/Appointments.svg";
+import Medical_Folders from "../../../../../public/Profiles/Nav/Medical_Folders.svg";
+import Consultation from "../../../../../public/Profiles/Nav/Consultation.svg";
+import inbox_icon from "../../../../../public/Profiles/Nav/inbox.svg";
+import Settings_icon from "../../../../../public/Profiles/Nav/Settings.svg";
+
+
 function Laptop() {
     const Navigate = useNavigate();
-    const { set_Auth } = useAppContext();
-    const [Active_nav, setActive_nav] = useState("Home");
+    const { set_Auth, user } = useAppContext();
+    const [Active_nav, setActive_nav] = useState("Profile");
     const location = useLocation();
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[1]);
+        setActive_nav(location.pathname.split("/")[3]);
     }, [location.pathname]);
 
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const handleLogout = async () => {
         setLogoutClicked(true);
-        try {
-            // Send a request to the logout endpoint on the server
-            const response = await axios.post(
-                "http://localhost:3000/logout",
-                {},
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            console.log("response from Logout : ", response);
-            if (response.status == 204) {
-                set_Auth(false);
-                Swal.fire("Success!", `Logged Out Successfully`, "success");
-                Navigate("/Login");
-            } else {
-                Swal.fire("Error!", `Something Went Wrong ,`, "error");
-            }
-        } catch (error) {
-            Swal.fire("Error!", `Something Went Wrong `, "error");
-        }
+        // try {
+        //     // Send a request to the logout endpoint on the server
+        //     const response = await axios.post(
+        //         "http://localhost:3000/logout",
+        //         {},
+        //         {
+        //             withCredentials: true,
+        //             validateStatus: () => true,
+        //         }
+        //     );
+        //     console.log("response from Logout : ", response);
+        //     if (response.status == 204) {
+        //         set_Auth(false);
+        //         Swal.fire("Success!", `Logged Out Successfully`, "success");
+        //         Navigate("/Login");
+        //     } else {
+        //         Swal.fire("Error!", `Something Went Wrong ,`, "error");
+        //     }
+        // } catch (error) {
+        //     Swal.fire("Error!", `Something Went Wrong `, "error");
+        // }
+        window.localStorage.removeItem("patientId");
+        window.localStorage.removeItem("doctorId");
+        window.localStorage.removeItem("userId");
+        window.localStorage.removeItem("access");
+        window.localStorage.removeItem("refresh");
+        setAuth(false);
+        Swal.fire("Success!", `Logged Out Successfully`, "success");
+        window.location.href = "/";
         setLogoutClicked(false);
     };
     return (
-        <div className="flex flex-col gap-8 text-sm text-gray pl-8 py-4">
-            <div>
-                <div className=" font-semibold pb-4">Home</div>
-                <div className=" flex flex-col gap-2 pl-2  ">
-                    <Link
-                        to={"/Home"}
-                        className={` ${
-                            Active_nav == "Home"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Home</span>
-                    </Link>
-                    <Link
-                        to={"/Users"}
-                        className={` ${
-                            Active_nav == "Users"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Users</span>
-                    </Link>
-                </div>
+        <div className="flex flex-col justify-around  text-lg font-semibold text-perpol   py-4 w-full">
+            <div className="   mx-auto flex flex-col items-center justify-center">
+                {user?.picture ? (
+                    <img
+                        src={user?.picture}
+                        className=" w-24 h-24 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                        alt=""
+                    />
+                ) : (
+                    <div className=" w-24 h-24 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
+                        <FaCircleUser />
+                    </div>
+                )}
+                {user?.full_name ? (
+                    <div className="text-center text-xl font-bold mt-2">
+                        {user?.full_name}
+                    </div>
+                ) : (
+                    <div className="text-center text-xl font-bold mt-2">
+                        User
+                    </div>
+                )}
             </div>
-            <div>
-                <div className="  font-semibold pb-4">Prjects</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Projects_Requests"}
-                        className={` ${
-                            Active_nav == "Projects_Requests"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Request</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_Applications"}
-                        className={` ${
-                            Active_nav == "Projects_Applications"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Applications</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_Accepted"}
-                        className={` ${
-                            Active_nav == "Projects_Accepted"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Accepted</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_Paying"}
-                        className={` ${
-                            Active_nav == "Projects_Paying"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Paying</span>
-                    </Link>
-                    <Link
-                        to={"/Projects_At_Work"}
-                        className={` ${
-                            Active_nav == "Projects_At_Work"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>At Work</span>
-                    </Link>
-                </div>
+            <div className=" flex flex-col gap-4 pl-8 ">
+                <Link
+                    to={`/Patients/${user?.id}/Profile`}
+                    className={` ${
+                        Active_nav == "Profile"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                        }  transition-all duration-150  cursor-pointer py-1 select-none
+                      w-[200px] rounded-full flex items-center gap-2  `}
+                >
+                    <FiUser className="text-2xl  " /> <span>Profile</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Appoints`}
+                    className={` ${
+                        Active_nav == "Appoints"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  flex items-center gap-2`}
+                >
+                    <img src={Appointments_icon} className=" w-7" alt="" />
+                    <span>Appoints</span>
+                </Link>
+
+                <Link
+                    to={`/Patients/${user?.id}/Medical_Folders`}
+                    className={` ${
+                        Active_nav == "Medical_Folders"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
+                >
+                    <img src={Medical_Folders} className=" w-7" alt="" />
+                    <span>Medical Folders</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Consultations`}
+                    className={` ${
+                        Active_nav == "Consultations"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
+                >
+                    <img src={Consultation} className=" w-7" alt="" />
+                    <span>Consultations</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Inbox`}
+                    className={` ${
+                        Active_nav == "Inbox"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
+                >
+                    <img src={inbox_icon} className=" w-7" alt="" />
+                    <span>Inbox</span>
+                </Link>
+                <Link
+                    to={`/Patients/${user?.id}/Settings`}
+                    className={` ${
+                        Active_nav == "Settings"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
+                >
+                    <img src={Settings_icon} className=" w-7" alt="" />
+                    <span>Settings</span>
+                </Link>
             </div>
-            <div>
-                <div className="  font-semibold pb-4">Feedbacks</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Feedbacks_Clients"}
-                        className={` ${
-                            Active_nav == "Feedbacks_Clients"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Clients</span>
-                    </Link>
-                    <Link
-                        to={"/Feedbacks_Freelancers"}
-                        className={` ${
-                            Active_nav == "Feedbacks_Freelancers"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Freelancers</span>
-                    </Link>
-                </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Messages</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Messages"}
-                        className={` ${
-                            Active_nav == "Messages"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>All messages</span>
-                    </Link>
-                </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Terms</div>
-                <div className=" flex flex-col gap-2 pl-2 ">
-                    <Link
-                        to={"/Terms"}
-                        className={` ${
-                            Active_nav == "Terms"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span>Terms of service</span>
-                    </Link>
-                </div>
-            </div>
-            <div>
-                <div className="  font-semibold pb-4">Contact</div>
-                <div className=" flex flex-col gap-2 pl-2  ">
-                    <Link
-                        to={"/Contact"}
-                        className={` ${
-                            Active_nav == "Contact"
-                                ? "bg-blue_v text-gray px-4 "
-                                : "bg-white hover:text-perpol"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
-                    >
-                        <span> Messages</span>
-                    </Link>
-                </div>
-            </div>
-            <div className="pb-6">
+            <div className="pl-8">
                 {LogoutClicked ? (
                     <div className="w-full ">
                         <span className="small-loader font-bold  w-full m-auto"></span>
@@ -202,7 +161,7 @@ function Laptop() {
                 ) : (
                     <div
                         className="cursor-pointer w-full 
-                                    flex items-center gap-3 text-red-500"
+                                    flex items-center gap-2 text-red-500"
                         onClick={() => {
                             handleLogout();
                         }}

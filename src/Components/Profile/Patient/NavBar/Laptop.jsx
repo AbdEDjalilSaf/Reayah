@@ -29,27 +29,35 @@ function Laptop() {
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const handleLogout = async () => {
         setLogoutClicked(true);
-        try {
-            // Send a request to the logout endpoint on the server
-            const response = await axios.post(
-                "http://localhost:3000/logout",
-                {},
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            console.log("response from Logout : ", response);
-            if (response.status == 204) {
-                set_Auth(false);
-                Swal.fire("Success!", `Logged Out Successfully`, "success");
-                Navigate("/Login");
-            } else {
-                Swal.fire("Error!", `Something Went Wrong ,`, "error");
-            }
-        } catch (error) {
-            Swal.fire("Error!", `Something Went Wrong `, "error");
-        }
+        // try {
+        //     // Send a request to the logout endpoint on the server
+        //     const response = await axios.post(
+        //         "http://localhost:3000/logout",
+        //         {},
+        //         {
+        //             withCredentials: true,
+        //             validateStatus: () => true,
+        //         }
+        //     );
+        //     console.log("response from Logout : ", response);
+        //     if (response.status == 204) {
+        //         set_Auth(false);
+        //         Swal.fire("Success!", `Logged Out Successfully`, "success");
+        //         Navigate("/Login");
+        //     } else {
+        //         Swal.fire("Error!", `Something Went Wrong ,`, "error");
+        //     }
+        // } catch (error) {
+        //     Swal.fire("Error!", `Something Went Wrong `, "error");
+        // }
+        window.localStorage.removeItem("patientId");
+        window.localStorage.removeItem("doctorId");
+        window.localStorage.removeItem("userId");
+        window.localStorage.removeItem("access");
+        window.localStorage.removeItem("refresh");
+        setAuth(false);
+        Swal.fire("Success!", `Logged Out Successfully`, "success");
+        window.location.href = "/";
         setLogoutClicked(false);
     };
     return (
