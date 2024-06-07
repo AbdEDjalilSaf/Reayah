@@ -93,12 +93,12 @@ function Search() {
         );
 
     return (
-        <div className="  pt-6 ">
-            <div className=" flex flex-col gap-2 mb-6 mx-6 md:mx-24">
+        <div className="   ">
+            <div className=" flex flex-col gap-2 md:gap-6 mb-6 mx-6 md:mx-24 min-h-[40vh]  justify-center">
                 <div className=" flex gap-6 items-center ">
                     {user?.picture ? (
                         <img
-                            className=" w-16 h-16 border-4 object-cover border-t-green border-l-green border-r-green rounded-full border-b-transparent  text-gray_white flex items-center justify-center"
+                            className=" w-16 h-16 md:w-24 md:h-24 border-4 object-cover border-t-green border-l-green border-r-green rounded-full border-b-transparent  text-gray_white flex items-center justify-center"
                             src={`https://api.reayahmed.com/${user?.picture}`}
                             onError={(e) => {
                                 e.target.onerror = null;
@@ -107,42 +107,42 @@ function Search() {
                             alt=""
                         />
                     ) : (
-                        <div className=" w-16 h-16 border-4 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
+                        <div className=" w-16 h-16 md:w-24 md:h-24  border-4 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
                             <FaCircleUser />
                         </div>
                     )}
-                    <div className=" text-sm font-semibold text-gray">
+                    <div className=" text-sm md:text-lg font-semibold text-gray">
                         {user?.full_name}
                     </div>
                 </div>
-                <div className=" bg-green bg-opacity-15 border-4 border-green p-2 rounded-b-xl px-12">
+                <div className=" bg-green bg-opacity-15 border-4 border-green py-4 px-6  rounded-b-xl md:px-12 text-base md:text-xl ">
                     you are searching for :{" "}
                     <span className=" font-semibold text-gray">
                         {query.get("q")}
                     </span>
                 </div>
             </div>
-            <div className=" w-full min-h-[90vh]  bg-perpol flex flex-col md:flex-row items-center justify-center gap-6 ">
+            <div className=" w-full min-h-[70vh]  bg-perpol flex flex-col md:flex-row items-center justify-center gap-6 py-10 ">
                 <img
                     src={bot_icon}
-                    className=" max-w-24 md:max-w-44 animate-up-down"
+                    className=" max-w-24 md:max-w-44 mx-auto animate-up-down"
                     alt=""
                 />
                 <div className=" w-[90%] mx-auto  md:min-w-[50%] md:max-w-[70%] flex flex-col gap-4 ">
                     {search_result?.["Recommended specialty"] && (
-                        <div className=" bg-green rounded-xl py-3 px-5 text-sm">
+                        <div className=" bg-green rounded-xl py-3 px-5 ">
                             Recommended specialty :{" "}
                             <span className=" font-semibold">
                                 {search_result?.["Recommended specialty"]}
                             </span>
                         </div>
                     )}
-                    <div className=" bg-green rounded-xl py-3 px-5 text-sm font-semibold">
+                    <div className=" bg-green rounded-xl py-3 px-5  font-semibold">
                         Give your eyes a break: If you spend a lot of time
                         looking at screens, take breaks every 20 minutes or so
                         to look away for 20 seconds at something 20 feet away.
                     </div>
-                    <div className=" bg-green rounded-xl py-3 px-5 text-sm font-semibold">
+                    <div className=" bg-green rounded-xl py-3 px-5  font-semibold">
                         Don't smoke: Smoking is a major risk factor for macular
                         degeneration, a leading cause of vision loss.
                     </div>
@@ -207,7 +207,7 @@ function Search() {
                                     <div className=" bg-green rounded-xl py-1 px-3 text-sm font-semibold w-fit text-gray mt-2 mb-4">
                                         {doctor?.specialization_name}
                                     </div>
-                                    <div className=" flex gap-2 items-center">
+                                    <div className=" flex gap-1 ">
                                         <FaMapMarkerAlt className=" shrink-0 text-md text-gray" />
                                         {doctor?.address}
                                     </div>
