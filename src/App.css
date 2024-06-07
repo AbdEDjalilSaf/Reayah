@@ -72,3 +72,15 @@ input {
         background-position: 0 0;
     }
 }
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-up-down {
+  animation: upDown 2s ease-in-out infinite;
+}
