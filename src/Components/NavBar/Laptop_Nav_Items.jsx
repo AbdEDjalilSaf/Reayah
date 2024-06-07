@@ -21,13 +21,13 @@ function Laptop_Nav_Items({
 }) {
     const patientId = window.localStorage.getItem("patientId");
     const doctorId = window.localStorage.getItem("doctorId");
-    useEffect(() => {
-        console.log("patientId : ", patientId);
-        console.log("doctorId : ", doctorId);
-        console.log("doctorId == null :", doctorId == "null");
-        console.log("patientId == null :", patientId == "null");
-        console.log("------------------------");
-    }, [patientId, doctorId]);
+    // useEffect(() => {
+    //     console.log("patientId : ", patientId);
+    //     console.log("doctorId : ", doctorId);
+    //     console.log("doctorId == null :", doctorId == "null");
+    //     console.log("patientId == null :", patientId == "null");
+    //     console.log("------------------------");
+    // }, [patientId, doctorId]);
 
     const { Notifications, _id } = useAppContext();
     const [Profile_menu_open, setProfile_menu_open] = useState(false);

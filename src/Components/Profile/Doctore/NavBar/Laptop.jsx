@@ -16,8 +16,6 @@ import Overview_icon from "../../../../../public/Profiles/Nav/Overview.svg";
 import Wallet_icon from "../../../../../public/Profiles/Nav/Wallet.svg";
 
 import Appointments_icon from "../../../../../public/Profiles/Nav/Appointments.svg";
-import Medical_Folders from "../../../../../public/Profiles/Nav/Medical_Folders.svg";
-import Consultation from "../../../../../public/Profiles/Nav/Consultation.svg";
 import inbox_icon from "../../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../../public/Profiles/Nav/Settings.svg";
 
@@ -147,7 +145,7 @@ function Laptop() {
                             : "bg-white hover:text-green"
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
                 >
-                    <img src={Consultation} className=" w-7" alt="" />
+                    <img src={Wallet_icon} className=" w-7" alt="" />
                     <span>Wallet</span>
                 </Link>
             </div>

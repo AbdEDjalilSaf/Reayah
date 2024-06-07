@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../../../../../AppContext"; // Import your context hook
 import { TbLogout } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
+import Articles_icon from "../../../../../../public/Profiles/Nav/Articles.svg";
+import Patients_icon from "../../../../../../public/Profiles/Nav/Patients.svg";
+import Overview_icon from "../../../../../../public/Profiles/Nav/Overview.svg";
+import Wallet_icon from "../../../../../../public/Profiles/Nav/Wallet.svg";
+
 import Appointments_icon from "../../../../../../public/Profiles/Nav/Appointments.svg";
-import Medical_Folders from "../../../../../../public/Profiles/Nav/Medical_Folders.svg";
-import Consultation from "../../../../../../public/Profiles/Nav/Consultation.svg";
 import inbox_icon from "../../../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../../../public/Profiles/Nav/Settings.svg";
 
@@ -32,60 +35,64 @@ function Mobile_Nav_Items({
                         <div>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Patients/${patientId}/Profile`}
+                                to={`/Doctores/${doctorId}/Profile`}
                                 className={`select-none flex items-center gap-2 mb-4  ml-6 mt-6 ${
                                     Active_nav === "Profile"
                                         ? " bg-green px-3 w-fit rounded-full py-1"
                                         : "text-perpol hover:text-perpol "
                                 }`}
                             >
-                                <FiUser className=" text-2xl" />
-                                Profile
+                                <img
+                                    src={Overview_icon}
+                                    className=" w-7"
+                                    alt=""
+                                />
+                                <span>Overview</span>
                             </Link>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Patients/${patientId}/Appoints`}
+                                to={`/Doctores/${doctorId}/Patients`}
                                 className={`select-none flex items-center gap-2 mb-4  ml-6 mt-6 ${
-                                    Active_nav === "Appoints"
+                                    Active_nav === "Patients"
                                         ? " bg-green px-3 w-fit rounded-full py-1"
                                         : "text-perpol hover:text-perpol "
                                 }`}
                             >
-                                <img
-                                    src={Appointments_icon}
-                                    className="  w-7"
-                                />
-                                Appoints
+                                <img src={Patients_icon} className="  w-7" />
+                                <span>Patients</span>
                             </Link>
 
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Patients/${patientId}/Medical_Folders`}
+                                to={`/Doctores/${doctorId}/Appoints`}
                                 className={`select-none flex items-center   gap-2 mb-4  ml-6 mt-6
-                        ${
-                            Active_nav === "Medical_Folders"
-                                ? " bg-green px-3 w-fit rounded-full py-1"
-                                : "text-perpol hover:text-perpol "
-                        }`}
+                                 ${
+                                     Active_nav === "Appoints"
+                                         ? " bg-green px-3 w-fit rounded-full py-1"
+                                         : "text-perpol hover:text-perpol "
+                                 }`}
                             >
-                                <img src={Medical_Folders} className="  w-7" />{" "}
-                                <span>Medical Folders</span>
+                                <img
+                                    src={Appointments_icon}
+                                    className="  w-7"
+                                />{" "}
+                                <span>Appontments</span>
                             </Link>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Patients/${user?.id}/Consultations`}
+                                to={`/Doctores/${doctorId}/Articles`}
                                 className={`select-none flex items-center  gap-2  mb-4  ml-6 mt-6 ${
-                                    Active_nav === "Consultations"
+                                    Active_nav === "Articles"
                                         ? " bg-green px-3 w-fit rounded-full py-1"
                                         : "text-perpol hover:text-perpol "
                                 }`}
                             >
-                                <img src={Consultation} className="  w-7" />{" "}
-                                Consultations{" "}
+                                <img src={Articles_icon} className="  w-7" />{" "}
+                                Articles{" "}
                             </Link>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Patients/${user?.id}/Inbox`}
+                                to={`/Doctores/${doctorId}/Inbox`}
                                 className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
                                     Active_nav === "Inbox"
                                         ? " bg-green px-3 w-fit rounded-full py-1"
@@ -96,7 +103,7 @@ function Mobile_Nav_Items({
                             </Link>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Patients/${user?.id}/Settings`}
+                                to={`/Doctores/${doctorId}/Settings`}
                                 className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
                                     Active_nav === "Settings"
                                         ? " bg-green px-3 w-fit rounded-full py-1"
@@ -105,6 +112,18 @@ function Mobile_Nav_Items({
                             >
                                 <img src={Settings_icon} className="  w-7" />{" "}
                                 Settings
+                            </Link>
+                            <Link
+                                onClick={Toogle_Menu_Bar}
+                                to={`/Doctores/${doctorId}/Wallet`}
+                                className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
+                                    Active_nav === "Wallet"
+                                        ? " bg-green px-3 w-fit rounded-full py-1"
+                                        : "text-perpol hover:text-perpol "
+                                }`}
+                            >
+                                <img src={Wallet_icon} className="  w-7" />{" "}
+                                Wallet
                             </Link>
                         </div>
                         <div>

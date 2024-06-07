@@ -23,7 +23,7 @@ function Doctor() {
     const [Active_nav, setActive_nav] = useState("Home");
     const Navigate = useNavigate();
     const DoctorId = window.localStorage.getItem("doctorId");
-    console.log("DoctorId : ", DoctorId);
+    // console.log("DoctorId : ", DoctorId);
     useEffect(() => {
         const fetch_images = () => {
             return new Promise((resolve, reject) => {
