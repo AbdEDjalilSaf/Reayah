@@ -48,7 +48,7 @@ function Laptop() {
                 {user?.picture ? (
                     <img
                         src={`https://api.reayahmed.com/${user?.picture}`}
-                        className=" w-24 h-24 object-cover border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                        className=" w-24 h-24 object-cover border-4 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
                         onError={(e) => {
                             e.target.onerror = null;
                             e.target.src = image_not_found;
@@ -56,7 +56,7 @@ function Laptop() {
                         alt=""
                     />
                 ) : (
-                    <div className=" w-24 h-24 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
+                    <div className=" w-24 h-24 border-4 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
                         <FaCircleUser />
                     </div>
                 )}
