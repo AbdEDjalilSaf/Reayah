@@ -15,7 +15,7 @@ function Done() {
                 </div>
             </div>
             <Link
-                to={"/"}
+                to={"/Login"}
                 className=" flex items-end justify-center gap-2 text-gray font-semibold  "
             >
                 <div className=" text-2xl underline">Go to Home page</div>
