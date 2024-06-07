@@ -6,7 +6,7 @@ function useQuery() {
 function Search() {
     const query = useQuery();
     const searchQuery = query.get("q");
-    return <div>Search Query: {searchQuery}</div>;
+    return <div className=" min-h-screen">Search Query: {searchQuery}</div>;
 }
 
 export default Search;
