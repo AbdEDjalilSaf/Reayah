@@ -18,7 +18,7 @@ import Wallet_icon from "../../../../../public/Profiles/Nav/Wallet.svg";
 import Appointments_icon from "../../../../../public/Profiles/Nav/Appointments.svg";
 import inbox_icon from "../../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../../public/Profiles/Nav/Settings.svg";
-
+import image_not_found from "../../../../../public/image_not_found.png";
 function Laptop() {
     const Navigate = useNavigate();
     const doctoreId = window.localStorage.getItem("doctorId");
@@ -47,8 +47,12 @@ function Laptop() {
             <div className="   mx-auto flex flex-col items-center justify-center">
                 {user?.picture ? (
                     <img
-                        src={user?.picture}
-                        className=" w-24 h-24 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                        src={`https://api.reayahmed.com/${user?.picture}`}
+                        className=" w-24 h-24 object-cover border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = image_not_found;
+                        }}
                         alt=""
                     />
                 ) : (

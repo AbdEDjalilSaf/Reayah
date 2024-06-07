@@ -15,7 +15,7 @@ import Medical_Folders from "../../../../../public/Profiles/Nav/Medical_Folders.
 import Consultation from "../../../../../public/Profiles/Nav/Consultation.svg";
 import inbox_icon from "../../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../../public/Profiles/Nav/Settings.svg";
-
+import image_not_found from "../../../../../public/image_not_found.png";
 
 function Laptop() {
     const Navigate = useNavigate();
@@ -65,8 +65,12 @@ function Laptop() {
             <div className="   mx-auto flex flex-col items-center justify-center">
                 {user?.picture ? (
                     <img
-                        src={user?.picture}
-                        className=" w-24 h-24 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                        src={`https://api.reayahmed.com/${user?.picture}`}
+                        className=" w-24 h-24 object-cover border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = image_not_found;
+                        }}
                         alt=""
                     />
                 ) : (
@@ -91,7 +95,7 @@ function Laptop() {
                         Active_nav == "Profile"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none
+                    }  transition-all duration-150  cursor-pointer py-1 select-none
                       w-[200px] rounded-full flex items-center gap-2  `}
                 >
                     <FiUser className="text-2xl  " /> <span>Profile</span>
