@@ -14,6 +14,14 @@ import Doctore from "./Components/Profile/Doctore/Doctore";
 
 import Patient_Defualt from "./Components/Profile/Patient/Default";
 import Doctore_Defualt from "./Components/Profile/Doctore/Default";
+
+import Appoints from "./Components/Profile/Patient/Appoints/Appoints";
+import Consultations from "./Components/Profile/Patient/Consultations/Consultations";
+import Inbox from "./Components/Profile/Patient/Inbox/Inbox";
+import MedicalFolders from "./Components/Profile/Patient/MedicalFolders/MedicalFolders";
+import Profile from "./Components/Profile/Patient/Profile/Profile";
+import Settings from "./Components/Profile/Patient/Settings/Settings";
+
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -71,6 +79,18 @@ const routes = createBrowserRouter([
                 path: "*",
                 element: <Not_Found />,
             },
+            { path: "/Patients/:id/Appoints", element: <Appoints /> },
+            { path: "/Patients/:id/Consultations", element: <Consultations /> },
+            { path: "/Patients/:id/Inbox", element: <Inbox /> },
+            {
+                path: "/Patients/:id/Medical_Folders",
+                element: <MedicalFolders />,
+            },
+            { path: "/Patients/:id/Settings", element: <Settings /> },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
         ],
     },
     {
@@ -80,10 +100,6 @@ const routes = createBrowserRouter([
             { path: "/Doctores/:id", element: <Doctore_Defualt /> },
             { path: "/Doctores/:id/Profile", element: <Not_Finished /> },
             { path: "/Doctores/:id/Notifications", element: <Not_Finished /> },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
         ],
     },
     {
