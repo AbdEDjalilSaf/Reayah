@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router";
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
+
+import { FaMapMarkerAlt } from "react-icons/fa";
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAppContext } from "../../AppContext";
@@ -11,6 +11,10 @@ import { FaCircleUser } from "react-icons/fa6";
 import bot_icon from "../../../public/Bot.png";
 import axios from "axios";
 import image_not_found from "../../../public/image_not_found.png";
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 function Search() {
     const [user, set_user] = useState(null);
     const patientId = window.localStorage.getItem("patientId");
@@ -94,7 +98,7 @@ function Search() {
                 <div className=" flex gap-6 items-center ">
                     {user?.picture ? (
                         <img
-                            className=" w-16 h-16 border-2 object-cover border-t-green border-l-green border-r-green rounded-full border-b-transparent  text-gray_white flex items-center justify-center"
+                            className=" w-16 h-16 border-4 object-cover border-t-green border-l-green border-r-green rounded-full border-b-transparent  text-gray_white flex items-center justify-center"
                             src={`https://api.reayahmed.com/${user?.picture}`}
                             onError={(e) => {
                                 e.target.onerror = null;
@@ -103,7 +107,7 @@ function Search() {
                             alt=""
                         />
                     ) : (
-                        <div className=" w-16 h-16 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
+                        <div className=" w-16 h-16 border-4 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
                             <FaCircleUser />
                         </div>
                     )}
@@ -111,7 +115,7 @@ function Search() {
                         {user?.full_name}
                     </div>
                 </div>
-                <div className=" bg-green bg-opacity-15 border-2 border-green p-2 rounded-b-xl px-12">
+                <div className=" bg-green bg-opacity-15 border-4 border-green p-2 rounded-b-xl px-12">
                     you are searching for :{" "}
                     <span className=" font-semibold text-gray">
                         {query.get("q")}
@@ -152,18 +156,31 @@ function Search() {
                     No Recommended Doctors Found
                 </div>
             ) : (
-                <div className=" flex flex-col gap-2 max-w-[90%] mx-auto">
+                <div className=" flex flex-col gap-6 max-w-[90%] mx-auto min-h-[60vh] py-12">
                     {search_result.Doctors.map((doctor) => (
                         <div
                             key={doctor?.id}
-                            className=" flex gap-8 items-center justify-between
-                             bg-green bg-opacity-10 p-4 rounded-xl border-2 border-green"
+                            className={` flex gap-2 md:gap-8 justify-between
+                              p-4 rounded-xl border-4 ${
+                                  doctor?.is_certified
+                                      ? "border-yellow-500"
+                                      : "border-perpol"
+                              }
+                              `}
                         >
-                            <div className=" flex gap-4 items-center">
+                            <div className=" flex gap-4">
                                 {doctor?.picture ? (
                                     <img
                                         src={`https://api.reayahmed.com/${doctor?.picture}`}
-                                        className=" w-16 h-16 object-cover border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent "
+                                        className={`
+                                             w-16 h-16 object-cover border-4
+                                            ${
+                                                doctor?.is_certified
+                                                    ? " border-t-yellow-500 border-l-yellow-500 border-r-yellow-500 border-b-transparent"
+                                                    : "border-t-perpol border-l-perpol border-r-perpol border-b-transparent"
+                                            } 
+                                            rounded-full border-b-transparent 
+                                            `}
                                         onError={(e) => {
                                             e.target.onerror = null;
                                             e.target.src = image_not_found;
@@ -171,21 +188,40 @@ function Search() {
                                         alt=""
                                     />
                                 ) : (
-                                    <div className=" w-16 h-16 border-2 border-t-green border-l-green border-r-green rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center ">
+                                    <div
+                                        className={` w-16 h-16 border-4
+                                            ${
+                                                doctor?.is_certified
+                                                    ? " border-t-yellow-500 border-l-yellow-500 border-r-yellow-500 border-b-transparent"
+                                                    : "border-t-perpol border-l-perpol border-r-perpol border-b-transparent"
+                                            } 
+                                                rounded-full border-b-transparent text-8xl text-gray_white flex items-center justify-center `}
+                                    >
                                         <FaCircleUser />
                                     </div>
                                 )}
-                                <div className=" text-sm font-semibold text-gray">
-                                    {doctor?.full_name}
+                                <div>
+                                    <div className=" text-md font-semibold text-gray">
+                                        {doctor?.full_name}
+                                    </div>
+                                    <div className=" bg-green rounded-xl py-1 px-3 text-sm font-semibold w-fit text-gray mt-2 mb-4">
+                                        {doctor?.specialization_name}
+                                    </div>
+                                    <div className=" flex gap-2 items-center">
+                                        <FaMapMarkerAlt className=" shrink-0 text-md text-gray" />
+                                        {doctor?.address}
+                                    </div>
                                 </div>
                             </div>
-                            <div className=" flex gap-4 items-center">
-                                <div className=" bg-green rounded-xl py-1 px-3 text-sm font-semibold">
-                                    {doctor?.specialization_name}
-                                </div>
-                                <div className=" bg-green rounded-xl py-1 px-3 text-sm font-semibold">
-                                    {doctor?.experience} years of experience
-                                </div>
+
+                            <div
+                                className={`p-2 text-white rounded-lg font-semibold text-xl h-fit ${
+                                    doctor?.is_certified
+                                        ? "bg-yellow-500"
+                                        : "bg-perpol"
+                                }`}
+                            >
+                                Book
                             </div>
                         </div>
                     ))}
