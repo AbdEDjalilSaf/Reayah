@@ -15,12 +15,12 @@ import Doctore from "./Components/Profile/Doctore/Doctore";
 import Patient_Defualt from "./Components/Profile/Patient/Default";
 import Doctore_Defualt from "./Components/Profile/Doctore/Default";
 
-import Appoints from "./Components/Profile/Patient/Appoints/Appoints";
-import Consultations from "./Components/Profile/Patient/Consultations/Consultations";
-import Inbox from "./Components/Profile/Patient/Inbox/Inbox";
-import MedicalFolders from "./Components/Profile/Patient/MedicalFolders/MedicalFolders";
-import Profile from "./Components/Profile/Patient/Profile/Profile";
-import Settings from "./Components/Profile/Patient/Settings/Settings";
+import Patient_Appoints from "./Components/Profile/Patient/Appoints/Appoints";
+import Patient_Consultations from "./Components/Profile/Patient/Consultations/Consultations";
+import Patient_Inbox from "./Components/Profile/Patient/Inbox/Inbox";
+import Patient_MedicalFolders from "./Components/Profile/Patient/MedicalFolders/MedicalFolders";
+import Patient_Profile from "./Components/Profile/Patient/Profile/Profile";
+import Patient_Settings from "./Components/Profile/Patient/Settings/Settings";
 
 const routes = createBrowserRouter([
     {
@@ -73,20 +73,20 @@ const routes = createBrowserRouter([
         element: <Patient />,
         children: [
             { path: "/Patients/:id", element: <Patient_Defualt /> },
-            { path: "/Patients/:id/Profile", element: <Not_Finished /> },
+            { path: "/Patients/:id/Profile", element: <Patient_Profile /> },
             // { path: "/Patients/:id/Notifications", element: <Not_Finished /> },
+
+            { path: "/Patients/:id/Appoints", element: <Patient_Appoints /> },
             {
-                path: "*",
-                element: <Not_Found />,
+                path: "/Patients/:id/Consultations",
+                element: <Patient_Consultations />,
             },
-            { path: "/Patients/:id/Appoints", element: <Appoints /> },
-            { path: "/Patients/:id/Consultations", element: <Consultations /> },
-            { path: "/Patients/:id/Inbox", element: <Inbox /> },
+            { path: "/Patients/:id/Inbox", element: <Patient_Inbox /> },
             {
                 path: "/Patients/:id/Medical_Folders",
-                element: <MedicalFolders />,
+                element: <Patient_MedicalFolders />,
             },
-            { path: "/Patients/:id/Settings", element: <Settings /> },
+            { path: "/Patients/:id/Settings", element: <Patient_Settings /> },
             {
                 path: "*",
                 element: <Not_Found />,
