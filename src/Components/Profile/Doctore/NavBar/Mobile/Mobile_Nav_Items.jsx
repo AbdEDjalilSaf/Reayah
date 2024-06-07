@@ -78,7 +78,7 @@ function Mobile_Nav_Items({
                                 />{" "}
                                 <span>Appontments</span>
                             </Link>
-                            <Link
+                            {/* <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Doctores/${doctorId}/Articles`}
                                 className={`select-none flex items-center  gap-2  mb-4  ml-6 mt-6 ${
@@ -89,8 +89,8 @@ function Mobile_Nav_Items({
                             >
                                 <img src={Articles_icon} className="  w-7" />{" "}
                                 Articles{" "}
-                            </Link>
-                            <Link
+                            </Link> */}
+                            {/* <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Doctores/${doctorId}/Inbox`}
                                 className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
@@ -100,7 +100,7 @@ function Mobile_Nav_Items({
                                 }`}
                             >
                                 <img src={inbox_icon} className="  w-7" /> Inbox
-                            </Link>
+                            </Link> */}
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Doctores/${doctorId}/Settings`}

@@ -134,7 +134,7 @@ function Laptop() {
                     <img src={Consultation} className=" w-7" alt="" />
                     <span>Consultations</span>
                 </Link>
-                <Link
+                {/* <Link
                     to={`/Patients/${user?.id}/Inbox`}
                     className={` ${
                         Active_nav == "Inbox"
@@ -144,7 +144,7 @@ function Laptop() {
                 >
                     <img src={inbox_icon} className=" w-7" alt="" />
                     <span>Inbox</span>
-                </Link>
+                </Link> */}
                 <Link
                     to={`/Patients/${user?.id}/Settings`}
                     className={` ${

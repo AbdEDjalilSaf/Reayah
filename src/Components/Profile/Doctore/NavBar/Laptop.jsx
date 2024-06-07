@@ -107,7 +107,7 @@ function Laptop() {
                     <span>Appontments</span>
                 </Link>
 
-                <Link
+                {/* <Link
                     to={`/Doctores/${doctoreId}/Articles`}
                     className={` ${
                         Active_nav == "Articles"
@@ -117,8 +117,8 @@ function Laptop() {
                 >
                     <img src={Articles_icon} className=" w-7" alt="" />
                     <span>Articles</span>
-                </Link>
-                <Link
+                </Link> */}
+                {/* <Link
                     to={`/Doctores/${doctoreId}/Inbox`}
                     className={` ${
                         Active_nav == "Inbox"
@@ -128,7 +128,7 @@ function Laptop() {
                 >
                     <img src={inbox_icon} className=" w-7" alt="" />
                     <span>Inbox</span>
-                </Link>
+                </Link> */}
                 <Link
                     to={`/Doctores/${doctoreId}/Settings`}
                     className={` ${

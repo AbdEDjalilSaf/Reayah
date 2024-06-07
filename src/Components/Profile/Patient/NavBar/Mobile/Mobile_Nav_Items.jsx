@@ -83,7 +83,7 @@ function Mobile_Nav_Items({
                                 <img src={Consultation} className="  w-7" />{" "}
                                 Consultations{" "}
                             </Link>
-                            <Link
+                            {/* <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Patients/${user?.id}/Inbox`}
                                 className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
@@ -93,7 +93,7 @@ function Mobile_Nav_Items({
                                 }`}
                             >
                                 <img src={inbox_icon} className="  w-7" /> Inbox
-                            </Link>
+                            </Link> */}
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Patients/${user?.id}/Settings`}
