@@ -5,11 +5,15 @@ import axios from "axios";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router";
 
-import Appointments_icon from "../../../../public/Profiles/Nav/Appointments.svg";
-import Medical_Folders from "../../../../public/Profiles/Nav/Medical_Folders.svg";
-import Consultation from "../../../../public/Profiles/Nav/Consultation.svg";
+// import Appointments_icon from "../../../../public/Profiles/Nav/Appointments.svg";
 import inbox_icon from "../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../public/Profiles/Nav/Settings.svg";
+import Appointments_icon from "../../../../public/Profiles/Nav/Appointments.svg";
+
+import Articles_icon from "../../../../public/Profiles/Nav/Articles.svg";
+import Patients_icon from "../../../../public/Profiles/Nav/Patients.svg";
+import Overview_icon from "../../../../public/Profiles/Nav/Overview.svg";
+import Wallet_icon from "../../../../public/Profiles/Nav/Wallet.svg";
 
 import { useAppContext } from "../../../AppContext";
 import NavBar from "./NavBar/NavBar";
@@ -25,10 +29,14 @@ function Doctor() {
             return new Promise((resolve, reject) => {
                 const images = [
                     Appointments_icon,
-                    Medical_Folders,
-                    Consultation,
+                    // Medical_Folders,
+                    // Consultation,
                     inbox_icon,
                     Settings_icon,
+                    Articles_icon,
+                    Patients_icon,
+                    Overview_icon,
+                    Wallet_icon,
                 ];
                 let loadedCount = 0;
                 if (images.length === 0) resolve();
@@ -93,7 +101,10 @@ function Doctor() {
                             // validateStatus: () => true,
                         }
                     );
-                    console.log("response from  get doctore Profile :", response.data);
+                    console.log(
+                        "response from  get doctore Profile :",
+                        response.data
+                    );
                     if (response.status == 200) {
                         set_user(response.data);
                     } else {
@@ -118,14 +129,14 @@ function Doctor() {
         };
         // if (!DoctorId) Navigate("/");
         // else
-            Promise.all([fetch_fonts(), fetch_images(), fetchData()])
-                .then(() => {
-                    setLoading(false);
-                    // Navigate(`/Doctors/${DoctorId}/Profile`);
-                })
-                .catch(() => {
-                    setLoading(false);
-                });
+        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
+            .then(() => {
+                setLoading(false);
+                // Navigate(`/Doctors/${DoctorId}/Profile`);
+            })
+            .catch(() => {
+                setLoading(false);
+            });
     }, []);
     useEffect(() => {
         console.log("user : ", user);

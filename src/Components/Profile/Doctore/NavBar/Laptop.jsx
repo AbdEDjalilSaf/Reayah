@@ -10,15 +10,20 @@ import { Link } from "react-router-dom";
 import { FaCircleUser } from "react-icons/fa6";
 import { FiUser } from "react-icons/fi";
 
+import Articles_icon from "../../../../../public/Profiles/Nav/Articles.svg";
+import Patients_icon from "../../../../../public/Profiles/Nav/Patients.svg";
+import Overview_icon from "../../../../../public/Profiles/Nav/Overview.svg";
+import Wallet_icon from "../../../../../public/Profiles/Nav/Wallet.svg";
+
 import Appointments_icon from "../../../../../public/Profiles/Nav/Appointments.svg";
 import Medical_Folders from "../../../../../public/Profiles/Nav/Medical_Folders.svg";
 import Consultation from "../../../../../public/Profiles/Nav/Consultation.svg";
 import inbox_icon from "../../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../../public/Profiles/Nav/Settings.svg";
 
-
 function Laptop() {
     const Navigate = useNavigate();
+    const doctoreId = window.localStorage.getItem("doctorId");
     const { set_Auth, user } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Profile");
     const location = useLocation();
@@ -29,27 +34,6 @@ function Laptop() {
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const handleLogout = async () => {
         setLogoutClicked(true);
-        // try {
-        //     // Send a request to the logout endpoint on the server
-        //     const response = await axios.post(
-        //         "http://localhost:3000/logout",
-        //         {},
-        //         {
-        //             withCredentials: true,
-        //             validateStatus: () => true,
-        //         }
-        //     );
-        //     console.log("response from Logout : ", response);
-        //     if (response.status == 204) {
-        //         set_Auth(false);
-        //         Swal.fire("Success!", `Logged Out Successfully`, "success");
-        //         Navigate("/Login");
-        //     } else {
-        //         Swal.fire("Error!", `Something Went Wrong ,`, "error");
-        //     }
-        // } catch (error) {
-        //     Swal.fire("Error!", `Something Went Wrong `, "error");
-        // }
         window.localStorage.removeItem("patientId");
         window.localStorage.removeItem("doctorId");
         window.localStorage.removeItem("userId");
@@ -86,18 +70,31 @@ function Laptop() {
             </div>
             <div className=" flex flex-col gap-4 pl-8 ">
                 <Link
-                    to={`/Patients/${user?.id}/Profile`}
+                    to={`/Doctores/${doctoreId}/Profile`}
                     className={` ${
                         Active_nav == "Profile"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none
+                    }  transition-all duration-150  cursor-pointer py-1 select-none
                       w-[200px] rounded-full flex items-center gap-2  `}
                 >
-                    <FiUser className="text-2xl  " /> <span>Profile</span>
+                    <img src={Overview_icon} className=" w-7" alt="" />
+                    {/* <FiUser className="text-2xl  " /> */}
+                    <span>Overview</span>
                 </Link>
                 <Link
-                    to={`/Patients/${user?.id}/Appoints`}
+                    to={`/Doctores/${doctoreId}/Patients`}
+                    className={` ${
+                        Active_nav == "Patients"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  flex items-center gap-2`}
+                >
+                    <img src={Patients_icon} className=" w-7" alt="" />
+                    <span>Patients</span>
+                </Link>
+                <Link
+                    to={`/Doctores/${doctoreId}/Appoints`}
                     className={` ${
                         Active_nav == "Appoints"
                             ? "bg-green text-perpol  px-4 "
@@ -105,33 +102,22 @@ function Laptop() {
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  flex items-center gap-2`}
                 >
                     <img src={Appointments_icon} className=" w-7" alt="" />
-                    <span>Appoints</span>
+                    <span>Appontments</span>
                 </Link>
 
                 <Link
-                    to={`/Patients/${user?.id}/Medical_Folders`}
+                    to={`/Doctores/${doctoreId}/Articles`}
                     className={` ${
-                        Active_nav == "Medical_Folders"
+                        Active_nav == "Articles"
                             ? "bg-green text-perpol  px-4 "
                             : "bg-white hover:text-green"
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
                 >
-                    <img src={Medical_Folders} className=" w-7" alt="" />
-                    <span>Medical Folders</span>
+                    <img src={Articles_icon} className=" w-7" alt="" />
+                    <span>Articles</span>
                 </Link>
                 <Link
-                    to={`/Patients/${user?.id}/Consultations`}
-                    className={` ${
-                        Active_nav == "Consultations"
-                            ? "bg-green text-perpol  px-4 "
-                            : "bg-white hover:text-green"
-                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
-                >
-                    <img src={Consultation} className=" w-7" alt="" />
-                    <span>Consultations</span>
-                </Link>
-                <Link
-                    to={`/Patients/${user?.id}/Inbox`}
+                    to={`/Doctores/${doctoreId}/Inbox`}
                     className={` ${
                         Active_nav == "Inbox"
                             ? "bg-green text-perpol  px-4 "
@@ -142,7 +128,7 @@ function Laptop() {
                     <span>Inbox</span>
                 </Link>
                 <Link
-                    to={`/Patients/${user?.id}/Settings`}
+                    to={`/Doctores/${doctoreId}/Settings`}
                     className={` ${
                         Active_nav == "Settings"
                             ? "bg-green text-perpol  px-4 "
@@ -151,6 +137,18 @@ function Laptop() {
                 >
                     <img src={Settings_icon} className=" w-7" alt="" />
                     <span>Settings</span>
+                </Link>
+
+                <Link
+                    to={`/Doctores/${doctoreId}/Wallet`}
+                    className={` ${
+                        Active_nav == "Wallet"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full flex items-center gap-2 `}
+                >
+                    <img src={Consultation} className=" w-7" alt="" />
+                    <span>Wallet</span>
                 </Link>
             </div>
             <div className="pl-8">
