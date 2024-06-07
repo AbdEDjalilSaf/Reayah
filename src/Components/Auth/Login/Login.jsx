@@ -28,11 +28,24 @@ async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
             response.data.user.id_patient,
             response.data.user.id_doctor
         );
+        // window.localStorage.removeItem("access");
+        // window.localStorage.removeItem("refresh");
+        // window.localStorage.removeItem("userId");
+        // window.localStorage.removeItem("patientId");
+        // window.localStorage.removeItem("doctorId");
+
         window.localStorage.setItem("access", response.data.access);
         window.localStorage.setItem("refresh", response.data.refresh);
         window.localStorage.setItem("userId", response.data.user.id);
         window.localStorage.setItem("patientId", response.data.user.id_patient);
         window.localStorage.setItem("doctorId", response.data.user.id_doctor);
+
+        // console.log(window.localStorage.getItem("access"));
+        // console.log(window.localStorage.getItem("refresh"));
+        // console.log(window.localStorage.getItem("userId"));
+        // console.log(window.localStorage.getItem("patientId"));
+        // console.log(window.localStorage.getItem("doctorId"));
+
         set_Auth(true);
         window.location.href = "/";
     } catch (error) {

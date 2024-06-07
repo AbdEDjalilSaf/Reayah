@@ -45,16 +45,16 @@ function Mobile_Nav({ Active_nav, Logout, LogoutClicked }) {
                 {isAuth ? (
                     <Link
                         to={
-                            patientId
+                            patientId != "null"
                                 ? `/Patients/${patientId}/Profile`
-                                : doctorId
-                                ? doctorId`/Doctores/${doctorId}/Profile`
+                                : doctorId != "null"
+                                ? `/Doctores/${doctorId}/Profile`
                                 : "/"
                         }
                         className=" w-8 h-8 rounded-full  flex items-center justify-center"
                     >
                         {/* <img src={user} alt="" />{" "} */}
-                        <FaRegUser className=" text-white text-2xl "/>
+                        <FaRegUser className=" text-white text-2xl " />
                     </Link>
                 ) : (
                     <div className=" w-8 h-8"></div>

@@ -100,10 +100,10 @@ function Mobile_Nav_Items({
                                         <Link
                                             onClick={Toogle_Menu_Bar}
                                             to={
-                                                patientId
+                                                patientId !== "null"
                                                     ? `/Patients/${patientId}`
-                                                    : doctorId
-                                                    ? doctorId`/Doctores/${doctorId}`
+                                                    : doctorId !== "null"
+                                                    ? `/Doctores/${doctorId}`
                                                     : "/"
                                             }
                                             className="select-none bg-blue bg-white text-black_text px-3 py-2 rounded-lg"

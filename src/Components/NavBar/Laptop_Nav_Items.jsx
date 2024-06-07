@@ -21,6 +21,14 @@ function Laptop_Nav_Items({
 }) {
     const patientId = window.localStorage.getItem("patientId");
     const doctorId = window.localStorage.getItem("doctorId");
+    useEffect(() => {
+        console.log("patientId : ", patientId);
+        console.log("doctorId : ", doctorId);
+        console.log("doctorId == null :", doctorId == "null");
+        console.log("patientId == null :", patientId == "null");
+        console.log("------------------------");
+    }, [patientId, doctorId]);
+
     const { Notifications, _id } = useAppContext();
     const [Profile_menu_open, setProfile_menu_open] = useState(false);
     const toogle_Profile_menu_open = () => {
@@ -130,10 +138,10 @@ function Laptop_Nav_Items({
                                     >
                                         <Link
                                             to={
-                                                patientId
+                                                patientId !== "null"
                                                     ? `/Patients/${patientId}/Profile`
-                                                    : doctorId
-                                                    ? doctorId`/Doctores/${doctorId}/Profile`
+                                                    : doctorId !== "null"
+                                                    ? `/Doctores/${doctorId}/Profile`
                                                     : "/"
                                             }
                                             className="select-none flex items-center gap-3 pl-4 mb-1 "
@@ -144,12 +152,48 @@ function Laptop_Nav_Items({
                                             </span>
                                         </Link>
                                         <div className="bg-gray_white w-full h-[1px] my-1"></div>
+                                        {/* {doctorId !== "null" ? (
+                                            <Link
+                                                to={`/Doctores/${doctorId}/Notifications`}
+                                                className="select-none flex items-center gap-3 pl-4 mb-1 "
+                                            >
+                                                <img
+                                                    src={notification}
+                                                    alt=""
+                                                />{" "}
+                                                <span className=" font-semibold text-gray text-md">
+                                                    Notifications doctore
+                                                </span>
+                                            </Link>
+                                        ) : patientId !== "null" ? (
+                                            <Link
+                                                to={`/Patients/${patientId}/Notifications`}
+                                                className="select-none flex items-center gap-3 pl-4 mb-1 "
+                                            >
+                                                <img
+                                                    src={notification}
+                                                    alt=""
+                                                />{" "}
+                                                <span className=" font-semibold text-gray text-md">
+                                                    Notifications patient
+                                                </span>
+                                            </Link>
+                                        ) : (
+                                            <Link
+                                                to={"/"}
+                                                className="select-none flex items-center gap-3 pl-4 mb-1 "
+                                            >
+                                                <span className=" font-semibold text-gray text-md">
+                                                    Notifications
+                                                </span>
+                                            </Link>
+                                        )} */}
                                         <Link
                                             to={
-                                                patientId
+                                                patientId !== "null"
                                                     ? `/Patients/${patientId}/Notifications`
-                                                    : doctorId
-                                                    ? doctorId`/Doctores/${doctorId}/Notifications`
+                                                    : doctorId !== "null"
+                                                    ? `/Doctores/${doctorId}/Notifications`
                                                     : "/"
                                             }
                                             className="select-none flex items-center gap-3 pl-4 mb-1 "
@@ -190,10 +234,10 @@ function Laptop_Nav_Items({
                             <span className="bg-green text-[#fff] px-3 py-1 text-md rounded-lg cursor-pointer">
                                 <Link
                                     to={
-                                        patientId
+                                        patientId !== "null"
                                             ? `/Patients/${patientId}`
-                                            : doctorId
-                                            ? doctorId`/Doctores/${doctorId}`
+                                            : doctorId !== "null"
+                                            ? `/Doctores/${doctorId}`
                                             : "/"
                                     }
                                     className="select-none"
