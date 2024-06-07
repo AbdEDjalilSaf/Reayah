@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 // import handleLogin from "./Post_Register";
 import Swal from "sweetalert2";
@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import Facbook_icon from "../../../../public/icons/facebook.png";
 import Google_icon from "../../../../public/icons/google.png";
 import { useAppContext } from "../../../AppContext";
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
+
 async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
     try {
         let response = await Axios.post(
@@ -28,23 +31,12 @@ async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
             response.data.user.id_patient,
             response.data.user.id_doctor
         );
-        // window.localStorage.removeItem("access");
-        // window.localStorage.removeItem("refresh");
-        // window.localStorage.removeItem("userId");
-        // window.localStorage.removeItem("patientId");
-        // window.localStorage.removeItem("doctorId");
 
         window.localStorage.setItem("access", response.data.access);
         window.localStorage.setItem("refresh", response.data.refresh);
         window.localStorage.setItem("userId", response.data.user.id);
         window.localStorage.setItem("patientId", response.data.user.id_patient);
         window.localStorage.setItem("doctorId", response.data.user.id_doctor);
-
-        // console.log(window.localStorage.getItem("access"));
-        // console.log(window.localStorage.getItem("refresh"));
-        // console.log(window.localStorage.getItem("userId"));
-        // console.log(window.localStorage.getItem("patientId"));
-        // console.log(window.localStorage.getItem("doctorId"));
 
         set_Auth(true);
         window.location.href = "/";
@@ -58,6 +50,10 @@ async function handleLogin(values, store_login, set_Auth, { setSubmitting }) {
 function Login() {
     const { isAuth, set_Auth, store_login, userId, patientId, doctorId } =
         useAppContext();
+    const [showPassword, setShowPassword] = useState(false);
+    const toogleShowPwd = () => {
+        setShowPassword(!showPassword);
+    };
     // useEffect(() => {
     //     console.log(userId, patientId, doctorId);
     // }, [userId, patientId, doctorId]);
@@ -127,14 +123,27 @@ function Login() {
                                 <div className=" font-semibold  pb-1">
                                     Password{" "}
                                 </div>
-                                <div className=" flex items-center">
+                                <div className="px-2 gap-2 py-2 flex items-center bg-perpol bg-opacity-25 border-2 rounded-lg border-perpol ">
                                     <Field
                                         // placeholder="•••••••••••••••••••"
-                                        type="text"
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
                                         name="Password"
                                         disabled={isSubmitting}
-                                        className="border-2  px-4 py-2  bg-perpol bg-opacity-25 border-perpol rounded-lg   w-full"
+                                        className="    bg-transparent    w-full"
                                     />
+                                    {showPassword ? (
+                                        <FaRegEyeSlash
+                                            className=" text-xl  shrink-0 w-fit cursor-pointer"
+                                            onClick={toogleShowPwd}
+                                        />
+                                    ) : (
+                                        <FaRegEye
+                                            className=" text-xl  shrink-0 w-fit cursor-pointer"
+                                            onClick={toogleShowPwd}
+                                        />
+                                    )}
                                 </div>
 
                                 <ErrorMessage

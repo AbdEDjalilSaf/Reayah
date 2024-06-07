@@ -6,6 +6,9 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 import Facbook_icon from "../../../../public/icons/facebook.png";
 import Google_icon from "../../../../public/icons/google.png";
+import { useState } from "react";
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 async function handleRegister(
     values,
@@ -54,6 +57,10 @@ async function handleRegister(
 }
 
 function Form_component({ user, change_user, Toogle_Form_Done }) {
+    const [showPassword, setShowPassword] = useState(false);
+    const toogleShowPwd = () => {
+        setShowPassword(!showPassword);
+    };
     return (
         <div className=" flex flex-col md:flex-row justify-center  items-center md:items-start md:gap-6">
             <div className=" w-[250px] lg:w-[300px] text-2xl font-semibold py-6  md:py-28 text-center md:text-start">
@@ -145,41 +152,71 @@ function Form_component({ user, change_user, Toogle_Form_Done }) {
 
                             <div className=" relative">
                                 <div className=" font-semibold  pb-1">
-                                    Password{" "}
+                                    enter your password{" "}
                                 </div>
-                                <div className=" flex items-center">
+                                <div className="px-2 gap-2 py-2 flex items-center bg-perpol bg-opacity-25 border-2 rounded-lg border-perpol ">
                                     <Field
                                         // placeholder="•••••••••••••••••••"
-                                        type="text"
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
                                         name="Password"
                                         disabled={isSubmitting}
-                                        className="border-2  px-4 py-2  bg-perpol bg-opacity-25 border-perpol rounded-lg   w-full"
+                                        className="    bg-transparent    w-full"
+                                    />
+                                    {showPassword ? (
+                                        <FaRegEyeSlash
+                                            className=" text-xl  shrink-0 w-fit cursor-pointer"
+                                            onClick={toogleShowPwd}
+                                        />
+                                    ) : (
+                                        <FaRegEye
+                                            className=" text-xl  shrink-0 w-fit cursor-pointer"
+                                            onClick={toogleShowPwd}
+                                        />
+                                    )}
+                                    <ErrorMessage
+                                        name="Password"
+                                        component="div"
+                                        style={errorInputMessage}
                                     />
                                 </div>
-
-                                <ErrorMessage
-                                    name="Password"
-                                    component="div"
-                                    style={errorInputMessage}
-                                />
                             </div>
+
                             <div className=" relative">
                                 <div className=" font-semibold  pb-1">
                                     Re-enter your password{" "}
                                 </div>
-                                <Field
-                                    // placeholder="example.google@gmail.com"
-                                    type="text"
-                                    name="Confirm_Password"
-                                    disabled={isSubmitting}
-                                    className="border-2  px-4 py-2  bg-perpol bg-opacity-25 border-perpol rounded-lg   w-full"
-                                />
-                                <ErrorMessage
-                                    name="Confirm_Password"
-                                    component="div"
-                                    style={errorInputMessage}
-                                />
+
+                                <div className="px-2 gap-2 py-2 flex items-center bg-perpol bg-opacity-25 border-2 rounded-lg border-perpol ">
+                                    <Field
+                                        // placeholder="•••••••••••••••••••"
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
+                                        name="Confirm_Password"
+                                        disabled={isSubmitting}
+                                        className="    bg-transparent    w-full"
+                                    />
+                                    {showPassword ? (
+                                        <FaRegEyeSlash
+                                            className=" text-xl  shrink-0 w-fit cursor-pointer"
+                                            onClick={toogleShowPwd}
+                                        />
+                                    ) : (
+                                        <FaRegEye
+                                            className=" text-xl  shrink-0 w-fit cursor-pointer"
+                                            onClick={toogleShowPwd}
+                                        />
+                                    )}
+                                    <ErrorMessage
+                                        name="Confirm_Password"
+                                        component="div"
+                                        style={errorInputMessage}
+                                    />
+                                </div>
                             </div>
+
                             {isSubmitting ? (
                                 <span className="small-loader mt-4 mb-2  w-full m-auto"></span>
                             ) : (
