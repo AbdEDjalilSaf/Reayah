@@ -19,7 +19,7 @@ function Patient() {
     const [Active_nav, setActive_nav] = useState("Home");
     const Navigate = useNavigate();
     const patientId = window.localStorage.getItem("patientId");
-
+    const doctorId = window.localStorage.getItem("doctorId");
     useEffect(() => {
         const fetch_images = () => {
             return new Promise((resolve, reject) => {
@@ -83,25 +83,16 @@ function Patient() {
         };
         const fetchData = async () => {
             try {
-                const refresh = window.localStorage.getItem("refresh");
-                // console.log("refresh token from  Get Profile :", refresh);
-                if (refresh) {
-                    const response = await axios.get(
-                        `https://api.reayahmed.com/patient/${patientId}/`,
-                        {
-                            withCredentials: true,
-                            // validateStatus: () => true,
-                        }
-                    );
-                    console.log("response from  get Profile :", response.data);
-                    if (response.status == 200) {
-                        set_user(response.data);
-                    } else {
-                        set_Auth(false);
-                        // window.localStorage.removeItem("refresh");
-                        // window.localStorage.removeItem("access");
-                        // window.location.href = "/";
+                const response = await axios.get(
+                    `https://api.reayahmed.com/patient/${patientId}/`,
+                    {
+                        withCredentials: true,
+                        // validateStatus: () => true,
                     }
+                );
+                console.log("response from  get Profile :", response.data);
+                if (response.status == 200) {
+                    set_user(response.data);
                 } else {
                     set_Auth(false);
                     // window.localStorage.removeItem("refresh");
@@ -116,7 +107,7 @@ function Patient() {
                 // window.location.href = "/";
             }
         };
-        if (!patientId) Navigate("/");
+        if (patientId == "null" || doctorId !== "null") Navigate("/");
         else
             Promise.all([fetch_fonts(), fetch_images(), fetchData()])
                 .then(() => {

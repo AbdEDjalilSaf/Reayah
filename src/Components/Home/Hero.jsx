@@ -12,6 +12,7 @@ function Hero() {
     const handleChangeSearch = (e) => {
         setSearch(e.target.value);
     };
+    const doctorId = window.localStorage.getItem("doctorId");
     return (
         <div>
             <div className=" flex flex-col md:flex-row items-center justify-center gap-6 py-12 md:py-28">
@@ -30,7 +31,7 @@ function Hero() {
                         </span>
                         <br className=" block md:hidden" /> for a Better Life
                     </div>
-                    {isAuth ? (
+                    {isAuth && doctorId == "null" ? (
                         <div className=" flex flex-col md:flex-row justify-center items-start gap-2  mt-6 ">
                             <div className=" flex items-center justify-start shadow-lg py-2 px-2 border-b-2  border-perpol rounded-xl w-[300px]">
                                 <img

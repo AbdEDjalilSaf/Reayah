@@ -91,28 +91,19 @@ function Doctor() {
         };
         const fetchData = async () => {
             try {
-                const refresh = window.localStorage.getItem("refresh");
-                // console.log("refresh token from  Get Profile :", refresh);
-                if (refresh) {
-                    const response = await axios.get(
-                        `https://api.reayahmed.com/doctor/UpdateProfile/${DoctorId}/`,
-                        {
-                            withCredentials: true,
-                            // validateStatus: () => true,
-                        }
-                    );
-                    console.log(
-                        "response from  get doctore Profile :",
-                        response.data
-                    );
-                    if (response.status == 200) {
-                        set_user(response.data);
-                    } else {
-                        set_Auth(false);
-                        // window.localStorage.removeItem("refresh");
-                        // window.localStorage.removeItem("access");
-                        // window.location.href = "/";
+                const response = await axios.get(
+                    `https://api.reayahmed.com/doctor/UpdateProfile/${DoctorId}/`,
+                    {
+                        withCredentials: true,
+                        // validateStatus: () => true,
                     }
+                );
+                console.log(
+                    "response from  get doctore Profile :",
+                    response.data
+                );
+                if (response.status == 200) {
+                    set_user(response.data);
                 } else {
                     set_Auth(false);
                     // window.localStorage.removeItem("refresh");
