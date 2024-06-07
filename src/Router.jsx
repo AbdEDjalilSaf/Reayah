@@ -11,6 +11,9 @@ import ContactUs from "./Components/ContactUs/ContactUs";
 import Search from "./Components/Search/Search";
 import Patient from "./Components/Profile/Patient/Patient";
 import Doctore from "./Components/Profile/Doctore/Doctore";
+
+import Patient_Defualt from "./Components/Profile/Patient/Default";
+import Doctore_Defualt from "./Components/Profile/Doctore/Default";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -61,6 +64,7 @@ const routes = createBrowserRouter([
         path: "/Patients/:id",
         element: <Patient />,
         children: [
+            { path: "/Patients/:id", element: <Patient_Defualt /> },
             { path: "/Patients/:id/Profile", element: <Not_Finished /> },
             { path: "/Patients/:id/Notifications", element: <Not_Finished /> },
             {
@@ -73,6 +77,7 @@ const routes = createBrowserRouter([
         path: "/Doctores/:id",
         element: <Doctore />,
         children: [
+            { path: "/Doctores/:id", element: <Doctore_Defualt /> },
             { path: "/Doctores/:id/Profile", element: <Not_Finished /> },
             { path: "/Doctores/:id/Notifications", element: <Not_Finished /> },
             {
