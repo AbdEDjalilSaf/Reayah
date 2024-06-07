@@ -74,7 +74,7 @@ const routes = createBrowserRouter([
         children: [
             { path: "/Patients/:id", element: <Patient_Defualt /> },
             { path: "/Patients/:id/Profile", element: <Not_Finished /> },
-            { path: "/Patients/:id/Notifications", element: <Not_Finished /> },
+            // { path: "/Patients/:id/Notifications", element: <Not_Finished /> },
             {
                 path: "*",
                 element: <Not_Found />,
@@ -99,7 +99,7 @@ const routes = createBrowserRouter([
         children: [
             { path: "/Doctores/:id", element: <Doctore_Defualt /> },
             { path: "/Doctores/:id/Profile", element: <Not_Finished /> },
-            { path: "/Doctores/:id/Notifications", element: <Not_Finished /> },
+            // { path: "/Doctores/:id/Notifications", element: <Not_Finished /> },
         ],
     },
     {

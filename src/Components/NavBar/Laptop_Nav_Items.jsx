@@ -154,7 +154,7 @@ function Laptop_Nav_Items({
                                         <div className="bg-gray_white w-full h-[1px] my-1"></div>
                                         {/* {doctorId !== "null" ? (
                                             <Link
-                                                to={`/Doctores/${doctorId}/Notifications`}
+                                                to={`/Doctores/${doctorId}/Profile`}
                                                 className="select-none flex items-center gap-3 pl-4 mb-1 "
                                             >
                                                 <img
@@ -167,7 +167,7 @@ function Laptop_Nav_Items({
                                             </Link>
                                         ) : patientId !== "null" ? (
                                             <Link
-                                                to={`/Patients/${patientId}/Notifications`}
+                                                to={`/Patients/${patientId}/Profile`}
                                                 className="select-none flex items-center gap-3 pl-4 mb-1 "
                                             >
                                                 <img
@@ -191,9 +191,9 @@ function Laptop_Nav_Items({
                                         <Link
                                             to={
                                                 patientId !== "null"
-                                                    ? `/Patients/${patientId}/Notifications`
+                                                    ? `/Patients/${patientId}/Profile`
                                                     : doctorId !== "null"
-                                                    ? `/Doctores/${doctorId}/Notifications`
+                                                    ? `/Doctores/${doctorId}/Profile`
                                                     : "/"
                                             }
                                             className="select-none flex items-center gap-3 pl-4 mb-1 "
