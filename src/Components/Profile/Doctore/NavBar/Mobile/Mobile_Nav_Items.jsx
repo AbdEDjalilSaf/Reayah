@@ -35,9 +35,9 @@ function Mobile_Nav_Items({
                         <div>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={`/Doctores/${doctorId}/Profile`}
+                                to={`/Doctores/${doctorId}/Overview`}
                                 className={`select-none flex items-center gap-2 mb-4  ml-6 mt-6 ${
-                                    Active_nav === "Profile"
+                                    Active_nav === "Overview"
                                         ? " bg-green px-3 w-fit rounded-full py-1"
                                         : "text-perpol hover:text-perpol "
                                 }`}

@@ -4,7 +4,7 @@ function Default() {
     const Navigate = useNavigate();
     const doctoreId = window.localStorage.getItem("doctorId");
     useEffect(() => {
-        Navigate(`/Doctores/${doctoreId}/Profile`);
+        Navigate(`/Doctores/${doctoreId}/Overview`);
     }, []);
     return null;
 }
