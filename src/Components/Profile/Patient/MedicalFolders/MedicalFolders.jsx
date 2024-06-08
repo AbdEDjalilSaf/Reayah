@@ -4,8 +4,8 @@ import { useNavigate } from "react-router";
 import { useAppContext } from "../../../../AppContext";
 import Swal from "sweetalert2";
 import Logo_perpole from "../../../../../public/Logo_perpole.png";
-import { MdAddCircleOutline } from "react-icons/md";
-
+import { HiOutlineFolderAdd } from "react-icons/hi";
+import { Link } from "react-router-dom";
 function Folders() {
     const [loading, setLoading] = useState(true);
     const [Folders, setFolders] = useState([]);
@@ -59,32 +59,41 @@ function Folders() {
     return (
         <div className=" bg-perpol bg-opacity-40 flex items-center justify-center w-full min-h-screen">
             <div className=" w-[96%] min-h-[95vh] mx-auto bg-white rounded-lg  ">
-                <div className=" text-3xl pt-6 pl-6 text-perpol font-bold ">
-                    Appointments
+                <div className=" flex justify-between mx-10">
+                    <div className=" text-3xl pt-6 pl-6 text-perpol font-bold ">
+                        Folders
+                    </div>
+                    <Link
+                        to={`/Patients/${patientId}/Medical_Folders/Add`}
+                        className=" flex items-center justify-center pt-6 gap-2"
+                    >
+                        <HiOutlineFolderAdd className=" text-3xl text-perpol" />
+                        <div className=" text-2xl text-perpol">Add Folder</div>
+                    </Link>
                 </div>
+
                 <div className=" pt-12">
                     {Folders.length == 0 ? (
                         <div className=" flex flex-col gap-4 ">
                             <div className=" text-center pt-12 text-xl text-gray font-semibold">
                                 You have no Folders
                             </div>
-                            <div></div>
                         </div>
                     ) : (
-                        Folders.map((appoint) => {
+                        Folders.map((folder) => {
                             return (
                                 <div className=" flex items-center justify-between border-b-2 border-gray-200 p-4">
                                     <div className=" text-lg font-semibold text-gray-600">
-                                        {appoint.doctor_name}
+                                        {folder.name}
                                     </div>
                                     <div className=" text-lg font-semibold text-gray-600">
-                                        {appoint.date}
+                                        {folder.date}
                                     </div>
                                     <div className=" text-lg font-semibold text-gray-600">
-                                        {appoint.time}
+                                        {folder.time}
                                     </div>
                                     <div className=" text-lg font-semibold text-gray-600">
-                                        {appoint.status}
+                                        {folder.status}
                                     </div>
                                 </div>
                             );
@@ -97,7 +106,7 @@ function Folders() {
                 font-semibold flex items-center justify-between px-12"
                 >
                     <div>
-                        <div>Next Appointment</div>
+                        <div>Next folderment</div>
                         <div>Dr.Mohamed</div>
                     </div>
                     <div className=" text-green">April 18th</div>

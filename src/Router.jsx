@@ -21,7 +21,7 @@ import Patient_Inbox from "./Components/Profile/Patient/Inbox/Inbox";
 import Patient_MedicalFolders from "./Components/Profile/Patient/MedicalFolders/MedicalFolders";
 import Patient_Profile from "./Components/Profile/Patient/Profile/Profile";
 import Patient_Settings from "./Components/Profile/Patient/Settings/Settings";
-
+import Patient_Add_MedicalFolder from "./Components/Profile/Patient/MedicalFolders/Add";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -85,6 +85,10 @@ const routes = createBrowserRouter([
             {
                 path: "/Patients/:id/Medical_Folders",
                 element: <Patient_MedicalFolders />,
+            },
+            {
+                path: "/Patients/:id/Medical_Folders/Add",
+                element: <Patient_Add_MedicalFolder />,
             },
             { path: "/Patients/:id/Settings", element: <Patient_Settings /> },
             {
