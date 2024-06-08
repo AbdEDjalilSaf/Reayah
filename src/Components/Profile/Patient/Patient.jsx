@@ -10,6 +10,7 @@ import Medical_Folders from "../../../../public/Profiles/Nav/Medical_Folders.svg
 import Consultation from "../../../../public/Profiles/Nav/Consultation.svg";
 import inbox_icon from "../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../public/Profiles/Nav/Settings.svg";
+import Logo_perpole from "../../../../public/Logo_perpole.png";
 
 import { useAppContext } from "../../../AppContext";
 import NavBar from "./NavBar/NavBar";
@@ -123,7 +124,11 @@ function Patient() {
     }, [user]);
     if (loading) {
         return (
-            <div className=" w-screen h-screen flex items-center justify-center">
+            <div
+                className=" w-screen h-screen flex items-center 
+            justify-center gap-5 flex-col"
+            >
+                <img src={Logo_perpole} className=" w-24" alt="" />
                 <span className="loader"></span>
             </div>
         );

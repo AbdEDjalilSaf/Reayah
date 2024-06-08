@@ -87,7 +87,11 @@ function Search() {
     }, [search_result]);
     if (loading)
         return (
-            <div className=" w-screen h-screen flex flex-col items-center justify-center">
+            <div
+                className=" w-screen h-screen flex items-center 
+            justify-center gap-5 flex-col "
+            >
+                <img src={bot_icon} className=" w-20 animate-up-down" alt="" />
                 <span className="loader"></span>
             </div>
         );

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { useAppContext } from "../../../../AppContext";
 import Swal from "sweetalert2";
-
+import Logo_perpole from "../../../../../public/Logo_perpole.png";
 function Appoints() {
     const [loading, setLoading] = useState(true);
     const [appoints, setAppoints] = useState([]);
@@ -45,7 +45,11 @@ function Appoints() {
     }, []);
     if (loading) {
         return (
-            <div className=" w-[80vw] h-screen flex items-center justify-center">
+            <div
+                className=" w-screen h-screen flex items-center 
+            justify-center gap-5 flex-col"
+            >
+                <img src={Logo_perpole} className=" w-24" alt="" />
                 <span className="loader"></span>
             </div>
         );
@@ -61,8 +65,8 @@ function Appoints() {
                         <div className=" flex flex-col gap-4 ">
                             <div className=" text-center pt-12 text-xl text-gray font-semibold">
                                 You have no Appointments
-                </div>
-                <div></div>
+                            </div>
+                            <div></div>
                         </div>
                     ) : (
                         appoints.map((appoint) => {

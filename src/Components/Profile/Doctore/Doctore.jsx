@@ -15,6 +15,7 @@ import Patients_icon from "../../../../public/Profiles/Nav/Patients.svg";
 import Overview_icon from "../../../../public/Profiles/Nav/Overview.svg";
 import Wallet_icon from "../../../../public/Profiles/Nav/Wallet.svg";
 
+import Logo_perpole from "../../../../public/Logo_perpole.png";
 import { useAppContext } from "../../../AppContext";
 import NavBar from "./NavBar/NavBar";
 function Doctor() {
@@ -134,7 +135,11 @@ function Doctor() {
     }, [user]);
     if (loading) {
         return (
-            <div className=" w-screen h-screen flex items-center justify-center">
+            <div
+                className=" w-screen h-screen flex items-center 
+            justify-center gap-5 flex-col"
+            >
+                <img src={Logo_perpole} className=" w-24" alt="" />
                 <span className="loader"></span>
             </div>
         );
