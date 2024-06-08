@@ -61,7 +61,13 @@ function Appoints() {
                     Appointments
                 </div>
                 <div className=" pt-12">
-                    {appoints.length == 0 ? (
+                    <div className=" flex flex-col gap-4 ">
+                        <div className=" text-center pt-12 text-xl text-gray font-semibold">
+                            You have no Appointments
+                        </div>
+                        <div></div>
+                    </div>
+                    {/* {appoints.length == 0 ? (
                         <div className=" flex flex-col gap-4 ">
                             <div className=" text-center pt-12 text-xl text-gray font-semibold">
                                 You have no Appointments
@@ -87,7 +93,7 @@ function Appoints() {
                                 </div>
                             );
                         })
-                    )}
+                    )} */}
                 </div>
                 {/* <div
                     div
