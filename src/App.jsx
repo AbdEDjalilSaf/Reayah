@@ -17,6 +17,8 @@ import Bot from "../public/Bot.png";
 import Logout_icon from "../public/Logout.svg";
 import notification from "../public/notification.svg";
 import user from "../public/user.svg";
+import about_image from "../public/Aboutus.jpg";
+import Contact from "../public/Contact/Contact.png";
 import Menu_Toogler from "../public/Menu_Toogler.svg";
 import { useAppContext } from "./AppContext";
 import NavBar from "./Components/NavBar/NavBar";
@@ -30,6 +32,8 @@ function App() {
             return new Promise((resolve, reject) => {
                 const images = [
                     Hero,
+                    Contact,
+                    about_image,
                     Are_You_Doctore,
                     icon_paper,
                     icon_secure,
@@ -145,8 +149,10 @@ function App() {
     }, [isAuth]);
     if (loading) {
         return (
-          <div className=" w-screen h-screen flex items-center 
-            justify-center gap-5 flex-col">
+            <div
+                className=" w-screen h-screen flex items-center 
+            justify-center gap-5 flex-col"
+            >
                 <img src={Logo_perpole} className=" w-24" alt="" />
                 <span className="loader"></span>
             </div>

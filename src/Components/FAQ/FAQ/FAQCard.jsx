@@ -22,12 +22,12 @@ const FAQCard = ({ FAQ, index }) => {
       className=" md:w-[60%]  max-md:mx-2 max-md:px-2 my-5 mx-auto rounded-lg bg-zinc-100 py-1 md:px-5 duration-500"
     >
       <button
-        className={`w-full flex items-center justify-start gap-4 hover:bg-gray md:py-[17px]  bg-zinc-100 rounded-[3px]${
+        className={`w-full flex items-center justify-start gap-4  md:py-[17px]  bg-zinc-100 rounded-[3px]${
           isOpen ? "rounded-[3px]" : ""
         }`}
         onClick={toggleAccordion}
       >
-        <div className="w-full py-1 text-left max-md:text-sm text-zinc-700 text-lg">
+        <div className="w-full py-1 text-left max-md:text-sm text-zinc-700 text-lg font-semibold">
           {index}.{FAQ?.question}
         </div>
         <div
