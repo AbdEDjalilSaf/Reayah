@@ -76,8 +76,8 @@ function NavBar({ Active_nav, setActive_nav }) {
     // }, [Notifications]);
     return (
         <div
-            className={` fixed  h-[50px] md:h-[60px] m-0  z-40 w-full bg-perpol_b `}
-            // className={`   h-[50px] md:h-[60px] m-0  z-40 w-full bg-perpol_b `}
+            className={` fixed  h-[60px] md:h-[60px] m-0  z-40 w-full bg-perpol_b `}
+            // className={`   h-[60px] md:h-[60px] m-0  z-40 w-full bg-perpol_b `}
         >
             <Laptop_Nav_Items
                 Active_nav={Active_nav}
