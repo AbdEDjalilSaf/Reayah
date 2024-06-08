@@ -141,7 +141,7 @@ function Laptop() {
                     <span>Settings</span>
                 </Link>
 
-                <Link
+                {/* <Link
                     to={`/Doctores/${doctoreId}/Wallet`}
                     className={` ${
                         Active_nav == "Wallet"
@@ -151,7 +151,7 @@ function Laptop() {
                 >
                     <img src={Wallet_icon} className=" w-7" alt="" />
                     <span>Wallet</span>
-                </Link>
+                </Link> */}
             </div>
             <div className="pl-8">
                 {LogoutClicked ? (

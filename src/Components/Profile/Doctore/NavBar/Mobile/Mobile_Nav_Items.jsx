@@ -113,7 +113,7 @@ function Mobile_Nav_Items({
                                 <img src={Settings_icon} className="  w-7" />{" "}
                                 Settings
                             </Link>
-                            <Link
+                            {/* <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Doctores/${doctorId}/Wallet`}
                                 className={`select-none flex items-center   gap-2  mb-4  ml-6 mt-6 ${
@@ -124,7 +124,7 @@ function Mobile_Nav_Items({
                             >
                                 <img src={Wallet_icon} className="  w-7" />{" "}
                                 Wallet
-                            </Link>
+                            </Link> */}
                         </div>
                         <div>
                             <>
