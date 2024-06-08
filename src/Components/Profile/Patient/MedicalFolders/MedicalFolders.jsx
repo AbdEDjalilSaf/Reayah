@@ -137,7 +137,7 @@ function Folders() {
                                 id="name_input"
                                 className=" w-full h-12 border-2 border-gray_white rounded-lg px-4"
                             />
-                            <div className=" flex items-center justify-between">
+                            <div className=" flex items-center justify-between gap-6">
                                 {Loading_AddFolder ? (
                                     <div className="mx-auto mt-2 small-loader"></div>
                                 ) : (
@@ -157,7 +157,7 @@ function Folders() {
 
                                 <button
                                     onClick={toogleAddFolder}
-                                    className=" w-1/2 h-12 bg-gray text-gray rounded-lg mt-4"
+                                    className=" w-1/2 h-12 bg-red-500 text-white rounded-lg mt-4"
                                 >
                                     Cancel
                                 </button>
@@ -173,30 +173,30 @@ function Folders() {
                             </div>
                         </div>
                     ) : (
-                        <table className="w-[90%] mx-auto rounded-lg border-collapse border border-gray">
-                            <thead className=" ">
+                        <table className="w-[90%] mx-auto rounded-lg  ">
+                            <thead>
                                 <tr className="bg-perpol text-white font-semibold">
-                                    <th className="border border-gray py-2 px-4 text-left">
+                                    <th className=" py-2 px-4 text-left rounded-tl-lg border-r">
                                         Name
                                     </th>
-                                    <th className="border border-gray py-2 px-4 text-left">
+                                    <th className=" py-2 px-4 text-left border-r">
                                         Created at
                                     </th>
-                                    <th className="border border-gray py-2 px-4 text-left">
-                                        size
+                                    <th className=" py-2 px-4 text-left rounded-tr-lg">
+                                        Size
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {Folders.map((folder) => (
-                                    <tr key={folder.id} className="">
-                                        <td className="border border-gray py-2 px-4  w-[50%] text-gray text-lg font-semibold">
-                                            {folder.name}
+                                    <tr key={folder?.id} className="">
+                                        <td className="border border-gray py-2 px-4 w-[50%] text-gray text-sm font-semibold">
+                                            {folder?.name}
                                         </td>
-                                        <td className="border border-gray py-2 px-4 w-[35%] text-gray text-lg font-semibold text-center">
-                                            {folder.created_at}
+                                        <td className="border border-gray py-2 px-4 w-[35%] text-gray text-sm font-semibold text-center">
+                                            {folder?.created_at}
                                         </td>
-                                        <td className="border border-gray py-2 px-4 w-[15%] text-gray text-lg font-semibold text-center">
+                                        <td className="border border-gray py-2 px-4 w-[15%] text-gray text-sm font-semibold text-center">
                                             15.1mb
                                         </td>
                                     </tr>
