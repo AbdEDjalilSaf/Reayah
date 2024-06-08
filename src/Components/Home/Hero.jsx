@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero_img from "../../../public/Home/Hero.png";
 import search_image from "../../../public/search.svg";
 import trend_up from "../../../public/Home/trend_up.svg";
@@ -13,9 +13,22 @@ function Hero() {
         setSearch(e.target.value);
     };
     const doctorId = window.localStorage.getItem("doctorId");
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Enter" && search.length > 0) {
+                Navigate(`/Search?q=${search}`);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [search, Navigate]);
     return (
         <div>
-            <div className=" flex flex-col md:flex-row items-center justify-center gap-6 py-12 md:py-28">
+            <div className=" flex flex-col md:flex-row items-center md:items-start justify-center gap-6 py-12 md:py-28">
                 <div>
                     <div className=" text-2xl font-semibold w-[300px] md:w-[350px] text-black_text   ">
                         <span className=" relative  ">
@@ -32,23 +45,43 @@ function Hero() {
                         <br className=" block md:hidden" /> for a Better Life
                     </div>
                     {isAuth && doctorId == "null" ? (
-                        <div className=" flex flex-col md:flex-row justify-center items-start gap-2  mt-6 ">
-                            <div className=" flex items-center justify-start shadow-lg py-2 px-2 border-b-2  border-perpol rounded-xl w-[300px]">
+                        <div className=" flex flex-col md:flex-row  gap-2  mt-6 ">
+                            <div
+                                className=" flex  shadow-lg py-2 px-2 border-b-2
+                              border-perpol rounded-xl w-[300px]"
+                            >
                                 <img
                                     src={search_image}
                                     alt=""
-                                    className=" w-5 mx-4 cursor-pointer"
+                                    id="search_button"
+                                    className=" w-5 h-fit pt-4 mx-4 cursor-pointer shrink-0"
                                     onClick={() => {
                                         if (search.length > 0)
                                             Navigate(`/Search?q=${search}`);
                                     }}
                                 />
-                                <input
-                                    type="text"
+                                
+                                <textarea
+                                    rows={1}
+                                    className="h-auto text-gray outline-0 placeholder:text-perpol placeholder:font-light 
+                                    resize-none overflow-hidden w-full pr-3 "
+                                    placeholder="I have pain in my acetabulum ..."
+                                    onChange={(e) => {
+                                        const textarea = e.target;
+                                        textarea.style.height = "auto"; // Reset height to calculate new height
+                                        textarea.style.height =
+                                            textarea.scrollHeight + "px"; // Set new height based on scrollHeight
+                                        setSearch(e.target.value); // Call your change handler
+                                    }}
+                                ></textarea>
+
+                                {/* <input
+                                    // type="textarea"
+                                    type="area"
                                     className="  text-gray  outline-0  placeholder:text-perpol placeholder:font-light "
                                     placeholder="I have pain in my acetabulum ..."
                                     onChange={handleChangeSearch}
-                                />
+                                /> */}
                             </div>
                             <div className=" pt-2">
                                 <div className=" w-2 h-2 bg-green rounded-full"></div>
