@@ -96,7 +96,7 @@ function Folders() {
     if (loading) {
         return (
             <div
-                className=" w-[80vw] h-screen flex items-center 
+                className=" w-screen md:w-[80vw] h-screen flex items-center 
             justify-center gap-5 flex-col"
             >
                 <img src={Logo_perpole} className=" w-24" alt="" />
@@ -165,7 +165,7 @@ function Folders() {
                         </div>
                     </div>
                 )}
-                <div className=" pt-12">
+                <div className=" py-12">
                     {Folders.length == 0 ? (
                         <div className=" flex flex-col gap-4 ">
                             <div className=" text-center pt-12 text-xl text-gray font-semibold">
@@ -173,34 +173,36 @@ function Folders() {
                             </div>
                         </div>
                     ) : (
-                        <>
-                            <table>
-                                <th>
-                                    <td>Folder Name</td>
-                                    <td>Created at</td>
-                                    <td>File size</td>
-                                </th>
-                                {Folders.map((folder) => {
-                                    return (
-                                        // <tr className=" flex items-center justify-between border-b-2 border-gray p-4">
-                                        <tr className=" ">
-                                            <div className=" text-lg font-semibold text-gray">
-                                                {folder.name}
-                                            </div>
-                                            <div className=" text-lg font-semibold text-gray">
-                                                {folder.created_at}
-                                            </div>
-                                            <div className=" text-lg font-semibold text-gray">
-                                                {folder.time}
-                                            </div>
-                                            <div className=" text-lg font-semibold text-gray">
-                                                {folder.status}
-                                            </div>
-                                        </tr>
-                                    );
-                                })}
-                            </table>
-                        </>
+                        <table className="w-[90%] mx-auto rounded-lg border-collapse border border-gray">
+                            <thead className=" ">
+                                <tr className="bg-perpol text-white font-semibold">
+                                    <th className="border border-gray py-2 px-4 text-left">
+                                        Name
+                                    </th>
+                                    <th className="border border-gray py-2 px-4 text-left">
+                                        Created at
+                                    </th>
+                                    <th className="border border-gray py-2 px-4 text-left">
+                                        size
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {Folders.map((folder) => (
+                                    <tr key={folder.id} className="">
+                                        <td className="border border-gray py-2 px-4  w-[50%] text-gray text-lg font-semibold">
+                                            {folder.name}
+                                        </td>
+                                        <td className="border border-gray py-2 px-4 w-[35%] text-gray text-lg font-semibold text-center">
+                                            {folder.created_at}
+                                        </td>
+                                        <td className="border border-gray py-2 px-4 w-[15%] text-gray text-lg font-semibold text-center">
+                                            15.1mb
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     )}
                 </div>
                 {/* <div

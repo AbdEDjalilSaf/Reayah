@@ -46,7 +46,7 @@ function Appoints() {
     if (loading) {
         return (
             <div
-                className=" w-[80vw] h-screen flex items-center 
+                className=" w-screen md:w-[80vw] h-screen flex items-center 
             justify-center gap-5 flex-col"
             >
                 <img src={Logo_perpole} className=" w-24" alt="" />
