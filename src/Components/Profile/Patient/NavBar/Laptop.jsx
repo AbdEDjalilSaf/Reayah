@@ -16,6 +16,7 @@ import Consultation from "../../../../../public/Profiles/Nav/Consultation.svg";
 import inbox_icon from "../../../../../public/Profiles/Nav/inbox.svg";
 import Settings_icon from "../../../../../public/Profiles/Nav/Settings.svg";
 import image_not_found from "../../../../../public/image_not_found.png";
+import { IoHomeOutline } from "react-icons/io5";
 
 function Laptop() {
     const Navigate = useNavigate();
@@ -157,23 +158,36 @@ function Laptop() {
                     <span>Settings</span>
                 </Link>
             </div>
-            <div className="pl-8">
-                {LogoutClicked ? (
-                    <div className="w-full ">
-                        <span className="small-loader font-bold  w-full m-auto"></span>
-                    </div>
-                ) : (
-                    <div
-                        className="cursor-pointer w-full 
+            <div className="pl-8 flex flex-col gap-3">
+                <Link
+                    to="/"
+                    className={` ${
+                        Active_nav == "Home"
+                            ? "bg-green text-perpol  px-4 "
+                            : "bg-white hover:text-green"
+                    }  transition-all duration-150  cursor-pointer py-1 select-none
+                      w-[200px] rounded-full flex items-center gap-2 `}
+                >
+                    <IoHomeOutline className="text-2xl  " /> <span>Home</span>
+                </Link>
+                <div>
+                    {LogoutClicked ? (
+                        <div className="w-full ">
+                            <span className="small-loader font-bold  w-full m-auto"></span>
+                        </div>
+                    ) : (
+                        <div
+                            className="cursor-pointer w-full 
                                     flex items-center gap-2 text-red-500"
-                        onClick={() => {
-                            handleLogout();
-                        }}
-                    >
-                        <TbLogout2 className="  text-xl" />
-                        Logout
-                    </div>
-                )}
+                            onClick={() => {
+                                handleLogout();
+                            }}
+                        >
+                            <TbLogout2 className="  text-xl" />
+                            Logout
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
