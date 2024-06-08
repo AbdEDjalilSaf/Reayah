@@ -3,7 +3,7 @@ import React from "react";
 function PatientsCard() {
   return (
     <div>
-      <div className="w-80 h-56 relative bg-gradient-to-l from-white to-purple-50 rounded-2xl">
+      <div className="w-80  h-56 relative bg-gradient-to-l  from-white to-purple-50 rounded-2xl">
         <div className="flex flex-col items-start py-6 pr-20 pl-6 font-semibold text-purple-700 whitespace-nowrap rounded-2xl max-w-[346px]">
           <img
             loading="lazy"
