@@ -79,7 +79,7 @@ const routes = createBrowserRouter([
             { path: "/Patients/:id/Appoints", element: <Patient_Appoints /> },
             {
                 path: "/Patients/:id/Consultations",
-                element: <Patient_Consultations />,
+                element: <Not_Finished />,
             },
             { path: "/Patients/:id/Inbox", element: <Patient_Inbox /> },
             {
