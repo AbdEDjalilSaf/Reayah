@@ -23,7 +23,7 @@ const KeyFeaturesCard = ({ feature }) => {
       className=" md:w-[60%]  max-md:mx-2 max-md:px-2 my-5 mx-auto rounded-lg bg-zinc-100 py-1 md:px-5 duration-500"
     >
       <button
-        className={`w-full flex items-center justify-start gap-4 hover:bg-gray-300 md:py-[17px]  bg-zinc-100 rounded-[3px]${
+        className={`w-full flex items-center justify-start gap-4 hover:bg-gray md:py-[17px]  bg-zinc-100 rounded-[3px]${
           isOpen ? "rounded-[3px]" : ""
         }`}
         onClick={toggleAccordion}

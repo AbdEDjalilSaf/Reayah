@@ -46,7 +46,7 @@ function Appoints() {
     if (loading) {
         return (
             <div
-                className=" w-[80vw] h-screen flex items-center 
+                className=" w-screen md:w-[80vw] h-screen flex items-center 
             justify-center gap-5 flex-col"
             >
                 <img src={Logo_perpole} className=" w-24" alt="" />
@@ -77,17 +77,17 @@ function Appoints() {
                     ) : (
                         appoints.map((appoint) => {
                             return (
-                                <div className=" flex items-center justify-between border-b-2 border-gray-200 p-4">
-                                    <div className=" text-lg font-semibold text-gray-600">
+                                <div className=" flex items-center justify-between border-b-2 border-gray p-4">
+                                    <div className=" text-lg font-semibold text-gray">
                                         {appoint.doctor_name}
                                     </div>
-                                    <div className=" text-lg font-semibold text-gray-600">
+                                    <div className=" text-lg font-semibold text-gray">
                                         {appoint.date}
                                     </div>
-                                    <div className=" text-lg font-semibold text-gray-600">
+                                    <div className=" text-lg font-semibold text-gray">
                                         {appoint.time}
                                     </div>
-                                    <div className=" text-lg font-semibold text-gray-600">
+                                    <div className=" text-lg font-semibold text-gray">
                                         {appoint.status}
                                     </div>
                                 </div>

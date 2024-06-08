@@ -92,7 +92,7 @@ const routes = createBrowserRouter([
         path: "/Patients/:id/Medical_Folders/Add",
         element: <Patient_Add_MedicalFolder />,
       },
-      { path: "/Patients/:id/Settings", element: <Patient_Settings /> },
+      { path: "/Patients/:id/Settings", element: <Not_Finished /> },
       {
         path: "*",
         element: <Not_Found />,
