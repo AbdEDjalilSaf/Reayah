@@ -7,7 +7,7 @@ function Not_Found() {
       text-gray font-bold md:pt-10 "
         >
             <div className="p-8 bg-white rounded-md shadow-lg text-center">
-                <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
+                <h1 className="text-3xl md:text-5xl mb-4 text-gray">
                     Oops! This Page Not Found
                 </h1>
                 <p className="text-lg mb-8 text-gray">
@@ -20,7 +20,7 @@ function Not_Found() {
                     alt="Under Construction"
                     className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"
                 />
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray">
                     Double-check the URL or Go back to the{" "}
                     <Link to={"/"} className=" text-green select-none">
                         home page.

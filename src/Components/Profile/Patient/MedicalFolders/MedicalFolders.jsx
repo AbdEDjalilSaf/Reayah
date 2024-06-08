@@ -56,7 +56,7 @@ function Folders() {
         setLoading_AddFolder(true);
         try {
             const response = await axios.post(
-                `https://api.reayahmed.com/patient/${patientId}/folder`,
+                `https://api.reayahmed.com/patient/${patientId}/folder/`,
                 { name: name },
                 {
                     withCredentials: true,
@@ -64,15 +64,16 @@ function Folders() {
                 }
             );
             console.log("response from  get Folders :", response.data);
-            if (response.status == 200) {
-                setFolders(response.data);
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            }
+            // if (response.status == 200) {
+            setFolders([...Folders, { name, patient: patientId }]);
+            console.log("Folders : ", Folders);
+            // } else {
+            //     Swal.fire({
+            //         icon: "error",
+            //         title: "Oops...",
+            //         text: "Something went wrong!",
+            //     });
+            // }
         } catch (error) {
             console.log("error from  Get Folders :", error);
             Swal.fire({
@@ -82,6 +83,7 @@ function Folders() {
             });
         } finally {
             setLoading_AddFolder(false);
+            toogleAddFolder();
         }
     };
     useEffect(() => {
@@ -121,13 +123,13 @@ function Folders() {
                 {addFolder && (
                     <div
                         className="absolute top-0 left-50 -translate-x-50 -translate-y-50 w-full h-full mx-auto rounded-lg
-                     bg-opacity-50 flex items-center justify-center  transition-all duration-300 bg-gray "
+                     bg-opacity-50 flex items-center justify-center  transition-all duration bg-gray "
                     >
                         <div className=" w-[90%] md:w-[50%] rounded-lg p-6 bg-white">
                             <div className=" text-3xl text-perpol font-bold text-center pb-4">
                                 Add Folder
                             </div>
-                            <div className=" text-md pb-2 text-gray  text-gray-600 font-semibold">
+                            <div className=" text-md pb-2 text-gray   font-semibold">
                                 Name
                             </div>
                             <input
@@ -155,7 +157,7 @@ function Folders() {
 
                                 <button
                                     onClick={toogleAddFolder}
-                                    className=" w-1/2 h-12 bg-gray-200 text-gray-600 rounded-lg mt-4"
+                                    className=" w-1/2 h-12 bg-gray text-gray rounded-lg mt-4"
                                 >
                                     Cancel
                                 </button>
@@ -171,24 +173,34 @@ function Folders() {
                             </div>
                         </div>
                     ) : (
-                        Folders.map((folder) => {
-                            return (
-                                <div className=" flex items-center justify-between border-b-2 border-gray-200 p-4">
-                                    <div className=" text-lg font-semibold text-gray-600">
-                                        {folder.name}
-                                    </div>
-                                    <div className=" text-lg font-semibold text-gray-600">
-                                        {folder.date}
-                                    </div>
-                                    <div className=" text-lg font-semibold text-gray-600">
-                                        {folder.time}
-                                    </div>
-                                    <div className=" text-lg font-semibold text-gray-600">
-                                        {folder.status}
-                                    </div>
-                                </div>
-                            );
-                        })
+                        <>
+                            <table>
+                                <th>
+                                    <td>Folder Name</td>
+                                    <td>Created at</td>
+                                    <td>File size</td>
+                                </th>
+                                {Folders.map((folder) => {
+                                    return (
+                                        // <tr className=" flex items-center justify-between border-b-2 border-gray p-4">
+                                        <tr className=" ">
+                                            <div className=" text-lg font-semibold text-gray">
+                                                {folder.name}
+                                            </div>
+                                            <div className=" text-lg font-semibold text-gray">
+                                                {folder.created_at}
+                                            </div>
+                                            <div className=" text-lg font-semibold text-gray">
+                                                {folder.time}
+                                            </div>
+                                            <div className=" text-lg font-semibold text-gray">
+                                                {folder.status}
+                                            </div>
+                                        </tr>
+                                    );
+                                })}
+                            </table>
+                        </>
                     )}
                 </div>
                 {/* <div
