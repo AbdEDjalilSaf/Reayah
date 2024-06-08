@@ -42,6 +42,48 @@ function Folders() {
             setLoading(false);
         }
     };
+    const [Loading_AddFolder, setLoading_AddFolder] = useState(false);
+    const handleAddFolder = async (name) => {
+        console.log("data to be sent : ", name);
+        if (!name) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please enter a name",
+            });
+            return;
+        }
+        setLoading_AddFolder(true);
+        try {
+            const response = await axios.post(
+                `https://api.reayahmed.com/patient/${patientId}/folder`,
+                { name: name },
+                {
+                    withCredentials: true,
+                    // validateStatus: () => true,
+                }
+            );
+            console.log("response from  get Folders :", response.data);
+            if (response.status == 200) {
+                setFolders(response.data);
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
+            }
+        } catch (error) {
+            console.log("error from  Get Folders :", error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+            });
+        } finally {
+            setLoading_AddFolder(false);
+        }
+    };
     useEffect(() => {
         fetchData();
     }, []);
@@ -90,12 +132,27 @@ function Folders() {
                             </div>
                             <input
                                 type="text"
+                                id="name_input"
                                 className=" w-full h-12 border-2 border-gray_white rounded-lg px-4"
                             />
                             <div className=" flex items-center justify-between">
-                                <button className=" w-1/2 h-12 bg-perpol text-white rounded-lg mt-4">
-                                    Add
-                                </button>
+                                {Loading_AddFolder ? (
+                                    <div className="mx-auto mt-2 small-loader"></div>
+                                ) : (
+                                    <button
+                                        className=" w-1/2 h-12 bg-perpol text-white rounded-lg mt-4"
+                                        onClick={() => {
+                                            const name =
+                                                document.getElementById(
+                                                    "name_input"
+                                                ).value;
+                                            handleAddFolder(name);
+                                        }}
+                                    >
+                                        Add
+                                    </button>
+                                )}
+
                                 <button
                                     onClick={toogleAddFolder}
                                     className=" w-1/2 h-12 bg-gray-200 text-gray-600 rounded-lg mt-4"
