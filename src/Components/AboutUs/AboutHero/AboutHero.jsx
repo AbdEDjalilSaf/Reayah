@@ -1,12 +1,11 @@
 import React from "react";
-import aboutus_img from "../../../../public/AboutUs/Aboutus.jpg";
 
 function AboutHero() {
     return (
         <div
             className="md:h-[90vh] 2xl:h-[50vh] h-screen w-screen bg-cover"
             style={{
-                backgroundImage: `url(${aboutus_img})`,
+                backgroundImage: 'url("/AboutUs/Aboutus.jpg")',
             }}
         >
             <div className="bg-black px-2 bg-opacity-30 h-full w-full flex flex-col justify-center items-center text-white">
