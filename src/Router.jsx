@@ -22,6 +22,8 @@ import Patient_MedicalFolders from "./Components/Profile/Patient/MedicalFolders/
 import Patient_Profile from "./Components/Profile/Patient/Profile/Profile";
 import Patient_Settings from "./Components/Profile/Patient/Settings/Settings";
 import Patient_Add_MedicalFolder from "./Components/Profile/Patient/MedicalFolders/Add";
+import Overview from "./Components/Profile/Doctore/Overview";
+import Patients from "./Components/Profile/Doctore/Patients";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -102,8 +104,8 @@ const routes = createBrowserRouter([
     element: <Doctore />,
     children: [
       { path: "/Doctores/:id", element: <Doctore_Defualt /> },
-      { path: "/Doctores/:id/Profile", element: <Not_Finished /> },
-      { path: "/Doctores/:id/Patients", element: <Not_Finished /> },
+      { path: "/Doctores/:id/Overview", element: <Overview /> },
+      { path: "/Doctores/:id/Patients", element: <Patients /> },
 
       { path: "/Doctores/:id/Appoints", element: <Not_Finished /> },
       { path: "/Doctores/:id/Consultations", element: <Not_Finished /> },
