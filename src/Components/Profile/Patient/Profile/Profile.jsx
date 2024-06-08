@@ -52,7 +52,13 @@ function Profile() {
                     <div className="  text-gray">
                         <div className=" text-perpol text-lg">Gender</div>
                         <div className=" text-md font-semibold">
-                            {user?.gender ? user?.gender : "Not Set"}
+                            {user?.gender
+                                ? user.gender === "M"
+                                    ? "Male"
+                                    : user.gender === "F"
+                                    ? "Female"
+                                    : "Not Set"
+                                : "Not Set"}
                         </div>
                     </div>
                 </div>
