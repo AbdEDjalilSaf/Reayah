@@ -5,7 +5,7 @@ function AboutHero() {
     <div
       className="md:h-[90vh] 2xl:h-[50vh] h-screen  w-screen   bg-cover"
       style={{
-        backgroundImage: "url('../../../public/AboutUs/Aboutus.jpg')",
+        backgroundImage: "url('./public/AboutUs/Aboutus.jpg')",
       }}
     >
       <div className="bg-black px-2 bg-opacity-30 h-full w-full flex flex-col justify-center items-center text-white">
