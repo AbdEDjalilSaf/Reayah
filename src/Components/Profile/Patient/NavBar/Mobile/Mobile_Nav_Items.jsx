@@ -56,7 +56,7 @@ function Mobile_Nav_Items({
                                     src={Appointments_icon}
                                     className="  w-7"
                                 />
-                                Appoints
+                                Appointments
                             </Link>
 
                             <Link

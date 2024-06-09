@@ -6,6 +6,7 @@ import Articles_icon from "../../../../../../public/Profiles/Nav/Articles.svg";
 import Patients_icon from "../../../../../../public/Profiles/Nav/Patients.svg";
 import Overview_icon from "../../../../../../public/Profiles/Nav/Overview.svg";
 import Wallet_icon from "../../../../../../public/Profiles/Nav/Wallet.svg";
+import { IoHomeOutline } from "react-icons/io5";
 
 import Appointments_icon from "../../../../../../public/Profiles/Nav/Appointments.svg";
 import inbox_icon from "../../../../../../public/Profiles/Nav/inbox.svg";
@@ -126,24 +127,35 @@ function Mobile_Nav_Items({
                                 Wallet
                             </Link> */}
                         </div>
-                        <div>
-                            <>
-                                {!LogoutClicked ? (
-                                    <div
-                                        className="text-perpol   flex items-center  gap-2   ml-6 "
-                                        onClick={() => {
-                                            Logout();
-                                        }}
-                                    >
-                                        <TbLogout />
-                                        Logout
-                                    </div>
-                                ) : (
-                                    <div className=" w-full flex items-center justify-center   text-perpol">
-                                        <span className="small-loader"></span>
-                                    </div>
-                                )}
-                            </>
+                        <div className=" flex flex-col gap-6">
+                            <div>
+                                <Link
+                                    to="/"
+                                    className="text-perpol flex items-center gap-2 ml-6"
+                                >
+                                    <IoHomeOutline />
+                                    Home
+                                </Link>
+                            </div>
+                            <div>
+                                <>
+                                    {!LogoutClicked ? (
+                                        <div
+                                            className="text-perpol   flex items-center  gap-2   ml-6 "
+                                            onClick={() => {
+                                                Logout();
+                                            }}
+                                        >
+                                            <TbLogout />
+                                            Logout
+                                        </div>
+                                    ) : (
+                                        <div className=" w-full flex items-center justify-center   text-perpol">
+                                            <span className="small-loader"></span>
+                                        </div>
+                                    )}
+                                </>
+                            </div>
                         </div>
                     </div>
 

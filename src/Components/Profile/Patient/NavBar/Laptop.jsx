@@ -30,27 +30,6 @@ function Laptop() {
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const handleLogout = async () => {
         setLogoutClicked(true);
-        // try {
-        //     // Send a request to the logout endpoint on the server
-        //     const response = await axios.post(
-        //         "http://localhost:3000/logout",
-        //         {},
-        //         {
-        //             withCredentials: true,
-        //             validateStatus: () => true,
-        //         }
-        //     );
-        //     console.log("response from Logout : ", response);
-        //     if (response.status == 204) {
-        //         set_Auth(false);
-        //         Swal.fire("Success!", `Logged Out Successfully`, "success");
-        //         Navigate("/Login");
-        //     } else {
-        //         Swal.fire("Error!", `Something Went Wrong ,`, "error");
-        //     }
-        // } catch (error) {
-        //     Swal.fire("Error!", `Something Went Wrong `, "error");
-        // }
         window.localStorage.removeItem("patientId");
         window.localStorage.removeItem("doctorId");
         window.localStorage.removeItem("userId");
@@ -110,7 +89,7 @@ function Laptop() {
                     }  transition-all duration-150  cursor-pointer py-1 select-none  w-[200px] rounded-full  flex items-center gap-2`}
                 >
                     <img src={Appointments_icon} className=" w-7" alt="" />
-                    <span>Appoints</span>
+                    <span>Appointments</span>
                 </Link>
 
                 <Link
