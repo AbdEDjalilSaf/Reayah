@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import { useAppContext } from "../../../../AppContext";
 import Swal from "sweetalert2";
 import Logo_perpole from "../../../../../public/Logo_perpole.png";
-import { HiOutlineFolderAdd } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { HiOutlineFolderAdd } from "react-icons/hi";
+// import { Link } from "react-router-dom";
 function Folders() {
     const [loading, setLoading] = useState(true);
     const [Folders, setFolders] = useState([]);
     const { isAuth, set_Auth, set_user, user } = useAppContext();
     const patientId = window.localStorage.getItem("patientId");
+
+
     const fetchData = async () => {
         setLoading(true);
         try {
@@ -43,6 +46,8 @@ function Folders() {
         }
     };
     const [Loading_AddFolder, setLoading_AddFolder] = useState(false);
+
+
     const handleAddFolder = async (name) => {
         console.log("data to be sent : ", name);
         if (!name) {
@@ -86,24 +91,33 @@ function Folders() {
             toogleAddFolder();
         }
     };
+
+
     useEffect(() => {
         fetchData();
     }, []);
+
+
     const [addFolder, setaddFolder] = useState(false);
+
+
     function toogleAddFolder() {
         setaddFolder(!addFolder);
     }
+
+
     if (loading) {
         return (
             <div
-                className=" w-screen md:w-[80vw] h-screen flex items-center 
-            justify-center gap-5 flex-col"
+                className=" w-screen md:w-[80vw] h-screen flex items-center justify-center gap-5 flex-col"
             >
                 <img src={Logo_perpole} className=" w-24" alt="" />
                 <span className="loader"></span>
             </div>
         );
     }
+
+
     return (
         <div className=" bg-perpol bg-opacity-40 flex items-center justify-center w-full min-h-screen ">
             <div className=" w-[96%] min-h-[95vh] mx-auto bg-white rounded-lg  relative">
@@ -120,6 +134,8 @@ function Folders() {
                         <div className=" text-2xl text-perpol">Add Folder</div>
                     </div>
                 </div>
+
+
                 {addFolder && (
                     <div
                         className="absolute top-0 left-50 -translate-x-50 -translate-y-50 w-full h-full mx-auto rounded-lg
@@ -165,6 +181,8 @@ function Folders() {
                         </div>
                     </div>
                 )}
+
+                
                 <div className=" py-12">
                     {Folders.length == 0 ? (
                         <div className=" flex flex-col gap-4 ">
@@ -191,7 +209,9 @@ function Folders() {
                                 {Folders.map((folder) => (
                                     <tr key={folder?.id} className="">
                                         <td className="border border-gray py-2 px-4 w-[50%] text-gray text-sm font-semibold">
+                                            <Link to={`/Patients/${patientId}/MedicalFoldersFiles`}>
                                             {folder?.name}
+                                            </Link>
                                         </td>
                                         <td className="border border-gray py-2 px-4 w-[35%] text-gray text-sm font-semibold text-center">
                                             {folder?.created_at}
