@@ -14,7 +14,9 @@ input {
     text-align: left;
     text-decoration: none;
 }
-
+.hidden{
+    display: none;
+}
 .loader {
     width: 30px;
     height: 30px;

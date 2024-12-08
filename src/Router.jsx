@@ -19,6 +19,7 @@ import Patient_Appoints from "./Components/Profile/Patient/Appoints/Appoints";
 import Patient_Consultations from "./Components/Profile/Patient/Consultations/Consultations";
 import Patient_Inbox from "./Components/Profile/Patient/Inbox/Inbox";
 import Patient_MedicalFolders from "./Components/Profile/Patient/MedicalFolders/MedicalFolders";
+import Patient_MedicalFoldersFiles from "./Components/Profile/Patient/MedicalFolders/MedicalFoldersFiles";
 import Patient_Profile from "./Components/Profile/Patient/Profile/Profile";
 import Patient_Settings from "./Components/Profile/Patient/Settings/Settings";
 import Patient_Add_MedicalFolder from "./Components/Profile/Patient/MedicalFolders/Add";
@@ -86,10 +87,17 @@ const routes = createBrowserRouter([
                 path: "/Patients/:id/Consultations",
                 element: <Not_Finished />,
             },
-            { path: "/Patients/:id/Inbox", element: <Patient_Inbox /> },
+            {
+                path: "/Patients/:id/Inbox", 
+                element: <Patient_Inbox /> 
+            },
             {
                 path: "/Patients/:id/Medical_Folders",
                 element: <Patient_MedicalFolders />,
+            },
+            {
+                path: "/Patients/:id/Medical_Folders/:id",
+                element: <Patient_MedicalFoldersFiles />,
             },
             {
                 path: "/Patients/:id/Medical_Folders/Add",
